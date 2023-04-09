@@ -1,0 +1,60 @@
+D:\Project Media Player Lite\Media Player Lite\Media Player Lite\bin\Debug\Media Player Lite.exe.config
+D:\Project Media Player Lite\Media Player Lite\Media Player Lite\bin\Debug\Media Player Lite.exe
+D:\Project Media Player Lite\Media Player Lite\Media Player Lite\bin\Debug\Media Player Lite.pdb
+D:\Project Media Player Lite\Media Player Lite\Media Player Lite\bin\Debug\TrongTool.dll
+D:\Project Media Player Lite\Media Player Lite\Media Player Lite\obj\Debug\Media Player Lite.csproj.AssemblyReference.cache
+D:\Project Media Player Lite\Media Player Lite\Media Player Lite\obj\Debug\Media Player Lite.csproj.SuggestedBindingRedirects.cache
+D:\Project Media Player Lite\Media Player Lite\Media Player Lite\obj\Debug\Media_Player_Lite.MainForm.resources
+D:\Project Media Player Lite\Media Player Lite\Media Player Lite\obj\Debug\Media_Player_Lite.Properties.Resources.resources
+D:\Project Media Player Lite\Media Player Lite\Media Player Lite\obj\Debug\Media Player Lite.csproj.GenerateResource.cache
+D:\Project Media Player Lite\Media Player Lite\Media Player Lite\obj\Debug\Media Player Lite.csproj.CoreCompileInputs.cache
+D:\Project Media Player Lite\Media Player Lite\Media Player Lite\obj\Debug\Media Player Lite.csproj.CopyComplete
+D:\Project Media Player Lite\Media Player Lite\Media Player Lite\obj\Debug\Media Player Lite.exe
+D:\Project Media Player Lite\Media Player Lite\Media Player Lite\obj\Debug\Media Player Lite.pdb
+D:\Project Media Player Lite\Media Player Lite\Media Player Lite\bin\Debug\FontAwesome.Sharp.dll
+D:\Project Media Player Lite\Media Player Lite\Media Player Lite\bin\Debug\Interop.WMPLib.dll
+D:\Project Media Player Lite\Media Player Lite\Media Player Lite\bin\Debug\AxInterop.WMPLib.dll
+D:\Project Media Player Lite\Media Player Lite\Media Player Lite\obj\Debug\Interop.WMPLib.dll
+D:\Project Media Player Lite\Media Player Lite\Media Player Lite\obj\Debug\AxInterop.WMPLib.dll
+D:\Project Media Player Lite\Media Player Lite\Media Player Lite\obj\Debug\Media Player Lite.csproj.ResolveComReference.cache
+D:\Project Media Player Lite\Media Player Lite\Media Player Lite\obj\Debug\Media_Player_Lite.AboutForm.resources
+D:\Project Media Player Lite\Media Player Lite\Media Player Lite\obj\Debug\Media_Player_Lite.MusicForm.resources
+D:\Project Media Player Lite\Media Player Lite\Media Player Lite\obj\Debug\Media_Player_Lite.ToolsForm.resources
+D:\Project Media Player Lite\Media Player Lite\Media Player Lite\obj\Debug\Media_Player_Lite.VideoForm.resources
+D:\Project Media Player Lite\Media Player Lite\Media Player Lite\bin\Debug\Microsoft.Win32.Registry.dll
+D:\Project Media Player Lite\Media Player Lite\Media Player Lite\bin\Debug\System.Security.AccessControl.dll
+D:\Project Media Player Lite\Media Player Lite\Media Player Lite\bin\Debug\System.Security.Principal.Windows.dll
+D:\Project Media Player Lite\Media Player Lite\Media Player Lite\bin\Debug\taglib-sharp.dll
+D:\Project Media Player Lite\Media Player Lite\Media Player Lite\bin\Debug\Microsoft.Win32.Registry.xml
+D:\Project Media Player Lite\Media Player Lite\Media Player Lite\bin\Debug\System.Security.AccessControl.xml
+D:\Project Media Player Lite\Media Player Lite\Media Player Lite\bin\Debug\System.Security.Principal.Windows.xml
+D:\Document\Media Player Lite\Media Player Lite\bin\Debug\Media Player Lite.exe.config
+D:\Document\Media Player Lite\Media Player Lite\bin\Debug\Media Player Lite.exe
+D:\Document\Media Player Lite\Media Player Lite\bin\Debug\Media Player Lite.pdb
+D:\Document\Media Player Lite\Media Player Lite\bin\Debug\FontAwesome.Sharp.dll
+D:\Document\Media Player Lite\Media Player Lite\bin\Debug\Microsoft.Win32.Registry.dll
+D:\Document\Media Player Lite\Media Player Lite\bin\Debug\System.Security.AccessControl.dll
+D:\Document\Media Player Lite\Media Player Lite\bin\Debug\System.Security.Principal.Windows.dll
+D:\Document\Media Player Lite\Media Player Lite\bin\Debug\taglib-sharp.dll
+D:\Document\Media Player Lite\Media Player Lite\bin\Debug\TrongTool.dll
+D:\Document\Media Player Lite\Media Player Lite\bin\Debug\Microsoft.Win32.Registry.xml
+D:\Document\Media Player Lite\Media Player Lite\bin\Debug\System.Security.AccessControl.xml
+D:\Document\Media Player Lite\Media Player Lite\bin\Debug\System.Security.Principal.Windows.xml
+D:\Document\Media Player Lite\Media Player Lite\bin\Debug\Interop.WMPLib.dll
+D:\Document\Media Player Lite\Media Player Lite\bin\Debug\AxInterop.WMPLib.dll
+D:\Document\Media Player Lite\Media Player Lite\obj\Debug\Media Player Lite.csproj.AssemblyReference.cache
+D:\Document\Media Player Lite\Media Player Lite\obj\Debug\Media Player Lite.csproj.SuggestedBindingRedirects.cache
+D:\Document\Media Player Lite\Media Player Lite\obj\Debug\Interop.WMPLib.dll
+D:\Document\Media Player Lite\Media Player Lite\obj\Debug\AxInterop.WMPLib.dll
+D:\Document\Media Player Lite\Media Player Lite\obj\Debug\Media Player Lite.csproj.ResolveComReference.cache
+D:\Document\Media Player Lite\Media Player Lite\obj\Debug\Media_Player_Lite.AboutForm.resources
+D:\Document\Media Player Lite\Media Player Lite\obj\Debug\Media_Player_Lite.MainForm.resources
+D:\Document\Media Player Lite\Media Player Lite\obj\Debug\Media_Player_Lite.MusicForm.resources
+D:\Document\Media Player Lite\Media Player Lite\obj\Debug\Media_Player_Lite.Properties.Resources.resources
+D:\Document\Media Player Lite\Media Player Lite\obj\Debug\Media_Player_Lite.ToolsForm.resources
+D:\Document\Media Player Lite\Media Player Lite\obj\Debug\Media_Player_Lite.VideoForm.resources
+D:\Document\Media Player Lite\Media Player Lite\obj\Debug\Media Player Lite.csproj.GenerateResource.cache
+D:\Document\Media Player Lite\Media Player Lite\obj\Debug\Media Player Lite.csproj.CoreCompileInputs.cache
+D:\Document\Media Player Lite\Media Player Lite\obj\Debug\Media Player Lite.csproj.CopyComplete
+D:\Document\Media Player Lite\Media Player Lite\obj\Debug\Media Player Lite.exe
+D:\Document\Media Player Lite\Media Player Lite\obj\Debug\Media Player Lite.pdb
