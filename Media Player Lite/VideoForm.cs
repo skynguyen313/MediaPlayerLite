@@ -16,7 +16,7 @@ namespace Media_Player_Lite
         public VideoForm()
         {
             InitializeComponent();
-            string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), @"DataMPLite\datavideopath.dat");
+            string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), @"DataMPLite\dataVideo.dat");
             string directoryPath = Path.GetDirectoryName(path);
             if (!Directory.Exists(directoryPath))
             {

@@ -12,7 +12,6 @@ namespace Media_Player_Lite.MyLib
         public VideoInfomation(string Path)
         {
             this.path = Path;
-        }
-           
+        }         
     }
 }

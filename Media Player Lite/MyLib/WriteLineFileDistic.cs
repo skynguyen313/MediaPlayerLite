@@ -10,7 +10,7 @@ namespace Media_Player_Lite.MyLib
 {
     public static class WriteLineFileDistic
     {
-        public static void WriteLine(string fullPath, string[] contents)
+        public static void WriteLine(string fullPath, string content)
         {
             if (File.Exists(fullPath))
             {
@@ -19,14 +19,13 @@ namespace Media_Player_Lite.MyLib
                 listPath.ForEach(p => uniqueLines.Add(p));
                 using (StreamWriter writer =new StreamWriter(fullPath, true))
                 {
-                    foreach (string line in contents)
-                    {
-                        if (!uniqueLines.Contains(line))
+                    
+                        if (!uniqueLines.Contains(content))
                         {
-                            writer.WriteLine(line);
-                            uniqueLines.Add(line);
+                            writer.WriteLine(content);
+                            uniqueLines.Add(content);
                         }
-                    }
+                    
                 }
             }
         }

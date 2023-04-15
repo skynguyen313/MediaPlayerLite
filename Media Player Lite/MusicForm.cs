@@ -11,19 +11,29 @@ using System.Windows.Forms;
 using Media_Player_Lite.MyLib;
 using Media_Player_Lite.Models;
 using System.Diagnostics;
+using System.Runtime.InteropServices;
+using System.Security.Cryptography.X509Certificates;
 
 namespace Media_Player_Lite
 {
     public partial class MusicForm : Form
     {
-        public delegate void PlayingCurrent(string path, string title, byte[] picdata);
-        public event PlayingCurrent EventPlayingCurent;
-           
-        private List<Song> listMusic; 
+
+        public event EventHandler<MyMusicEventArgs> oneMusic;
+        private List<Song> listSong;
+        private static int index = 0;
+        private static string GetFullPath() => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), @"DataMPLite\dataMusic.dat");
+
         public MusicForm()
         {
             InitializeComponent();
-            string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), @"DataMPLite\datasongpath.dat");
+            txtSearch.Font = new Font("Arial", 15);
+
+
+        }
+        private void MusicForm_Load(object sender, EventArgs e)
+        {
+            string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), @"DataMPLite\dataMusic.dat");
             string directoryPath = Path.GetDirectoryName(path);
             if (!Directory.Exists(directoryPath))
             {
@@ -33,149 +43,223 @@ namespace Media_Player_Lite
             {
                 File.Create(path).Close();
             }
-            lvMusic.MultiSelect = true;
-           
-        }
-        private void MusicForm_Load(object sender, EventArgs e)
-        {
-            LoadListView();
-        }
-        private void lvMusic_ColumnWidthChanging(object sender, ColumnWidthChangingEventArgs e)//do not allow resizing columns
-        {
-            e.Cancel = true;
-            e.NewWidth = lvMusic.Columns[e.ColumnIndex].Width;
-        }
-        private static string GetFullPath()
-        {
-            string directory_mydoc = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-            return Path.Combine(directory_mydoc, @"DataMPLite\datasongpath.dat");
-        }
-        private void btnImportMusic_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog fileDialog = new OpenFileDialog();
-            fileDialog.Title = "Import Music";
-            fileDialog.Filter = "Files (*.mp3, *.wma, *.wav, *.flac, *.aac)|*.mp3;*.wma;*.wav;*.flac;*.aac";
-            fileDialog.Multiselect = true;
-            if (fileDialog.ShowDialog() == DialogResult.OK)
-            {       
-                string[] listPath = fileDialog.FileNames;
-                WriteLineFileDistic.WriteLine(GetFullPath(), listPath);
-                LoadListView();               
-            }
-           
-        }
-        private void LoadListView()
-        {
-            lvMusic.Items.Clear();
-            FormatCmbTexts();
-            ListMusic(GetFullPath());
-            listMusic.ForEach(m =>
-            {
-                var item=new ListViewItem(new[] {"",m.Title,m.Author,m.Genre,m.Duration});
-                item.Tag = m.Path;
-                lvMusic.Items.Add(item);
-            });
-            // Ngay mai lam
-            var listAuthor = from item in listMusic
-                             select item.Author;
-            cmbArtist.Items.AddRange(listAuthor.Distinct().ToArray());
-            var listGenre = from item in listMusic
-                             select item.Genre;
-            cmbGenre.Items.AddRange(listGenre.Distinct().ToArray());
-        }
-        private void ListMusic(string path)
-        {
-            listMusic=new List<Song>();
-            ReadLineFile.ToListData(GetFullPath()).ForEach(p =>
-            {
-                var songInfo = new SongInfomation(p);
-                var song=new Song(songInfo.title(),songInfo.author(),songInfo.genre(),songInfo.duration(),p);
-                listMusic.Add(song);
-            });            
-        }
-        private void lvMusic_DoubleClick(object sender, EventArgs e)
-        {
-            if (lvMusic.SelectedItems.Count > 0)
-            {
-                var lvItem = lvMusic.SelectedItems[0];
-                StaticIndex.Index = lvItem.Index;
-                CurrentItem(lvItem);
-            }
-        }
-        private void CurrentItem(ListViewItem lvItem)
-        {
-            string pathData = lvItem.Tag as string;
-            string title = lvItem.SubItems[col_song.Index].Text;
-            var picdata = PicArtSong.PicData(pathData);
-            if (EventPlayingCurent != null) EventPlayingCurent(pathData, title, picdata);
-        }
-        public void NextItem()
-        {
-           
-            if (StaticIndex.Index < lvMusic.Items.Count - 1)
-            {
-                StaticIndex.Index+= 1;
-                var nextItem = lvMusic.Items[StaticIndex.Index];
-                CurrentItem(nextItem);
-            }
-           
-        }
-        public void PrevItem()
-        {
-            if (StaticIndex.Index >0)
-            {
-                StaticIndex.Index -= 1;
-                var prevtItem = lvMusic.Items[StaticIndex.Index];
-                CurrentItem(prevtItem);
-            }
+
+            listSong = GetListSong();
+            LoadAllProperty();
+            LoadListView(listSong);
+            
+            
             
         }
-
-        private void cmbSong_OnSelectedIndexChanged(object sender, EventArgs e)
+        private void btnAddFolder_Click(object sender, EventArgs e)
         {
-            int indexSelected=cmbSong.SelectedIndex;
-            if (indexSelected != -1)
+            FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
+            if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
             {
-                
-                if (indexSelected == 0)
-                {
-                    var result = from item in listMusic
-                               orderby item.Title ascending
-                               select item;
-                    lvMusic.Items.Clear();
-                    result.ToList().ForEach(m =>
-                    {
-                        var item = new ListViewItem(new[] { "", m.Title, m.Author, m.Genre, m.Duration });
-                        item.Tag = m.Path;
-                        lvMusic.Items.Add(item);
-                    });
-                    
+                WriteLineFileDistic.WriteLine(GetFullPath(), folderBrowserDialog.SelectedPath);
+                listSong = GetListSong();
+                LoadAllProperty();
+                LoadListView(listSong);
 
-                }
-                else if(indexSelected==1)
-                {
-                    var result = from item in listMusic
-                                 orderby item.Title descending
-                                 select item;
-                    lvMusic.Items.Clear();
-                    result.ToList().ForEach(m =>
-                    {
-                        var item = new ListViewItem(new[] { "", m.Title, m.Author, m.Genre, m.Duration });
-                        item.Tag = m.Path;
-                        lvMusic.Items.Add(item);
-                    });
-                   
-                }          
-            }    
+            }
         }
-        private void FormatCmbTexts() 
+        private List<Song> GetListSong()
         {
-            cmbSong.Texts = "        Song";
-            cmbArtist.Texts = "All artist";
-            cmbGenre.Texts = "All genres";
+            var lst = new List<Song>();
+            var tmpLine = new List<string>();
+            var contents = ReadLineFile.ToListData(GetFullPath());
+            contents.ForEach(directory =>
+            {
+                if (Directory.Exists(directory))
+                {
+                    String[] files = System.IO.Directory.GetFiles(directory);
+                    foreach (var file in files)
+                    {
+                        string extension = Path.GetExtension(file);
+                        if (extension == ".mp3" || extension == ".wma" || extension == ".wav" || extension == ".flac" || extension == ".aac")
+                        {
+                            var songInfo = new SongInfomation(file);
+                            var song = new Song(songInfo.title(), songInfo.author(), songInfo.genre(), songInfo.duration(), file);
+                            lst.Add(song);
+                        }
+                    }
+                }
+                else
+                {
+                    tmpLine.Add(directory);
+                }
+            });
+
+            tmpLine.ForEach(i => contents.Remove(i));//Remove file not exists
+            File.WriteAllLines(GetFullPath(), contents);
+            return lst;
         }
+
+        private void LoadListView(List<Song> lst)
+        {
+            listviewMusic.Items.Clear();
+            lst.ForEach(s =>
+            {
+                var item = new ListViewItem(new[] { s.Title, s.Artist, s.Genre, s.Duration });
+                item.Tag = s.Path;
+                listviewMusic.Items.Add(item);
+            });
+
+        }
+
+        public void NextItem(object sender, EventArgs e)
+        {
+            if (index < listviewMusic.Items.Count - 1)
+            {
+                index += 1;
+                var nextItem = listviewMusic.Items[index];
+                CurrentItem(nextItem);
+            }
+        }
+        public void PrevItem(object sender, EventArgs e)
+        {
+            if (index > 0)
+            {
+                index -= 1;
+                var prevtItem = listviewMusic.Items[index];
+                CurrentItem(prevtItem);
+            }
+        }
+        private void CurrentItem(ListViewItem item)
+        {
+            string pathData = item.Tag as string;
+            string titleData = item.SubItems[colTitle.Index].Text;
+            var picData = PicArtSong.PicData(pathData);
+            oneMusic?.Invoke(this, new MyMusicEventArgs(pathData, titleData, picData));
+            ;
+        }
+
+        private void listviewMusic_DoubleClick(object sender, EventArgs e)
+        {
+            if (listviewMusic.SelectedItems.Count > 0)
+            {
+                var item = listviewMusic.SelectedItems[0];
+                index = item.Index;
+                CurrentItem(item);
+                
+            }
+        }
+        private void LoadAllProperty()
+        {
+            var arrangeList = from song in listSong
+                              orderby song.Title ascending
+                              select song;
+            listSong = arrangeList.ToList();
+
+            var arrArtist = (from song in listSong
+                             orderby song.Artist ascending
+                             select song.Artist).Distinct().ToArray();
+            CmbLoadArtist(arrArtist);
+
+            var arrGenre = (from song in listSong
+                            orderby song.Genre ascending
+                            select song.Genre).Distinct().ToArray();
+            CmbLoadGenre(arrGenre);
+
+            tmpSong = listSong.ToList();
+
+        }
+        private List<Song> tmpSong;
         
-        
-       
+        private void CmbLoadArtist(string[] arrArtist)
+        {
+
+            cmbGenre.Texts = "All genres";
+            cmbArtist.Items.Clear();
+
+            cmbArtist.Items.Add("All artist");
+            cmbArtist.Items.AddRange(arrArtist);
+
+        }
+        private void CmbLoadGenre(string[] arrGenre)
+        {
+            cmbArtist.Texts = "All artist";
+            cmbGenre.Items.Clear();
+
+            cmbGenre.Items.Add("All genres");
+            cmbGenre.Items.AddRange(arrGenre);
+
+        }
+        private void txtSearch__TextChanged(object sender, EventArgs e)
+        {
+
+            if (txtSearch.PlaceholderText != "Search")
+            {
+                var result = from song in listSong
+                             where ChangeStringVN.Change_AV(song.Title.ToLower()).Contains(ChangeStringVN.Change_AV(txtSearch.Texts.ToLower().Trim()))
+                             select song;
+                LoadListView(result.ToList());
+            }
+            else
+            {
+
+                txtSearch.PlaceholderText = "";
+            }
+        }
+
+        private void txtSearch_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtSearch.PlaceholderText = "";
+        }
+
+        private void cmbArtist_OnSelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbArtist.SelectedIndex != -1)
+            {
+                if (cmbArtist.SelectedIndex == 0)
+                {
+                    LoadAllProperty();
+
+                    LoadListView(listSong);
+                }
+                else
+                {
+
+                    var resultSong = from song in tmpSong
+                                     where song.Artist == cmbArtist.SelectedItem.ToString()
+                                     select song;
+                    LoadListView(resultSong.ToList());
+
+                    var arrGenre = (from song in resultSong
+                                    select song.Genre).Distinct().ToArray();
+                    CmbLoadGenre(arrGenre);
+                }
+
+
+            }
+        }
+
+        private void cmbGenre_OnSelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            if (cmbGenre.SelectedIndex != -1)
+            {
+                if (cmbGenre.SelectedIndex == 0)
+                {
+                    LoadAllProperty();
+
+                    LoadListView(listSong);
+                }
+                else
+                {
+
+                    var resultSong = from song in tmpSong
+                                     where song.Genre == cmbGenre.SelectedItem.ToString()
+                                     select song;
+                    LoadListView(resultSong.ToList());
+
+                    var arrArtist = (from song in resultSong
+                                     select song.Artist).Distinct().ToArray();
+                    CmbLoadArtist(arrArtist);
+                }
+
+
+            }
+        }
     }
 }

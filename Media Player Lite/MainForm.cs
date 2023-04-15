@@ -1,5 +1,6 @@
 ﻿using AxWMPLib;
 using FontAwesome.Sharp;
+using Media_Player_Lite.Models;
 using Media_Player_Lite.MyLib;
 using System;
 using System.Collections.Generic;
@@ -23,7 +24,12 @@ namespace Media_Player_Lite
     {
         //Fields 
         private Panel leftBorderBtn;
-        
+        private MusicForm musicForm;
+        private VideoForm videoForm;
+        private ToolsForm toolsForm;
+        private AboutForm aboutForm;
+
+        //Config lib [user32.dll]
         [DllImport("user32.dll", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
         [DllImport("user32.dll", EntryPoint = "SendMessage")]
@@ -43,6 +49,11 @@ namespace Media_Player_Lite
             SliderVolume.Height = 30;
             AddEvent();
 
+            //LoadForm
+            musicForm=new MusicForm();
+            videoForm=new VideoForm();
+            toolsForm=new ToolsForm();
+            aboutForm=new AboutForm();
 
         }
         private void MainForm_Load(object sender, EventArgs e)
@@ -66,6 +77,7 @@ namespace Media_Player_Lite
 
 
         }
+
         #region Custome Menu
         private void CollapseMenu()
         {
@@ -100,9 +112,9 @@ namespace Media_Player_Lite
         #region Custom Button
         //Method
         private IconButton currentBtn;
+        //Active Button
         private void ActivateButton(object senderBtn, Color color)
         {
-            //Button
             if (senderBtn != null)
             {
                 DisableButton();
@@ -113,18 +125,22 @@ namespace Media_Player_Lite
                 currentBtn.IconColor = color;
                 currentBtn.TextImageRelation = TextImageRelation.TextBeforeImage;
                 currentBtn.ImageAlign = ContentAlignment.MiddleRight;
+
                 //Left border button
                 leftBorderBtn.BackColor = color;
                 leftBorderBtn.Location = new Point(0, currentBtn.Location.Y);
                 leftBorderBtn.Visible = true;
                 leftBorderBtn.BringToFront();
+
                 //Current Child Form Icon
                 picChildForm.IconChar = currentBtn.IconChar;
                 picChildForm.IconColor = Color.White;
-                lblTitleChildForm.Text = (string)currentBtn.Tag;
+                lblTitleChildForm.Text = currentBtn.Tag as string;
 
             }
         }
+
+        //Disable Button
         private void DisableButton()
         {
             if (currentBtn != null)
@@ -175,8 +191,7 @@ namespace Media_Player_Lite
         }
         #endregion
 
-        #region Method
-        
+        #region Method  
         protected override void WndProc(ref Message m)
         {
             const int WM_NCCALCSIZE = 0x0083;//Standar Title Bar - Snap Window
@@ -238,7 +253,7 @@ namespace Media_Player_Lite
         }
         #endregion
 
-        #region Form Resize
+        #region Form Boder
         private int boderSize = 2;
         private void MainForm_Resize(object sender, EventArgs e)
         {
@@ -276,13 +291,11 @@ namespace Media_Player_Lite
 
         private void btnMusic_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender, Color.FromArgb(81, 236, 193));
-            var frm = new MusicForm(); 
-            
-            openChildForm(frm);
-            frm.EventPlayingCurent += LoadPlaying;
-            
-            currentMusicForm = frm;
+            ActivateButton(sender, Color.FromArgb(81, 236, 193)); 
+            openChildForm(musicForm);
+            musicForm.oneMusic += LoadPlaying;
+            btnNextWard.Click += new EventHandler(musicForm.NextItem);
+            btnBackWard.Click += new EventHandler(musicForm.PrevItem);
             HideMediaPlayer();
            
         }
@@ -291,21 +304,21 @@ namespace Media_Player_Lite
         {
             ActivateButton(sender, Color.FromArgb(81, 236, 193));
             //var frm=new VideoForm();
-            openChildForm(new VideoForm());
+            openChildForm(videoForm);
             HideMediaPlayer();
         }
 
         private void btnTools_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, Color.FromArgb(81, 236, 193));
-            openChildForm(new ToolsForm());
+            openChildForm(toolsForm);
             HideMediaPlayer();
         }
 
         private void btnAbout_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, Color.FromArgb(81, 236, 193));
-            openChildForm(new AboutForm());
+            openChildForm(aboutForm);
             HideMediaPlayer();
         }
         #endregion
@@ -315,7 +328,7 @@ namespace Media_Player_Lite
         private void openChildForm(Form childForm)
         {
             if (activeForm != null)
-                activeForm.Close();
+                activeForm.Visible = false; 
             activeForm = childForm;
             childForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;
@@ -323,12 +336,12 @@ namespace Media_Player_Lite
             pnlChidlForm.Controls.Add(childForm);
             pnlChidlForm.Tag = childForm;
             childForm.BringToFront();
-            childForm.Show();
+            childForm.Visible=true;
             pnlChidlForm.Text = childForm.Text;
               
         }
         #endregion
-       
+  
         #region SliderBar
         float Default_value = 0.0f, Min = 0.0f, Max = 1.0f;
         public float Bar(float value)
@@ -401,14 +414,36 @@ namespace Media_Player_Lite
                 lblTimeEnd.Text = wMediaPlayer.Ctlcontrols.currentItem.durationString;
 
                 //Lable Title
+                RunWordTiTle();
+            }
+        }
+        private void RunWordTiTle()
+        {
+              
+            if (lblTitlePlayer.Text.Length>=40)
+            {
                 lblTitlePlayer.Left -= 3;
                 if (lblTitlePlayer.Left + lblTitlePlayer.Width < 0)
                 {
                     lblTitlePlayer.Left = pnlTitlePlayer.Width;
                 }
             }
+            
         }
+        private void SettingRunWordTitle()
+        {
+            lblTitlePlayer.AutoSize = true;
+            lblTitlePlayer.Dock = DockStyle.None;
 
+            if (lblTitlePlayer.Text.Length < 40)
+            {
+                lblTitlePlayer.AutoSize = false;
+                lblTitlePlayer.TextAlign = ContentAlignment.MiddleCenter;
+                lblTitlePlayer.Dock = DockStyle.Fill;
+            }
+
+            
+        }
         #endregion
 
         #region Volume
@@ -538,7 +573,6 @@ namespace Media_Player_Lite
         #endregion
 
         #region Player
-        private MusicForm currentMusicForm;
         private void btnPlay()
         {
             this.btnPlayPause.IconChar = FontAwesome.Sharp.IconChar.CirclePlay;
@@ -558,7 +592,6 @@ namespace Media_Player_Lite
                 {
                     wMediaPlayer.Ctlcontrols.play();
                     btnPause();
-
                 }
                 else
                 {
@@ -576,39 +609,22 @@ namespace Media_Player_Lite
         {
             StatusPlaying();      
         }
-        private void btnNextWard_Click(object sender, EventArgs e)
+          
+        private void LoadPlaying(object sender,EventArgs e)
         {
-            if (currentMusicForm != null)
-            {
-                
-                currentMusicForm.NextItem();
-                currentMusicForm.EventPlayingCurent += LoadPlaying;
-            }
-
-        }
-
-        private void btnBackWard_Click(object sender, EventArgs e)
-        {
-            if (currentMusicForm != null)
-            {
-                currentMusicForm.PrevItem();
-                currentMusicForm.EventPlayingCurent += LoadPlaying;
-            }
-        }
-        private void LoadPlaying(string path, string title, byte[] picdata)
-        {
-            wMediaPlayer.URL=path;
-            wMediaPlayer.Ctlcontrols.play(); 
+            var dataSend=e as MyMusicEventArgs;
+            wMediaPlayer.URL= dataSend.Path;// Config URL
+            wMediaPlayer.Ctlcontrols.play();// Start wMeidaPlayer
             StatusPlaying();
-            btnPause();
-            lblTitlePlayer.Text = title;
-            if (picdata != null) picArtPlayer.Image = Image.FromStream(new MemoryStream(picdata));
+            btnPause();// Showbutton Play/Pause
+
+            // Label TitlePlayer
+            lblTitlePlayer.Text = dataSend.Title;
+            SettingRunWordTitle();
+
+            if (dataSend.PicData != null) picArtPlayer.Image = Image.FromStream(new MemoryStream(dataSend.PicData));
             else picArtPlayer.Image = Image.FromFile(Application.StartupPath+ @"\Resources\defaultImage.jpg");              
         }
-
-
-
-
         #endregion
 
         #region MediaPlayer
