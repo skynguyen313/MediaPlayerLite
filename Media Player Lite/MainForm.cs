@@ -433,8 +433,7 @@ namespace Media_Player_Lite
         private void SettingRunWordTitle()
         {
             lblTitlePlayer.AutoSize = true;
-            lblTitlePlayer.Dock = DockStyle.None;
-
+            lblTitlePlayer.Dock = DockStyle.None;   
             if (lblTitlePlayer.Text.Length < 40)
             {
                 lblTitlePlayer.AutoSize = false;

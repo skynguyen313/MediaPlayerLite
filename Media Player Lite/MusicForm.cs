@@ -22,7 +22,7 @@ namespace Media_Player_Lite
         public event EventHandler<MyMusicEventArgs> oneMusic;
         private List<Song> listSong;
         private static int index = 0;
-        private static string GetFullPath() => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), @"DataMPLite\dataMusic.dat");
+        private static string fullFilePath = DirectoryPath.GetFullPath(@"DataMPLite\dataMusic.dat");
 
         public MusicForm()
         {
@@ -56,7 +56,7 @@ namespace Media_Player_Lite
             FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
             if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
             {
-                WriteLineFileDistic.WriteLine(GetFullPath(), folderBrowserDialog.SelectedPath);
+                WriteLineFileDistic.WriteLine(fullFilePath, folderBrowserDialog.SelectedPath);
                 listSong = GetListSong();
                 LoadAllProperty();
                 LoadListView(listSong);
@@ -67,7 +67,7 @@ namespace Media_Player_Lite
         {
             var lst = new List<Song>();
             var tmpLine = new List<string>();
-            var contents = ReadLineFile.ToListData(GetFullPath());
+            var contents = ReadLineFile.ToListData(fullFilePath);
             contents.ForEach(directory =>
             {
                 if (Directory.Exists(directory))
@@ -91,7 +91,7 @@ namespace Media_Player_Lite
             });
 
             tmpLine.ForEach(i => contents.Remove(i));//Remove file not exists
-            File.WriteAllLines(GetFullPath(), contents);
+            File.WriteAllLines(fullFilePath, contents);
             return lst;
         }
 

@@ -93,6 +93,7 @@
       <DependentUpon>MusicForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MyLib\ChangeStringVN.cs" />
+    <Compile Include="MyLib\DirectoryPath.cs" />
     <Compile Include="MyLib\ReadLineFile.cs" />
     <Compile Include="MyLib\SongInfomation.cs" />
     <Compile Include="MyLib\VideoInfomation.cs" />
@@ -110,6 +111,12 @@
     </Compile>
     <Compile Include="VideoForm.Designer.cs">
       <DependentUpon>VideoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\ControlDirectotyPath.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ViewModels\ControlDirectotyPath.Designer.cs">
+      <DependentUpon>ControlDirectotyPath.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="AboutForm.resx">
       <DependentUpon>AboutForm.cs</DependentUpon>
@@ -135,6 +142,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="VideoForm.resx">
       <DependentUpon>VideoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewModels\ControlDirectotyPath.resx">
+      <DependentUpon>ControlDirectotyPath.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
