@@ -366,16 +366,22 @@ namespace Media_Player_Lite
         {
             mouse = true;
             thumb(Slider_width(e.X));
-            if (wMediaPlayer.playState == WMPLib.WMPPlayState.wmppsPlaying)
-                wMediaPlayer.Ctlcontrols.currentPosition=wMediaPlayer.currentMedia.duration * e.X / Slider.Width;
+            if (wMediaPlayer.playState == WMPLib.WMPPlayState.wmppsPlaying || wMediaPlayer.playState == WMPLib.WMPPlayState.wmppsPaused)
+            {
+                wMediaPlayer.Ctlcontrols.currentPosition = wMediaPlayer.currentMedia.duration * e.X / Slider.Width;
+                lblTimeStart.Text = wMediaPlayer.Ctlcontrols.currentPositionString;
+            }
         }
 
         private void Slider_MouseMove(object sender, MouseEventArgs e)
         {
             if (!mouse) return;
             thumb(Slider_width(e.X));
-            if (wMediaPlayer.playState == WMPLib.WMPPlayState.wmppsPlaying)
+            if (wMediaPlayer.playState == WMPLib.WMPPlayState.wmppsPlaying || wMediaPlayer.playState == WMPLib.WMPPlayState.wmppsPaused)
+            {
                 wMediaPlayer.Ctlcontrols.currentPosition = wMediaPlayer.currentMedia.duration * e.X / Slider.Width;
+                lblTimeStart.Text = wMediaPlayer.Ctlcontrols.currentPositionString;
+            }
         }
 
         private void Slider_MouseUp(object sender, MouseEventArgs e)

@@ -130,7 +130,6 @@ namespace Media_Player_Lite
             string titleData = item.SubItems[colTitle.Index].Text;
             var picData = PicArtSong.PicData(pathData);
             oneMusic?.Invoke(this, new MyMusicEventArgs(pathData, titleData, picData));
-            ;
         }
 
         private void listviewMusic_DoubleClick(object sender, EventArgs e)

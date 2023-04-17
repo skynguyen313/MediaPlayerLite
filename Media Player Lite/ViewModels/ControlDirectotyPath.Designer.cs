@@ -56,7 +56,7 @@
             this.btnDelete.IconColor = System.Drawing.Color.White;
             this.btnDelete.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnDelete.IconSize = 30;
-            this.btnDelete.Location = new System.Drawing.Point(688, 14);
+            this.btnDelete.Location = new System.Drawing.Point(642, 14);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(30, 30);
             this.btnDelete.TabIndex = 1;
