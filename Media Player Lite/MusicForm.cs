@@ -29,7 +29,6 @@ namespace Media_Player_Lite
             InitializeComponent();
             txtSearch.Font = new Font("Arial", 15);
 
-
         }
         private void MusicForm_Load(object sender, EventArgs e)
         {

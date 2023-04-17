@@ -47,6 +47,7 @@
             this.btnClose = new FontAwesome.Sharp.IconButton();
             this.pnlChidlForm = new System.Windows.Forms.Panel();
             this.pnlPlaying = new System.Windows.Forms.Panel();
+            this.wMediaPlayer = new AxWMPLib.AxWindowsMediaPlayer();
             this.pnlPlayer = new System.Windows.Forms.Panel();
             this.pnlBottomPlayer = new System.Windows.Forms.Panel();
             this.btnRepeat = new FontAwesome.Sharp.IconButton();
@@ -70,7 +71,6 @@
             this.pnlLefPlayer = new System.Windows.Forms.Panel();
             this.picArtPlayer = new System.Windows.Forms.PictureBox();
             this.timerPlayer = new System.Windows.Forms.Timer(this.components);
-            this.wMediaPlayer = new AxWMPLib.AxWindowsMediaPlayer();
             this.pnlMenu.SuspendLayout();
             this.pnlLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
@@ -78,6 +78,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picChildForm)).BeginInit();
             this.pnlChidlForm.SuspendLayout();
             this.pnlPlaying.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.wMediaPlayer)).BeginInit();
             this.pnlPlayer.SuspendLayout();
             this.pnlBottomPlayer.SuspendLayout();
             this.pnlVolume.SuspendLayout();
@@ -88,7 +89,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.Slider)).BeginInit();
             this.pnlLefPlayer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picArtPlayer)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.wMediaPlayer)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlMenu
@@ -386,6 +386,19 @@
             this.pnlPlaying.Size = new System.Drawing.Size(878, 564);
             this.pnlPlaying.TabIndex = 0;
             // 
+            // wMediaPlayer
+            // 
+            this.wMediaPlayer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.wMediaPlayer.Enabled = true;
+            this.wMediaPlayer.Location = new System.Drawing.Point(-5, 1);
+            this.wMediaPlayer.Name = "wMediaPlayer";
+            this.wMediaPlayer.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("wMediaPlayer.OcxState")));
+            this.wMediaPlayer.Size = new System.Drawing.Size(878, 422);
+            this.wMediaPlayer.TabIndex = 0;
+            this.wMediaPlayer.DoubleClickEvent += new AxWMPLib._WMPOCXEvents_DoubleClickEventHandler(this.wMediaPlayer_DoubleClickEvent);
+            // 
             // pnlPlayer
             // 
             this.pnlPlayer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(3)))), ((int)(((byte)(31)))));
@@ -540,7 +553,9 @@
             // 
             this.btnVolume.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btnVolume.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(3)))), ((int)(((byte)(31)))));
+            this.btnVolume.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(3)))), ((int)(((byte)(31)))));
             this.btnVolume.FlatAppearance.BorderSize = 0;
+            this.btnVolume.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(43)))), ((int)(((byte)(209)))));
             this.btnVolume.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVolume.IconChar = FontAwesome.Sharp.IconChar.VolumeHigh;
             this.btnVolume.IconColor = System.Drawing.Color.White;
@@ -699,19 +714,6 @@
             this.timerPlayer.Enabled = true;
             this.timerPlayer.Tick += new System.EventHandler(this.timerPlayer_Tick);
             // 
-            // wMediaPlayer
-            // 
-            this.wMediaPlayer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.wMediaPlayer.Enabled = true;
-            this.wMediaPlayer.Location = new System.Drawing.Point(-5, 1);
-            this.wMediaPlayer.Name = "wMediaPlayer";
-            this.wMediaPlayer.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("wMediaPlayer.OcxState")));
-            this.wMediaPlayer.Size = new System.Drawing.Size(878, 422);
-            this.wMediaPlayer.TabIndex = 0;
-            this.wMediaPlayer.DoubleClickEvent += new AxWMPLib._WMPOCXEvents_DoubleClickEventHandler(this.wMediaPlayer_DoubleClickEvent);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -734,6 +736,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picChildForm)).EndInit();
             this.pnlChidlForm.ResumeLayout(false);
             this.pnlPlaying.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.wMediaPlayer)).EndInit();
             this.pnlPlayer.ResumeLayout(false);
             this.pnlBottomPlayer.ResumeLayout(false);
             this.pnlVolume.ResumeLayout(false);
@@ -744,7 +747,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.Slider)).EndInit();
             this.pnlLefPlayer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picArtPlayer)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.wMediaPlayer)).EndInit();
             this.ResumeLayout(false);
 
         }

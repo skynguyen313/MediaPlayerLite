@@ -12,7 +12,8 @@ namespace Media_Player_Lite.ViewModels
 {
     public partial class ControlPath : UserControl
     {
-        //mai lam
+        public delegate void Message(string message);
+        public Message SendMessage;
         public ControlPath(string content)
         {
             InitializeComponent();
@@ -21,6 +22,7 @@ namespace Media_Player_Lite.ViewModels
     
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            SendMessage(lblDirectoryPath.Text);
             this.Dispose();
         }
     }

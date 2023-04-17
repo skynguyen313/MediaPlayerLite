@@ -52,7 +52,7 @@ namespace Media_Player_Lite
             //LoadForm
             musicForm=new MusicForm();
             videoForm=new VideoForm();
-            toolsForm=new ToolsForm();
+            //toolsForm=new ToolsForm();
             aboutForm=new AboutForm();
 
         }
@@ -311,7 +311,7 @@ namespace Media_Player_Lite
         private void btnTools_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, Color.FromArgb(81, 236, 193));
-            openChildForm(toolsForm);
+            openChildForm(new ToolsForm());
             HideMediaPlayer();
         }
 

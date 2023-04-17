@@ -37,7 +37,7 @@ namespace Media_Player_Lite.MyLib
             return gr;
 
         }
-        public string duration() => tagFile.Properties.Duration.ToString(@"hh\:mm\:ss");
+        public string duration() => tagFile.Properties.Duration.ToString(@"mm\:ss");
         
     }
     public static class PicArtSong

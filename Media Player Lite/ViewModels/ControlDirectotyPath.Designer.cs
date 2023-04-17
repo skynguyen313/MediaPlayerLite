@@ -40,8 +40,8 @@
             this.lblDirectoryPath.ForeColor = System.Drawing.Color.White;
             this.lblDirectoryPath.Location = new System.Drawing.Point(0, 0);
             this.lblDirectoryPath.Name = "lblDirectoryPath";
-            this.lblDirectoryPath.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.lblDirectoryPath.Size = new System.Drawing.Size(763, 62);
+            this.lblDirectoryPath.Padding = new System.Windows.Forms.Padding(95, 0, 0, 0);
+            this.lblDirectoryPath.Size = new System.Drawing.Size(763, 60);
             this.lblDirectoryPath.TabIndex = 0;
             this.lblDirectoryPath.Text = "Test";
             this.lblDirectoryPath.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -56,7 +56,7 @@
             this.btnDelete.IconColor = System.Drawing.Color.White;
             this.btnDelete.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnDelete.IconSize = 30;
-            this.btnDelete.Location = new System.Drawing.Point(688, 15);
+            this.btnDelete.Location = new System.Drawing.Point(688, 14);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(30, 30);
             this.btnDelete.TabIndex = 1;
@@ -71,7 +71,7 @@
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.lblDirectoryPath);
             this.Name = "ControlPath";
-            this.Size = new System.Drawing.Size(763, 62);
+            this.Size = new System.Drawing.Size(763, 60);
             this.ResumeLayout(false);
 
         }

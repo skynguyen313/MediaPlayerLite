@@ -10,10 +10,11 @@ namespace Media_Player_Lite.MyLib
 {
     public static class WriteLineFileDistic
     {
-        public static void WriteLine(string fullPath, string content)
+        public static string WriteLine(string fullPath, string content)
         {
+            string line = null;
             if (File.Exists(fullPath))
-            {
+            {        
                 HashSet<string> uniqueLines = new HashSet<string>();
                 var listPath = ReadLineFile.ToListData(fullPath);
                 listPath.ForEach(p => uniqueLines.Add(p));
@@ -23,11 +24,13 @@ namespace Media_Player_Lite.MyLib
                         if (!uniqueLines.Contains(content))
                         {
                             writer.WriteLine(content);
+                        line = content;
                             uniqueLines.Add(content);
                         }
                     
-                }
+                }          
             }
+            return line;
         }
     }
 }
