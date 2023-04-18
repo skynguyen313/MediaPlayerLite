@@ -117,5 +117,6 @@ namespace Media_Player_Lite
         {
             ShowListPanel(pnlListPathMusic, btnListMusic);
         }
+
     }
 }

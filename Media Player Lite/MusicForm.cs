@@ -30,7 +30,7 @@ namespace Media_Player_Lite
             txtSearch.Font = new Font("Arial", 15);
 
         }
-        private void MusicForm_Load(object sender, EventArgs e)
+        public void MusicForm_Load(object sender, EventArgs e)
         {
             string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), @"DataMPLite\dataMusic.dat");
             string directoryPath = Path.GetDirectoryName(path);
@@ -45,9 +45,7 @@ namespace Media_Player_Lite
 
             listSong = GetListSong();
             LoadAllProperty();
-            LoadListView(listSong);
-            
-            
+            LoadListView(listSong);           
             
         }
         private void btnAddFolder_Click(object sender, EventArgs e)
@@ -227,7 +225,6 @@ namespace Media_Player_Lite
                                     select song.Genre).Distinct().ToArray();
                     CmbLoadGenre(arrGenre);
                 }
-
 
             }
         }

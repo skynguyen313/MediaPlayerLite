@@ -49,12 +49,18 @@ namespace Media_Player_Lite
             SliderVolume.Height = 30;
             AddEvent();
 
-            //LoadForm
-            musicForm=new MusicForm();
-            videoForm=new VideoForm();
-            //toolsForm=new ToolsForm();
-            aboutForm=new AboutForm();
+            //Loading Forms
+            LoadingForm(null, null);
 
+        }
+        private void LoadingForm(object sender,EventArgs e)
+        {
+            //LoadForm
+            musicForm = new MusicForm();
+            videoForm = new VideoForm();
+            toolsForm = new ToolsForm();
+            aboutForm=new AboutForm();
+            
         }
         private void MainForm_Load(object sender, EventArgs e)
         {
@@ -74,7 +80,6 @@ namespace Media_Player_Lite
 
             //
             StatusPlaying();
-
 
         }
 
@@ -311,7 +316,8 @@ namespace Media_Player_Lite
         private void btnTools_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, Color.FromArgb(81, 236, 193));
-            openChildForm(new ToolsForm());
+            openChildForm(toolsForm);
+            toolsForm.btnRefresh.Click += new EventHandler(LoadingForm);
             HideMediaPlayer();
         }
 

@@ -24,7 +24,7 @@ namespace Media_Player_Lite.MyLib
                         if (!uniqueLines.Contains(content))
                         {
                             writer.WriteLine(content);
-                        line = content;
+                            line = content;
                             uniqueLines.Add(content);
                         }
                     

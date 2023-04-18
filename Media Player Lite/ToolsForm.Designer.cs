@@ -461,11 +461,11 @@
         private System.Windows.Forms.Panel pnlSpace5;
         private System.Windows.Forms.Panel pnlRefreshLib;
         private FontAwesome.Sharp.IconButton btnMessage;
-        private FontAwesome.Sharp.IconButton btnRefresh;
         private System.Windows.Forms.Label lblRefreshLib;
         private FontAwesome.Sharp.IconPictureBox picRefresh;
         private System.Windows.Forms.Panel pnlSpace6;
         private System.Windows.Forms.Panel pnlMessage;
         private System.Windows.Forms.Label lblMessage;
+        public FontAwesome.Sharp.IconButton btnRefresh;
     }
 }
