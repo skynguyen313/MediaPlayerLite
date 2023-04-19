@@ -11,7 +11,6 @@ D:\Project Media Player Lite\Media Player Lite\Media Player Lite\obj\Debug\Media
 D:\Project Media Player Lite\Media Player Lite\Media Player Lite\obj\Debug\Media Player Lite.exe
 D:\Project Media Player Lite\Media Player Lite\Media Player Lite\obj\Debug\Media Player Lite.pdb
 D:\Project Media Player Lite\Media Player Lite\Media Player Lite\bin\Debug\FontAwesome.Sharp.dll
-D:\Project Media Player Lite\Media Player Lite\Media Player Lite\bin\Debug\Interop.WMPLib.dll
 D:\Project Media Player Lite\Media Player Lite\Media Player Lite\obj\Debug\Interop.WMPLib.dll
 D:\Project Media Player Lite\Media Player Lite\Media Player Lite\obj\Debug\Media Player Lite.csproj.ResolveComReference.cache
 D:\Project Media Player Lite\Media Player Lite\Media Player Lite\obj\Debug\Media_Player_Lite.AboutForm.resources
@@ -138,3 +137,9 @@ D:\Project Media Player Lite\Media Player Lite-Ver 2.2\Media Player Lite\obj\Deb
 D:\Project Media Player Lite\Media Player Lite-Ver 2.2\Media Player Lite\obj\Debug\Media Player Lite.pdb
 D:\Project Media Player Lite\Media Player Lite\Media Player Lite\obj\Debug\Media_Player_Lite.ViewModels.ControlPath.resources
 D:\Project Media Player Lite\Media Player Lite\Media Player Lite\obj\Debug\Media_Player_Lite.ViewModels.ControlItemVideo.resources
+D:\Project Media Player Lite\Media Player Lite\Media Player Lite\bin\Debug\AxInterop.WMPLib.dll
+D:\Project Media Player Lite\Media Player Lite\Media Player Lite\bin\Debug\Interop.WMPLib.dll
+D:\Project Media Player Lite\Media Player Lite\Media Player Lite\bin\Debug\Interop.Shell32.dll
+D:\Project Media Player Lite\Media Player Lite\Media Player Lite\obj\Debug\Interop.Shell32.dll
+D:\Project Media Player Lite\Media Player Lite\Media Player Lite\bin\Debug\NReco.VideoConverter.dll
+D:\Project Media Player Lite\Media Player Lite\Media Player Lite\bin\Debug\NReco.VideoConverter.xml

@@ -21,14 +21,14 @@ namespace Media_Player_Lite
 
         public event EventHandler<MyMusicEventArgs> oneMusic;
         private List<Song> listSong;
-        private static int index = 0;
-        private static string fullFilePath = DirectoryPath.GetFullPath(@"DataMPLite\dataMusic.dat");
+        private int index = 0;
+        private readonly string fullFilePath = DirectoryPath.GetFullPath(@"DataMPLite\dataMusic.dat");
 
         public MusicForm()
         {
             InitializeComponent();
             txtSearch.Font = new Font("Arial", 15);
-
+            
         }
         public void MusicForm_Load(object sender, EventArgs e)
         {
@@ -76,7 +76,7 @@ namespace Media_Player_Lite
                         if (extension == ".mp3" || extension == ".wma" || extension == ".wav" || extension == ".flac" || extension == ".aac")
                         {
                             var songInfo = new SongInfomation(file);
-                            var song = new Song(songInfo.title(), songInfo.author(), songInfo.genre(), songInfo.duration(), file);
+                            var song = new Song(songInfo.Title(), songInfo.Author(), songInfo.Genre(), songInfo.Duration(), file);
                             lst.Add(song);
                         }
                     }
@@ -225,7 +225,6 @@ namespace Media_Player_Lite
                                     select song.Genre).Distinct().ToArray();
                     CmbLoadGenre(arrGenre);
                 }
-
             }
         }
 

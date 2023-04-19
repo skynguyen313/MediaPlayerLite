@@ -240,6 +240,7 @@
             this.btnAddFolderVideo.Text = "Add folder";
             this.btnAddFolderVideo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAddFolderVideo.UseVisualStyleBackColor = false;
+            this.btnAddFolderVideo.Click += new System.EventHandler(this.btnAddFolderVideo_Click);
             // 
             // lblVideoLib
             // 

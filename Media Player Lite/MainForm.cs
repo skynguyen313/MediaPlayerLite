@@ -51,7 +51,6 @@ namespace Media_Player_Lite
 
             //Loading Forms
             LoadingForm(null, null);
-
         }
         private void LoadingForm(object sender,EventArgs e)
         {
@@ -298,7 +297,7 @@ namespace Media_Player_Lite
         {
             ActivateButton(sender, Color.FromArgb(81, 236, 193)); 
             openChildForm(musicForm);
-            musicForm.oneMusic += LoadPlaying;
+            musicForm.oneMusic += LoadPlayingMusic;
             btnNextWard.Click += new EventHandler(musicForm.NextItem);
             btnBackWard.Click += new EventHandler(musicForm.PrevItem);
             HideMediaPlayer();
@@ -308,8 +307,8 @@ namespace Media_Player_Lite
         private void btnVideo_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, Color.FromArgb(81, 236, 193));
-            //var frm=new VideoForm();
             openChildForm(videoForm);
+            videoForm.oneVideo += LoadPlayingVideo;
             HideMediaPlayer();
         }
 
@@ -485,7 +484,7 @@ namespace Media_Player_Lite
             thumbV(SliderVolume_width(e.X));
             int index = Convert.ToInt32(Default_valueV);
             wMediaPlayer.settings.volume =index;
-            lblIndexVolume.Text = index.ToString();
+            lblIndexVolume.Text = String.Format("{0}%", index.ToString());
             ChangeIconVolume(index);
         }
         private void ChangeIconVolume(int index)
@@ -621,20 +620,32 @@ namespace Media_Player_Lite
             StatusPlaying();      
         }
           
-        private void LoadPlaying(object sender,EventArgs e)
+        private void LoadPlayingMusic(object sender, MyMusicEventArgs e)
         {
-            var dataSend=e as MyMusicEventArgs;
-            wMediaPlayer.URL= dataSend.Path;// Config URL
+            wMediaPlayer.URL= e.Path;// Config URL
             wMediaPlayer.Ctlcontrols.play();// Start wMeidaPlayer
             StatusPlaying();
             btnPause();// Showbutton Play/Pause
 
             // Label TitlePlayer
-            lblTitlePlayer.Text = dataSend.Title;
+            lblTitlePlayer.Text = e.Title;
             SettingRunWordTitle();
 
-            if (dataSend.PicData != null) picArtPlayer.Image = Image.FromStream(new MemoryStream(dataSend.PicData));
+            if (e.PicData != null) picArtPlayer.Image = Image.FromStream(new MemoryStream(e.PicData));
             else picArtPlayer.Image = Image.FromFile(Application.StartupPath+ @"\Resources\defaultImage.jpg");              
+        }
+        private void LoadPlayingVideo(object sender, MyVideoEventArgs e)
+        {
+            wMediaPlayer.URL = e.Path;// Config URL
+            wMediaPlayer.Ctlcontrols.play();// Start wMeidaPlayer
+            StatusPlaying();
+            btnPause();// Showbutton Play/Pause
+
+            // Label TitlePlayer
+            lblTitlePlayer.Text = e.Title;
+            SettingRunWordTitle();
+
+            
         }
         #endregion
 

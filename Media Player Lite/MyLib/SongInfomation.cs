@@ -6,39 +6,46 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using TagLib;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
 
 namespace Media_Player_Lite.MyLib
 {
     public class SongInfomation
     {
-        private string path;
-        private TagLib.File tagFile;
+        private readonly string path;
+        private readonly TagLib.File tagFile;
         public SongInfomation(string Path)
         {
             path = Path;
             tagFile = TagLib.File.Create(path);
         }
-        public string title() 
+        public string Title() 
         {
             string tt = tagFile.Tag.Title;
             if (tt == null) tt=Path.GetFileNameWithoutExtension(path);
             return tt;
         }
-        public string author()
+        public string Author()
         {
             string at = tagFile.Tag.FirstPerformer;
             if (at == null) at = "Unknow artist";
             return at;
         }
-        public string genre()
+        public string Genre()
         {
             string gr=tagFile.Tag.FirstGenre;
             if (gr == null) gr = "Unknow genre";
             return gr;
 
         }
-        public string duration() => tagFile.Properties.Duration.ToString(@"mm\:ss");
-        
+        public string Duration() => tagFile.Properties.Duration.ToString(@"mm\:ss");
+        //public string Duration()
+        //{
+        //    var time = tagFile.Properties.Duration;
+        //    string timeString = string.Format("{0} min {1} second", (int)time.TotalMinutes, time.Seconds);
+        //    return timeString;
+        //}
+
     }
     public static class PicArtSong
     {

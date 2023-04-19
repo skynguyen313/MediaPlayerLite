@@ -18,6 +18,7 @@ namespace Media_Player_Lite
     public partial class ToolsForm : Form
     {
         private static string fullFilePathMusic = DirectoryPath.GetFullPath(@"DataMPLite\dataMusic.dat");
+        private static string fullFilePathVideo = DirectoryPath.GetFullPath(@"DataMPLite\dataVideo.dat");
         public ToolsForm()
         {
             InitializeComponent();
@@ -46,11 +47,12 @@ namespace Media_Player_Lite
         private void ToolsForm_Load(object sender, EventArgs e)
         {
             HiddenPanel(pnlListPathMusic, btnListMusic);
-            HiddenPanel(pnlListPathMusic, btnListVideo);
+            HiddenPanel(pnlListPathVideo, btnListVideo);
             HiddenPanel(pnlMessage, btnMessage);
-            LoadListPathMusic(pnlListPathMusic, fullFilePathMusic);
+            LoadListPathMusic( fullFilePathMusic);
+            LoadListPathVideo(fullFilePathVideo);
         }   
-        private void LoadListPathMusic(Panel pnl,string path)
+        private void LoadListPathMusic(string path)
         {
             var contents = ReadLineFile.ToListData(path);
             foreach (var line in contents)
@@ -58,21 +60,45 @@ namespace Media_Player_Lite
                 AddLineMusic(line);        
             }
         }
+        private void LoadListPathVideo( string path)
+        {
+            var contents = ReadLineFile.ToListData(path);
+            foreach (var line in contents)
+            {
+                AddLineVideo(line);
+            }
+        }
+        #region Panel List
         private void AddLineMusic(string data)
         {
             ControlPath ctP = new ControlPath(data);
-            ctP.SendMessage = RemoveLine;
+            ctP.SendMessage = RemoveLineMusic; ;
             pnlListPathMusic.Height += 60;
             pnlListPathMusic.Controls.Add(ctP);
             ctP.Dock = DockStyle.Top;
         }
-        private void RemoveLine(string data)
+        private void RemoveLineMusic(string data)
         {
             pnlListPathMusic.Height-= 60;
             var contents = ReadLineFile.ToListData(fullFilePathMusic);
             contents.Remove(data);
             File.WriteAllLines(fullFilePathMusic, contents);
 
+        }
+        private void AddLineVideo(string data)
+        {
+            ControlPath ctP = new ControlPath(data);
+            ctP.SendMessage = RemoveLineVideo;
+            pnlListPathVideo.Height += 60;
+            pnlListPathVideo.Controls.Add(ctP);
+            ctP.Dock = DockStyle.Top;
+        }
+        private void RemoveLineVideo(string data)
+        {
+            pnlListPathVideo.Height -= 60;
+            var contents = ReadLineFile.ToListData(fullFilePathVideo);
+            contents.Remove(data);
+            File.WriteAllLines(fullFilePathVideo, contents);
 
         }
         private void ShowListPanel(Panel pnl,IconButton btn)
@@ -92,6 +118,7 @@ namespace Media_Player_Lite
                 btn.IconChar = FontAwesome.Sharp.IconChar.ChevronDown;
             }
         }
+        #endregion
         private void btnAddFolderMusic_Click(object sender, EventArgs e)
         {
             FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
@@ -102,7 +129,17 @@ namespace Media_Player_Lite
                 
             }
         }
+        private void btnAddFolderVideo_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
+            if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
+            {
+                string content = WriteLineFileDistic.WriteLine(fullFilePathVideo, folderBrowserDialog.SelectedPath);
+                if (content != null) AddLineVideo(content);
 
+            }
+
+        }
         private void btnMessage_Click(object sender, EventArgs e)
         {
             ShowListPanel(pnlMessage,btnMessage);
@@ -110,7 +147,7 @@ namespace Media_Player_Lite
 
         private void btnListVideo_Click(object sender, EventArgs e)
         {
-
+            ShowListPanel(pnlListPathVideo, btnListVideo);
         }
 
         private void btnListMusic_Click(object sender, EventArgs e)
@@ -118,5 +155,6 @@ namespace Media_Player_Lite
             ShowListPanel(pnlListPathMusic, btnListMusic);
         }
 
+       
     }
 }
