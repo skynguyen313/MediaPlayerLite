@@ -640,7 +640,6 @@ namespace Media_Player_Lite
             wMediaPlayer.Ctlcontrols.play();// Start wMeidaPlayer
             StatusPlaying();
             btnPause();// Showbutton Play/Pause
-
             // Label TitlePlayer
             lblTitlePlayer.Text = e.Title;
             SettingRunWordTitle();

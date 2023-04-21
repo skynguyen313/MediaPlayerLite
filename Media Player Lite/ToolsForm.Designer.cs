@@ -250,7 +250,7 @@
             this.lblVideoLib.Name = "lblVideoLib";
             this.lblVideoLib.Size = new System.Drawing.Size(260, 50);
             this.lblVideoLib.TabIndex = 1;
-            this.lblVideoLib.Text = "Music library locations";
+            this.lblVideoLib.Text = "Video library locations";
             this.lblVideoLib.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // picFolderVideo

@@ -32,7 +32,7 @@ namespace Media_Player_Lite.MyLib
             var duration = folder.GetDetailsOf(file, 27);
             TimeSpan timeSpan;
             TimeSpan.TryParse(duration, out timeSpan);
-            return string.Format("{0} min {1} second", (int)timeSpan.TotalMinutes, timeSpan.Seconds);    
+            return string.Format("{0} mins {1} secs", (int)timeSpan.TotalMinutes, timeSpan.Seconds);    
             
         }
         public string GetPath() => path;
