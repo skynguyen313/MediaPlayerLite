@@ -10,15 +10,12 @@ namespace Media_Player_Lite.Models
     {
         private string _path;
         private string _title;
-        private byte[] _picdata;
         public string Path { get { return _path; } }
         public string Title { get { return _title; } }
-        public byte[] PicData { get { return _picdata; } }
-        public MyMusicEventArgs(string path, string title, byte[] picdata)
+        public MyMusicEventArgs(string path, string title)
         {
             _path = path;
             _title = title;
-            _picdata = picdata;
         }
     }
 }

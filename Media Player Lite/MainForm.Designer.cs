@@ -635,6 +635,7 @@
             // Slider
             // 
             this.Slider.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(3)))), ((int)(((byte)(31)))));
+            this.Slider.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Slider.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Slider.Location = new System.Drawing.Point(0, 0);
             this.Slider.Name = "Slider";

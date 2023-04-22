@@ -13,6 +13,7 @@ using Media_Player_Lite.Models;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Security.Cryptography.X509Certificates;
+using Media_Player_Lite.ViewModels;
 
 namespace Media_Player_Lite
 {
@@ -21,13 +22,17 @@ namespace Media_Player_Lite
 
         public event EventHandler<MyMusicEventArgs> oneMusic;
         private List<Song> listSong;
-        private int index = 0;
+        private List<ControlItemMusic> listControl;
+        private ControlItemMusic currentControlMusic = null;
+        private static int current_IndexMusic=-1;
+        private static int idMuic = 0;
         private readonly string fullFilePath = DirectoryPath.GetFullPath(@"DataMPLite\dataMusic.dat");
-
+      
         public MusicForm()
         {
             InitializeComponent();
             txtSearch.Font = new Font("Arial", 15);
+            pnlListMusic.AutoScroll = true;
             
         }
         public void MusicForm_Load(object sender, EventArgs e)
@@ -44,8 +49,9 @@ namespace Media_Player_Lite
             }
 
             listSong = GetListSong();
+            listControl = GetListControl(listSong);
             LoadAllProperty();
-            LoadListView(listSong);           
+            LoadListMusic(listControl);           
             
         }
         private void btnAddFolder_Click(object sender, EventArgs e)
@@ -55,8 +61,9 @@ namespace Media_Player_Lite
             {
                 WriteLineFileDistic.WriteLine(fullFilePath, folderBrowserDialog.SelectedPath);
                 listSong = GetListSong();
+                listControl=GetListControl(listSong);
                 LoadAllProperty();
-                LoadListView(listSong);
+                LoadListMusic(listControl);
 
             }
         }
@@ -76,7 +83,7 @@ namespace Media_Player_Lite
                         if (extension == ".mp3" || extension == ".wma" || extension == ".wav" || extension == ".flac" || extension == ".aac")
                         {
                             var songInfo = new SongInfomation(file);
-                            var song = new Song(songInfo.Title(), songInfo.Author(), songInfo.Genre(), songInfo.Duration(), file);
+                            var song = new Song(songInfo.Title(), songInfo.Author(), songInfo.Genre(), songInfo.Duration(), file,PicArtSong.PicData(file));
                             lst.Add(song);
                         }
                     }
@@ -92,53 +99,113 @@ namespace Media_Player_Lite
             return lst;
         }
 
-        private void LoadListView(List<Song> lst)
+        private void LoadListMusic(List<ControlItemMusic> lstControl)
         {
-            listviewMusic.Items.Clear();
-            lst.ForEach(s =>
+            current_IndexMusic = -1;
+            idMuic = 0;
+            foreach (Control control in pnlListMusic.Controls)
             {
-                var item = new ListViewItem(new[] { s.Title, s.Artist, s.Genre, s.Duration });
-                item.Tag = s.Path;
-                listviewMusic.Items.Add(item);
-            });
-
+                control.Dispose();
+            }
+            pnlListMusic.Controls.Clear();
+            foreach (var item in lstControl)
+            {
+                var pnl = new Panel();
+                pnl.Dock = DockStyle.Top;
+                pnl.Height = 30;  
+                pnlListMusic.Controls.Add(item);
+                pnlListMusic.Controls.Add(pnl);
+                
+            }
+            
         }
-
+        private List<ControlItemMusic> GetListControl(List<Song> lstSong)
+        {
+            lstSong.Reverse();
+            var lstControl = new List<ControlItemMusic>();
+            foreach (var song in lstSong)
+            {
+                var info = new
+                {
+                    Title = song.Title,
+                    Artist = song.Artist,
+                    Genre = song.Genre,
+                    Duration = song.Duration,
+                    Path = song.Path,
+                    Image = song.Image,
+                };
+                var ct = CreateControl(info);
+                lstControl.Add(ct);
+                
+            };
+            return lstControl;
+        }
+        private ControlItemMusic CreateControl(dynamic data)
+        {
+            ControlItemMusic ctIM=new ControlItemMusic(data);
+            ctIM.Tag = idMuic;
+            idMuic += 1;
+            ctIM.SendMessage = SendDataMusicEvent;
+            return ctIM;
+        }
+        private void SendDataMusicEvent(ControlItemMusic controlItemMusic)
+        {
+            ActiveControlMusic(controlItemMusic);
+            string path = controlItemMusic.Path;
+            string title=controlItemMusic.Title;
+            current_IndexMusic = Convert.ToInt32(controlItemMusic.Tag);
+            oneMusic?.Invoke(this, new MyMusicEventArgs(path, title));        
+        }
+        private void ActiveControlMusic(ControlItemMusic control)
+        {
+            if (currentControlMusic != null)
+            {
+                currentControlMusic.BackColor = Color.Black;
+                currentControlMusic.ExchangePicMusic(false);
+            }
+            control.BackColor = Color.FromArgb(36, 36, 36);
+            control.ExchangePicMusic(true);
+            currentControlMusic = control;
+            
+        }
         public void NextItem(object sender, EventArgs e)
         {
-            if (index < listviewMusic.Items.Count - 1)
+
+            if (current_IndexMusic >0)
             {
-                index += 1;
-                var nextItem = listviewMusic.Items[index];
-                CurrentItem(nextItem);
+                current_IndexMusic -= 1;
+                var nextItem = listControl[current_IndexMusic];
+                SendDataMusicEvent(nextItem);
+                pnlListMusic.VerticalScroll.Value +=350;//Auto Scroll 
             }
         }
         public void PrevItem(object sender, EventArgs e)
         {
-            if (index > 0)
+            if (current_IndexMusic <listControl.Count-1)
             {
-                index -= 1;
-                var prevtItem = listviewMusic.Items[index];
-                CurrentItem(prevtItem);
+                current_IndexMusic += 1;
+                var prevItem = listControl[current_IndexMusic];
+                SendDataMusicEvent(prevItem);
+                if(pnlListMusic.VerticalScroll.Value>350) pnlListMusic.VerticalScroll.Value -= 350;//Auto Scroll
             }
         }
         private void CurrentItem(ListViewItem item)
         {
-            string pathData = item.Tag as string;
-            string titleData = item.SubItems[colTitle.Index].Text;
-            var picData = PicArtSong.PicData(pathData);
-            oneMusic?.Invoke(this, new MyMusicEventArgs(pathData, titleData, picData));
+            //string pathData = item.Tag as string;
+            //string titleData = item.SubItems[colTitle.Index].Text;
+            //var picData = PicArtSong.PicData(pathData);
+            //oneMusic?.Invoke(this, new MyMusicEventArgs(pathData, titleData, picData));
         }
 
         private void listviewMusic_DoubleClick(object sender, EventArgs e)
         {
-            if (listviewMusic.SelectedItems.Count > 0)
-            {
-                var item = listviewMusic.SelectedItems[0];
-                index = item.Index;
-                CurrentItem(item);
+            //if (listviewMusic.SelectedItems.Count > 0)
+            //{
+            //    var item = listviewMusic.SelectedItems[0];
+            //    index = item.Index;
+            //    CurrentItem(item);
                 
-            }
+            //}
         }
         private void LoadAllProperty()
         {
@@ -189,7 +256,8 @@ namespace Media_Player_Lite
                 var result = from song in listSong
                              where ChangeStringVN.Change_AV(song.Title.ToLower()).Contains(ChangeStringVN.Change_AV(txtSearch.Texts.ToLower().Trim()))
                              select song;
-                LoadListView(result.ToList());
+                listControl = GetListControl(result.ToList());
+                LoadListMusic(listControl);
             }
             else
             {
@@ -210,8 +278,8 @@ namespace Media_Player_Lite
                 if (cmbArtist.SelectedIndex == 0)
                 {
                     LoadAllProperty();
-
-                    LoadListView(listSong);
+                    listControl = GetListControl(listSong);
+                    LoadListMusic(listControl);
                 }
                 else
                 {
@@ -219,7 +287,8 @@ namespace Media_Player_Lite
                     var resultSong = from song in tmpSong
                                      where song.Artist == cmbArtist.SelectedItem.ToString()
                                      select song;
-                    LoadListView(resultSong.ToList());
+                    listControl = GetListControl(resultSong.ToList());
+                    LoadListMusic(listControl);
 
                     var arrGenre = (from song in resultSong
                                     select song.Genre).Distinct().ToArray();
@@ -236,8 +305,8 @@ namespace Media_Player_Lite
                 if (cmbGenre.SelectedIndex == 0)
                 {
                     LoadAllProperty();
-
-                    LoadListView(listSong);
+                    listControl = GetListControl(listSong);
+                    LoadListMusic(listControl);
                 }
                 else
                 {
@@ -245,7 +314,8 @@ namespace Media_Player_Lite
                     var resultSong = from song in tmpSong
                                      where song.Genre == cmbGenre.SelectedItem.ToString()
                                      select song;
-                    LoadListView(resultSong.ToList());
+                    listControl = GetListControl(resultSong.ToList());
+                    LoadListMusic(listControl);
 
                     var arrArtist = (from song in resultSong
                                      select song.Artist).Distinct().ToArray();

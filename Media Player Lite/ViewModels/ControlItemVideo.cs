@@ -25,6 +25,7 @@ namespace Media_Player_Lite.ViewModels
             picVideo.Image = Image.FromStream(new MemoryStream(dataImage));
             lblTitleVideo.Text = title;
             lblDuration.Text = duration;
+            this.Tag = path;
             
         }
         private void SendData(object sender,EventArgs e)

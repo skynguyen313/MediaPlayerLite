@@ -141,6 +141,12 @@
     <Compile Include="ViewModels\ControlDirectotyPath.Designer.cs">
       <DependentUpon>ControlDirectotyPath.cs</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\ControlItemMusic.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ViewModels\ControlItemMusic.Designer.cs">
+      <DependentUpon>ControlItemMusic.cs</DependentUpon>
+    </Compile>
     <Compile Include="ViewModels\ControlItemVideo.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -174,6 +180,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ViewModels\ControlDirectotyPath.resx">
       <DependentUpon>ControlDirectotyPath.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewModels\ControlItemMusic.resx">
+      <DependentUpon>ControlItemMusic.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ViewModels\ControlItemVideo.resx">
       <DependentUpon>ControlItemVideo.cs</DependentUpon>

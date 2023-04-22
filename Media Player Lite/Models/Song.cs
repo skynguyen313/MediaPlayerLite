@@ -12,15 +12,16 @@ namespace Media_Player_Lite.Models
         public string Artist { set;get; }
         public string Genre { set; get; }  
         public string Duration { set; get; }
-        public string Path { set;get; } 
-        public Song(string title,string artist,string genre,string duration,string path)
+        public string Path { set;get; }
+        public byte[] Image { set; get; }
+        public Song(string title,string artist, string genre, string duration, string path, byte[] image)
         {
             Title = title;
             Artist = artist;
             Genre = genre;
             Duration = duration;
             Path = path;
-
+            Image = image;
         }
     }
 }

@@ -631,8 +631,7 @@ namespace Media_Player_Lite
             lblTitlePlayer.Text = e.Title;
             SettingRunWordTitle();
 
-            if (e.PicData != null) picArtPlayer.Image = Image.FromStream(new MemoryStream(e.PicData));
-            else picArtPlayer.Image = Image.FromFile(Application.StartupPath+ @"\Resources\defaultImage.jpg");              
+           
         }
         private void LoadPlayingVideo(object sender, MyVideoEventArgs e)
         {
