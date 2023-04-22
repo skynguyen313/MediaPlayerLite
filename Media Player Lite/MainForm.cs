@@ -642,8 +642,9 @@ namespace Media_Player_Lite
             // Label TitlePlayer
             lblTitlePlayer.Text = e.Title;
             SettingRunWordTitle();
+            btnHome.PerformClick();
 
-            
+
         }
         #endregion
 
