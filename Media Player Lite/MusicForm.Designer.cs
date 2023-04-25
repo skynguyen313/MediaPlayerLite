@@ -60,7 +60,7 @@
             this.txtSearch.BorderSize = 2;
             this.txtSearch.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSearch.ForeColor = System.Drawing.Color.Cyan;
-            this.txtSearch.Location = new System.Drawing.Point(3, 55);
+            this.txtSearch.Location = new System.Drawing.Point(15, 55);
             this.txtSearch.Multiline = false;
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Padding = new System.Windows.Forms.Padding(7);

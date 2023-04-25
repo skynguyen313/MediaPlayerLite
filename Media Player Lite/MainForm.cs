@@ -630,7 +630,7 @@ namespace Media_Player_Lite
             // Label TitlePlayer
             lblTitlePlayer.Text = e.Title;
             SettingRunWordTitle();
-
+          
            
         }
         private void LoadPlayingVideo(object sender, MyVideoEventArgs e)
@@ -643,7 +643,6 @@ namespace Media_Player_Lite
             lblTitlePlayer.Text = e.Title;
             SettingRunWordTitle();
             btnHome.PerformClick();
-
 
         }
         #endregion

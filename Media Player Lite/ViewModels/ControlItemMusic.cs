@@ -40,10 +40,18 @@ namespace Media_Player_Lite.ViewModels
         {
             SendMessage(this);
         }
-        public void ExchangePicMusic(bool st)
+        public void ExchangePicMusic(bool status)
         {
-            if (st==true) picMusic.IconChar = FontAwesome.Sharp.IconChar.CirclePause;
-            else picMusic.IconChar = FontAwesome.Sharp.IconChar.CirclePlay;
+            if (status == true)
+            {
+                this.BackColor = Color.FromArgb(36, 36, 36);
+                picMusic.IconChar = FontAwesome.Sharp.IconChar.CirclePause;
+            }
+            else
+            {
+                this.BackColor = Color.Black;
+                picMusic.IconChar = FontAwesome.Sharp.IconChar.CirclePlay;
+            }
         }
         private void ControlItemMusic_Load(object sender, EventArgs e)
         {
@@ -59,7 +67,7 @@ namespace Media_Player_Lite.ViewModels
             lblGenre.Text = _genre;
             lblDuration.Text = _duration;
             if (_picData != null) picArt.Image = Image.FromStream(new MemoryStream(_picData));
-            else picArt.Image = Image.FromFile(Application.StartupPath + @"\Resources\defaultImage.jpg");
+            else picArt.Image = Image.FromFile(Application.StartupPath + @"\Images\defaultImage.jpg");
         }
         private void AddEvent()
         {

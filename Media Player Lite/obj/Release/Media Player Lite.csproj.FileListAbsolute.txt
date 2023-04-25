@@ -6,7 +6,6 @@ D:\Project Media Player Lite\Media Player Lite\Media Player Lite\bin\Release\Mic
 D:\Project Media Player Lite\Media Player Lite\Media Player Lite\bin\Release\System.Security.AccessControl.dll
 D:\Project Media Player Lite\Media Player Lite\Media Player Lite\bin\Release\System.Security.Principal.Windows.dll
 D:\Project Media Player Lite\Media Player Lite\Media Player Lite\bin\Release\taglib-sharp.dll
-D:\Project Media Player Lite\Media Player Lite\Media Player Lite\bin\Release\TrongTool.dll
 D:\Project Media Player Lite\Media Player Lite\Media Player Lite\bin\Release\Microsoft.Win32.Registry.xml
 D:\Project Media Player Lite\Media Player Lite\Media Player Lite\bin\Release\System.Security.AccessControl.xml
 D:\Project Media Player Lite\Media Player Lite\Media Player Lite\bin\Release\System.Security.Principal.Windows.xml
@@ -15,7 +14,6 @@ D:\Project Media Player Lite\Media Player Lite\Media Player Lite\bin\Release\AxI
 D:\Project Media Player Lite\Media Player Lite\Media Player Lite\obj\Release\Media Player Lite.csproj.AssemblyReference.cache
 D:\Project Media Player Lite\Media Player Lite\Media Player Lite\obj\Release\Media Player Lite.csproj.SuggestedBindingRedirects.cache
 D:\Project Media Player Lite\Media Player Lite\Media Player Lite\obj\Release\Interop.WMPLib.dll
-D:\Project Media Player Lite\Media Player Lite\Media Player Lite\obj\Release\AxInterop.WMPLib.dll
 D:\Project Media Player Lite\Media Player Lite\Media Player Lite\obj\Release\Media Player Lite.csproj.ResolveComReference.cache
 D:\Project Media Player Lite\Media Player Lite\Media Player Lite\obj\Release\Media_Player_Lite.AboutForm.resources
 D:\Project Media Player Lite\Media Player Lite\Media Player Lite\obj\Release\Media_Player_Lite.MainForm.resources
@@ -28,3 +26,15 @@ D:\Project Media Player Lite\Media Player Lite\Media Player Lite\obj\Release\Med
 D:\Project Media Player Lite\Media Player Lite\Media Player Lite\obj\Release\Media Player Lite.csproj.CopyComplete
 D:\Project Media Player Lite\Media Player Lite\Media Player Lite\obj\Release\Media Player Lite.exe
 D:\Project Media Player Lite\Media Player Lite\Media Player Lite\obj\Release\Media Player Lite.pdb
+D:\Project Media Player Lite\Media Player Lite\Media Player Lite\bin\Release\NReco.VideoConverter.dll
+D:\Project Media Player Lite\Media Player Lite\Media Player Lite\bin\Release\NReco.VideoConverter.xml
+D:\Project Media Player Lite\Media Player Lite\Media Player Lite\bin\Release\Interop.Shell32.dll
+D:\Project Media Player Lite\Media Player Lite\Media Player Lite\obj\Release\Interop.Shell32.dll
+D:\Project Media Player Lite\Media Player Lite\Media Player Lite\obj\Release\Media_Player_Lite.ViewModels.ControlPath.resources
+D:\Project Media Player Lite\Media Player Lite\Media Player Lite\obj\Release\Media_Player_Lite.ViewModels.ControlItemMusic.resources
+D:\Project Media Player Lite\Media Player Lite\Media Player Lite\obj\Release\Media_Player_Lite.ViewModels.ControlItemVideo.resources
+D:\Project Media Player Lite\Media Player Lite\Media Player Lite\bin\Release\Media Player Lite.exe.manifest
+D:\Project Media Player Lite\Media Player Lite\Media Player Lite\bin\Release\Media Player Lite.application
+D:\Project Media Player Lite\Media Player Lite\Media Player Lite\obj\Release\Media Player Lite.exe.manifest
+D:\Project Media Player Lite\Media Player Lite\Media Player Lite\obj\Release\Media Player Lite.application
+D:\Project Media Player Lite\Media Player Lite\Media Player Lite\bin\Release\Images\defaultImage.jpg

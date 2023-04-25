@@ -144,3 +144,8 @@ D:\Project Media Player Lite\Media Player Lite\Media Player Lite\obj\Debug\Inter
 D:\Project Media Player Lite\Media Player Lite\Media Player Lite\bin\Debug\NReco.VideoConverter.dll
 D:\Project Media Player Lite\Media Player Lite\Media Player Lite\bin\Debug\NReco.VideoConverter.xml
 D:\Project Media Player Lite\Media Player Lite\Media Player Lite\obj\Debug\Media_Player_Lite.ViewModels.ControlItemMusic.resources
+D:\Project Media Player Lite\Media Player Lite\Media Player Lite\bin\Debug\Media Player Lite.exe.manifest
+D:\Project Media Player Lite\Media Player Lite\Media Player Lite\bin\Debug\Media Player Lite.application
+D:\Project Media Player Lite\Media Player Lite\Media Player Lite\obj\Debug\Media Player Lite.exe.manifest
+D:\Project Media Player Lite\Media Player Lite\Media Player Lite\obj\Debug\Media Player Lite.application
+D:\Project Media Player Lite\Media Player Lite\Media Player Lite\bin\Debug\Images\defaultImage.jpg

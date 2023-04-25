@@ -40,35 +40,40 @@
             // 
             // lblTitle
             // 
+            this.lblTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(176, 20);
+            this.lblTitle.Location = new System.Drawing.Point(218, 21);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.lblTitle.Size = new System.Drawing.Size(547, 40);
             this.lblTitle.TabIndex = 1;
-            this.lblTitle.Text = "Hóa tương tư";
+            this.lblTitle.Text = "Title";
             // 
             // lblArtist
             // 
+            this.lblArtist.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.lblArtist.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblArtist.ForeColor = System.Drawing.Color.Silver;
-            this.lblArtist.Location = new System.Drawing.Point(176, 71);
+            this.lblArtist.Location = new System.Drawing.Point(218, 71);
             this.lblArtist.Name = "lblArtist";
             this.lblArtist.Padding = new System.Windows.Forms.Padding(22, 0, 0, 0);
             this.lblArtist.Size = new System.Drawing.Size(278, 30);
             this.lblArtist.TabIndex = 2;
-            this.lblArtist.Text = "Anh Rồng";
+            this.lblArtist.Text = "Artist";
             this.lblArtist.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // picMusic
             // 
-            this.picMusic.Dock = System.Windows.Forms.DockStyle.Left;
+            this.picMusic.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.picMusic.ForeColor = System.Drawing.Color.DarkGray;
             this.picMusic.IconChar = FontAwesome.Sharp.IconChar.CirclePlay;
             this.picMusic.IconColor = System.Drawing.Color.DarkGray;
             this.picMusic.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.picMusic.IconSize = 50;
-            this.picMusic.Location = new System.Drawing.Point(0, 0);
+            this.picMusic.Location = new System.Drawing.Point(30, 0);
             this.picMusic.Name = "picMusic";
             this.picMusic.Size = new System.Drawing.Size(50, 150);
             this.picMusic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -77,7 +82,9 @@
             // 
             // picArt
             // 
-            this.picArt.Location = new System.Drawing.Point(61, 21);
+            this.picArt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.picArt.Location = new System.Drawing.Point(103, 21);
             this.picArt.Name = "picArt";
             this.picArt.Size = new System.Drawing.Size(110, 110);
             this.picArt.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -86,14 +93,16 @@
             // 
             // lblGenre
             // 
+            this.lblGenre.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.lblGenre.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblGenre.ForeColor = System.Drawing.Color.Silver;
-            this.lblGenre.Location = new System.Drawing.Point(176, 101);
+            this.lblGenre.Location = new System.Drawing.Point(218, 101);
             this.lblGenre.Name = "lblGenre";
             this.lblGenre.Padding = new System.Windows.Forms.Padding(22, 0, 0, 0);
             this.lblGenre.Size = new System.Drawing.Size(278, 30);
             this.lblGenre.TabIndex = 6;
-            this.lblGenre.Text = "Nhạc trẻ / Remix";
+            this.lblGenre.Text = "Genre";
             this.lblGenre.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // lblDuration
@@ -104,7 +113,7 @@
             this.lblDuration.Name = "lblDuration";
             this.lblDuration.Size = new System.Drawing.Size(121, 35);
             this.lblDuration.TabIndex = 7;
-            this.lblDuration.Text = "04:02";
+            this.lblDuration.Text = "00:00";
             this.lblDuration.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ControlItemMusic

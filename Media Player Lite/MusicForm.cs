@@ -143,8 +143,7 @@ namespace Media_Player_Lite
         private ControlItemMusic CreateControl(dynamic data)
         {
             ControlItemMusic ctIM=new ControlItemMusic(data);
-            ctIM.Tag = idMuic;
-            idMuic += 1;
+            ctIM.Tag = idMuic++;
             ctIM.SendMessage = SendDataMusicEvent;
             return ctIM;
         }
@@ -158,12 +157,7 @@ namespace Media_Player_Lite
         }
         private void ActiveControlMusic(ControlItemMusic control)
         {
-            if (currentControlMusic != null)
-            {
-                currentControlMusic.BackColor = Color.Black;
-                currentControlMusic.ExchangePicMusic(false);
-            }
-            control.BackColor = Color.FromArgb(36, 36, 36);
+            if (currentControlMusic != null) currentControlMusic.ExchangePicMusic(false);   
             control.ExchangePicMusic(true);
             currentControlMusic = control;
             
@@ -188,24 +182,6 @@ namespace Media_Player_Lite
                 SendDataMusicEvent(prevItem);
                 if(pnlListMusic.VerticalScroll.Value>350) pnlListMusic.VerticalScroll.Value -= 350;//Auto Scroll
             }
-        }
-        private void CurrentItem(ListViewItem item)
-        {
-            //string pathData = item.Tag as string;
-            //string titleData = item.SubItems[colTitle.Index].Text;
-            //var picData = PicArtSong.PicData(pathData);
-            //oneMusic?.Invoke(this, new MyMusicEventArgs(pathData, titleData, picData));
-        }
-
-        private void listviewMusic_DoubleClick(object sender, EventArgs e)
-        {
-            //if (listviewMusic.SelectedItems.Count > 0)
-            //{
-            //    var item = listviewMusic.SelectedItems[0];
-            //    index = item.Index;
-            //    CurrentItem(item);
-                
-            //}
         }
         private void LoadAllProperty()
         {
