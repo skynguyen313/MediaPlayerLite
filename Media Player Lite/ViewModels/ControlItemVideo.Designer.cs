@@ -53,10 +53,10 @@
             this.lblDuration.ForeColor = System.Drawing.Color.LightGray;
             this.lblDuration.Location = new System.Drawing.Point(0, 271);
             this.lblDuration.Name = "lblDuration";
-            this.lblDuration.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
+            this.lblDuration.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.lblDuration.Size = new System.Drawing.Size(392, 29);
             this.lblDuration.TabIndex = 2;
-            this.lblDuration.Text = "label1";
+            this.lblDuration.Text = "Text";
             this.lblDuration.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // pnlTitleVideo
@@ -77,7 +77,7 @@
             this.lblTitleVideo.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.lblTitleVideo.Size = new System.Drawing.Size(400, 38);
             this.lblTitleVideo.TabIndex = 0;
-            this.lblTitleVideo.Text = "label1";
+            this.lblTitleVideo.Text = "Text";
             this.lblTitleVideo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // ControlItemVideo

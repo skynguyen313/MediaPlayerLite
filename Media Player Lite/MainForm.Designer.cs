@@ -249,7 +249,7 @@
             this.btnMenu.IconColor = System.Drawing.Color.White;
             this.btnMenu.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnMenu.IconSize = 60;
-            this.btnMenu.Location = new System.Drawing.Point(239, 0);
+            this.btnMenu.Location = new System.Drawing.Point(211, 0);
             this.btnMenu.Name = "btnMenu";
             this.btnMenu.Size = new System.Drawing.Size(60, 80);
             this.btnMenu.TabIndex = 1;

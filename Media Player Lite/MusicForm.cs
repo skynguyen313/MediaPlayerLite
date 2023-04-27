@@ -24,8 +24,8 @@ namespace Media_Player_Lite
         private List<Song> listSong;
         private List<ControlItemMusic> listControl;
         private ControlItemMusic currentControlMusic = null;
-        private static int current_IndexMusic=-1;
-        private static int idMuic = 0;
+        private int current_IndexMusic=0;
+        private int idMuic = 0;
         private readonly string fullFilePath = DirectoryPath.GetFullPath(@"DataMPLite\dataMusic.dat");
       
         public MusicForm()
@@ -51,8 +51,7 @@ namespace Media_Player_Lite
             listSong = GetListSong();
             listControl = GetListControl(listSong);
             LoadAllProperty();
-            LoadListMusic(listControl);           
-            
+            LoadListMusic(listControl);                     
         }
         private void btnAddFolder_Click(object sender, EventArgs e)
         {
@@ -101,7 +100,7 @@ namespace Media_Player_Lite
 
         private void LoadListMusic(List<ControlItemMusic> lstControl)
         {
-            current_IndexMusic = -1;
+            current_IndexMusic = 0;
             idMuic = 0;
             foreach (Control control in pnlListMusic.Controls)
             {
@@ -114,10 +113,8 @@ namespace Media_Player_Lite
                 pnl.Dock = DockStyle.Top;
                 pnl.Height = 30;  
                 pnlListMusic.Controls.Add(item);
-                pnlListMusic.Controls.Add(pnl);
-                
-            }
-            
+                pnlListMusic.Controls.Add(pnl);              
+            }          
         }
         private List<ControlItemMusic> GetListControl(List<Song> lstSong)
         {
@@ -164,7 +161,6 @@ namespace Media_Player_Lite
         }
         public void NextItem(object sender, EventArgs e)
         {
-
             if (current_IndexMusic >0)
             {
                 current_IndexMusic -= 1;
@@ -207,26 +203,21 @@ namespace Media_Player_Lite
         
         private void CmbLoadArtist(string[] arrArtist)
         {
-
             cmbGenre.Texts = "All genres";
             cmbArtist.Items.Clear();
-
             cmbArtist.Items.Add("All artist");
             cmbArtist.Items.AddRange(arrArtist);
-
         }
         private void CmbLoadGenre(string[] arrGenre)
         {
             cmbArtist.Texts = "All artist";
             cmbGenre.Items.Clear();
-
             cmbGenre.Items.Add("All genres");
             cmbGenre.Items.AddRange(arrGenre);
 
         }
         private void txtSearch__TextChanged(object sender, EventArgs e)
         {
-
             if (txtSearch.PlaceholderText != "Search")
             {
                 var result = from song in listSong
@@ -241,12 +232,10 @@ namespace Media_Player_Lite
                 txtSearch.PlaceholderText = "";
             }
         }
-
         private void txtSearch_MouseClick(object sender, MouseEventArgs e)
         {
             txtSearch.PlaceholderText = "";
         }
-
         private void cmbArtist_OnSelectedIndexChanged(object sender, EventArgs e)
         {
             if (cmbArtist.SelectedIndex != -1)
@@ -272,10 +261,8 @@ namespace Media_Player_Lite
                 }
             }
         }
-
         private void cmbGenre_OnSelectedIndexChanged(object sender, EventArgs e)
         {
-
             if (cmbGenre.SelectedIndex != -1)
             {
                 if (cmbGenre.SelectedIndex == 0)
@@ -286,7 +273,6 @@ namespace Media_Player_Lite
                 }
                 else
                 {
-
                     var resultSong = from song in tmpSong
                                      where song.Genre == cmbGenre.SelectedItem.ToString()
                                      select song;
@@ -297,8 +283,6 @@ namespace Media_Player_Lite
                                      select song.Artist).Distinct().ToArray();
                     CmbLoadArtist(arrArtist);
                 }
-
-
             }
         }
     }

@@ -26,8 +26,6 @@ namespace Media_Player_Lite
         private Panel leftBorderBtn;
         private MusicForm musicForm;
         private VideoForm videoForm;
-        private ToolsForm toolsForm;
-        private AboutForm aboutForm;
 
         //Config lib [user32.dll]
         [DllImport("user32.dll", EntryPoint = "ReleaseCapture")]
@@ -56,9 +54,15 @@ namespace Media_Player_Lite
         {
             //LoadForm
             musicForm = new MusicForm();
+            {
+                musicForm.oneMusic += LoadPlayingMusic;
+                btnNextWard.Click += new EventHandler(musicForm.NextItem);
+                btnBackWard.Click += new EventHandler(musicForm.PrevItem);
+            }
             videoForm = new VideoForm();
-            toolsForm = new ToolsForm();
-            aboutForm=new AboutForm();
+            {
+                videoForm.oneVideo += LoadPlayingVideo;
+            }
             
         }
         private void MainForm_Load(object sender, EventArgs e)
@@ -296,35 +300,31 @@ namespace Media_Player_Lite
         private void btnMusic_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, Color.FromArgb(81, 236, 193)); 
-            openChildForm(musicForm);
-            musicForm.oneMusic += LoadPlayingMusic;
-            btnNextWard.Click += new EventHandler(musicForm.NextItem);
-            btnBackWard.Click += new EventHandler(musicForm.PrevItem);
-            HideMediaPlayer();
-           
+            openChildForm(musicForm);       
+            HidenMediaPlayer();        
         }
 
         private void btnVideo_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, Color.FromArgb(81, 236, 193));
-            openChildForm(videoForm);
-            videoForm.oneVideo += LoadPlayingVideo;
-            HideMediaPlayer();
+            openChildForm(videoForm);    
+            HidenMediaPlayer();
         }
 
         private void btnTools_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, Color.FromArgb(81, 236, 193));
+            ToolsForm toolsForm=new ToolsForm();
             openChildForm(toolsForm);
             toolsForm.btnRefresh.Click += new EventHandler(LoadingForm);
-            HideMediaPlayer();
+            HidenMediaPlayer();
         }
 
         private void btnAbout_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, Color.FromArgb(81, 236, 193));
-            openChildForm(aboutForm);
-            HideMediaPlayer();
+            openChildForm(new AboutForm());
+            HidenMediaPlayer();
         }
         #endregion
 
@@ -630,8 +630,11 @@ namespace Media_Player_Lite
             // Label TitlePlayer
             lblTitlePlayer.Text = e.Title;
             SettingRunWordTitle();
-          
-           
+
+            //
+            btnBackWard.Enabled = true;
+            btnNextWard.Enabled = true;
+
         }
         private void LoadPlayingVideo(object sender, MyVideoEventArgs e)
         {
@@ -644,6 +647,10 @@ namespace Media_Player_Lite
             SettingRunWordTitle();
             btnHome.PerformClick();
 
+            //
+            btnBackWard.Enabled=false;
+            btnNextWard.Enabled=false;
+
         }
         #endregion
 
@@ -655,7 +662,7 @@ namespace Media_Player_Lite
 
 
         }
-        private void HideMediaPlayer()
+        private void HidenMediaPlayer()
         {
             if (pnlPlaying.Visible == true) pnlPlaying.Visible = false;
         }
