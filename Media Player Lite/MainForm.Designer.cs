@@ -50,7 +50,6 @@
             this.btnClose = new FontAwesome.Sharp.IconButton();
             this.pnlChidlForm = new System.Windows.Forms.Panel();
             this.pnlPlaying = new System.Windows.Forms.Panel();
-            this.wMediaPlayer = new AxWMPLib.AxWindowsMediaPlayer();
             this.pnlPlayer = new System.Windows.Forms.Panel();
             this.pnlBottomPlayer = new System.Windows.Forms.Panel();
             this.pnlSpeed = new System.Windows.Forms.Panel();
@@ -78,6 +77,10 @@
             this.pnlLefPlayer = new System.Windows.Forms.Panel();
             this.picArtPlayer = new System.Windows.Forms.PictureBox();
             this.timerPlayer = new System.Windows.Forms.Timer(this.components);
+            this.pnlCoppyright = new System.Windows.Forms.Panel();
+            this.pnlLine = new System.Windows.Forms.Panel();
+            this.lblCoppyrightBy = new System.Windows.Forms.Label();
+            this.wMediaPlayer = new AxWMPLib.AxWindowsMediaPlayer();
             this.pnlMenu.SuspendLayout();
             this.pnlLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
@@ -87,7 +90,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.picChildForm)).BeginInit();
             this.pnlChidlForm.SuspendLayout();
             this.pnlPlaying.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.wMediaPlayer)).BeginInit();
             this.pnlPlayer.SuspendLayout();
             this.pnlBottomPlayer.SuspendLayout();
             this.pnlSpeed.SuspendLayout();
@@ -97,12 +99,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.Slider)).BeginInit();
             this.pnlLefPlayer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picArtPlayer)).BeginInit();
+            this.pnlCoppyright.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.wMediaPlayer)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlMenu
             // 
             this.pnlMenu.AutoScroll = true;
             this.pnlMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(5)))), ((int)(((byte)(47)))));
+            this.pnlMenu.Controls.Add(this.pnlCoppyright);
             this.pnlMenu.Controls.Add(this.btnAbout);
             this.pnlMenu.Controls.Add(this.btnTools);
             this.pnlMenu.Controls.Add(this.btnVideo);
@@ -132,7 +137,7 @@
             this.btnAbout.Location = new System.Drawing.Point(0, 520);
             this.btnAbout.Name = "btnAbout";
             this.btnAbout.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnAbout.Size = new System.Drawing.Size(300, 80);
+            this.btnAbout.Size = new System.Drawing.Size(274, 80);
             this.btnAbout.TabIndex = 5;
             this.btnAbout.Tag = "About";
             this.btnAbout.Text = "  About";
@@ -157,7 +162,7 @@
             this.btnTools.Location = new System.Drawing.Point(0, 440);
             this.btnTools.Name = "btnTools";
             this.btnTools.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnTools.Size = new System.Drawing.Size(300, 80);
+            this.btnTools.Size = new System.Drawing.Size(274, 80);
             this.btnTools.TabIndex = 4;
             this.btnTools.Tag = "Tools";
             this.btnTools.Text = "  Tools";
@@ -182,7 +187,7 @@
             this.btnVideo.Location = new System.Drawing.Point(0, 360);
             this.btnVideo.Name = "btnVideo";
             this.btnVideo.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnVideo.Size = new System.Drawing.Size(300, 80);
+            this.btnVideo.Size = new System.Drawing.Size(274, 80);
             this.btnVideo.TabIndex = 3;
             this.btnVideo.Tag = "Video";
             this.btnVideo.Text = "  Video";
@@ -207,7 +212,7 @@
             this.btnMusic.Location = new System.Drawing.Point(0, 280);
             this.btnMusic.Name = "btnMusic";
             this.btnMusic.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnMusic.Size = new System.Drawing.Size(300, 80);
+            this.btnMusic.Size = new System.Drawing.Size(274, 80);
             this.btnMusic.TabIndex = 2;
             this.btnMusic.Tag = "Music";
             this.btnMusic.Text = "  Music";
@@ -232,7 +237,7 @@
             this.btnHome.Location = new System.Drawing.Point(0, 200);
             this.btnHome.Name = "btnHome";
             this.btnHome.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnHome.Size = new System.Drawing.Size(300, 80);
+            this.btnHome.Size = new System.Drawing.Size(274, 80);
             this.btnHome.TabIndex = 1;
             this.btnHome.Tag = "Home";
             this.btnHome.Text = "  Home";
@@ -248,7 +253,7 @@
             this.pnlLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlLogo.Location = new System.Drawing.Point(0, 0);
             this.pnlLogo.Name = "pnlLogo";
-            this.pnlLogo.Size = new System.Drawing.Size(300, 200);
+            this.pnlLogo.Size = new System.Drawing.Size(274, 200);
             this.pnlLogo.TabIndex = 0;
             this.pnlLogo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlLogo_MouseDown);
             // 
@@ -263,7 +268,7 @@
             this.btnMenu.IconColor = System.Drawing.Color.White;
             this.btnMenu.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnMenu.IconSize = 60;
-            this.btnMenu.Location = new System.Drawing.Point(240, 0);
+            this.btnMenu.Location = new System.Drawing.Point(214, 0);
             this.btnMenu.Name = "btnMenu";
             this.btnMenu.Size = new System.Drawing.Size(60, 80);
             this.btnMenu.TabIndex = 1;
@@ -438,19 +443,6 @@
             this.pnlPlaying.Name = "pnlPlaying";
             this.pnlPlaying.Size = new System.Drawing.Size(878, 564);
             this.pnlPlaying.TabIndex = 0;
-            // 
-            // wMediaPlayer
-            // 
-            this.wMediaPlayer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.wMediaPlayer.Enabled = true;
-            this.wMediaPlayer.Location = new System.Drawing.Point(-5, 1);
-            this.wMediaPlayer.Name = "wMediaPlayer";
-            this.wMediaPlayer.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("wMediaPlayer.OcxState")));
-            this.wMediaPlayer.Size = new System.Drawing.Size(878, 422);
-            this.wMediaPlayer.TabIndex = 0;
-            this.wMediaPlayer.DoubleClickEvent += new AxWMPLib._WMPOCXEvents_DoubleClickEventHandler(this.wMediaPlayer_DoubleClickEvent);
             // 
             // pnlPlayer
             // 
@@ -846,6 +838,49 @@
             this.timerPlayer.Enabled = true;
             this.timerPlayer.Tick += new System.EventHandler(this.timerPlayer_Tick);
             // 
+            // pnlCoppyright
+            // 
+            this.pnlCoppyright.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(5)))), ((int)(((byte)(47)))));
+            this.pnlCoppyright.Controls.Add(this.lblCoppyrightBy);
+            this.pnlCoppyright.Controls.Add(this.pnlLine);
+            this.pnlCoppyright.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnlCoppyright.Location = new System.Drawing.Point(0, 600);
+            this.pnlCoppyright.Name = "pnlCoppyright";
+            this.pnlCoppyright.Size = new System.Drawing.Size(274, 110);
+            this.pnlCoppyright.TabIndex = 6;
+            // 
+            // pnlLine
+            // 
+            this.pnlLine.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pnlLine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(5)))), ((int)(((byte)(47)))));
+            this.pnlLine.Location = new System.Drawing.Point(56, 77);
+            this.pnlLine.Name = "pnlLine";
+            this.pnlLine.Size = new System.Drawing.Size(150, 1);
+            this.pnlLine.TabIndex = 0;
+            // 
+            // lblCoppyrightBy
+            // 
+            this.lblCoppyrightBy.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblCoppyrightBy.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCoppyrightBy.ForeColor = System.Drawing.Color.White;
+            this.lblCoppyrightBy.Location = new System.Drawing.Point(50, 57);
+            this.lblCoppyrightBy.Name = "lblCoppyrightBy";
+            this.lblCoppyrightBy.Size = new System.Drawing.Size(162, 17);
+            this.lblCoppyrightBy.TabIndex = 1;
+            // 
+            // wMediaPlayer
+            // 
+            this.wMediaPlayer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.wMediaPlayer.Enabled = true;
+            this.wMediaPlayer.Location = new System.Drawing.Point(-5, 1);
+            this.wMediaPlayer.Name = "wMediaPlayer";
+            this.wMediaPlayer.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("wMediaPlayer.OcxState")));
+            this.wMediaPlayer.Size = new System.Drawing.Size(878, 422);
+            this.wMediaPlayer.TabIndex = 0;
+            this.wMediaPlayer.DoubleClickEvent += new AxWMPLib._WMPOCXEvents_DoubleClickEventHandler(this.wMediaPlayer_DoubleClickEvent);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -871,7 +906,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.picChildForm)).EndInit();
             this.pnlChidlForm.ResumeLayout(false);
             this.pnlPlaying.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.wMediaPlayer)).EndInit();
             this.pnlPlayer.ResumeLayout(false);
             this.pnlBottomPlayer.ResumeLayout(false);
             this.pnlSpeed.ResumeLayout(false);
@@ -881,6 +915,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.Slider)).EndInit();
             this.pnlLefPlayer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picArtPlayer)).EndInit();
+            this.pnlCoppyright.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.wMediaPlayer)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -935,6 +971,9 @@
         private System.Windows.Forms.Button btnSpeed5;
         private System.Windows.Forms.Label lblSpeed;
         private System.Windows.Forms.Button btnSpeed1;
+        private System.Windows.Forms.Panel pnlCoppyright;
+        private System.Windows.Forms.Label lblCoppyrightBy;
+        private System.Windows.Forms.Panel pnlLine;
     }
 }
 

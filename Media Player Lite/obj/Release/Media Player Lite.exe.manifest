@@ -90,14 +90,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Media Player Lite.exe" size="153536">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Media Player Lite.exe" size="159168">
       <assemblyIdentity name="Media Player Lite" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>zcjzMcBqrmLT7LWB1t/VHSK5Yf3amLev6tgYo7ybeEU=</dsig:DigestValue>
+        <dsig:DigestValue>LQfGfO8p0PhWKN7SO+rTTkG5NdzYl3H1liVSvRQbXes=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

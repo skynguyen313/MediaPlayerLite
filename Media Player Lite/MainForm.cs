@@ -2,6 +2,7 @@
 using FontAwesome.Sharp;
 using Media_Player_Lite.Models;
 using Media_Player_Lite.MyLib;
+using Media_Player_Lite.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -96,9 +97,14 @@ namespace Media_Player_Lite
             btnTmp = btnSpeed3;
             //
             StatusPlaying();
-
-            
+            SignAuthor();        
         } 
+        private void SignAuthor()
+        {
+            lblCoppyrightBy.Text= Properties.Settings.Default.coppyright;
+            lblCoppyrightBy.Font = new Font(lblCoppyrightBy.Font.FontFamily, lblCoppyrightBy.Font.Size, FontStyle.Italic);
+            pnlLine.BackColor= Color.White;
+        }
         private void MainForm_Resize(object sender, EventArgs e)
         {
             AdjustForm();
@@ -162,6 +168,7 @@ namespace Media_Player_Lite
                 pnlMenu.Width = 100;
                 picLogo.Visible = false;
                 btnMenu.Dock = DockStyle.Top;
+                pnlCoppyright.Visible = false;
                 foreach (System.Windows.Forms.Button menuButton in pnlMenu.Controls.OfType<System.Windows.Forms.Button>())
                 {
                     menuButton.Text = "";
@@ -175,6 +182,7 @@ namespace Media_Player_Lite
                 pnlMenu.Width = 300;
                 picLogo.Visible = true;
                 btnMenu.Dock = DockStyle.None;
+                pnlCoppyright.Visible = true;
                 foreach (System.Windows.Forms.Button menuButton in pnlMenu.Controls.OfType<System.Windows.Forms.Button>())
                 {
                     menuButton.Text = "  " + menuButton.Tag.ToString();
