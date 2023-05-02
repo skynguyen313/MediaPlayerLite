@@ -55,7 +55,6 @@ namespace Media_Player_Lite.ViewModels
         }
         private void ControlItemMusic_Load(object sender, EventArgs e)
         {
-
             LoadProperty();
             AddEvent();         
         }

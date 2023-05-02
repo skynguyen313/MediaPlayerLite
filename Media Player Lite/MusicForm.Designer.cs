@@ -34,9 +34,7 @@
             this.cmbGenre = new LW_PhanMemBaoGia.MyControls.ComboBoxT();
             this.cmbArtist = new LW_PhanMemBaoGia.MyControls.ComboBoxT();
             this.pnlListMusic = new System.Windows.Forms.Panel();
-            this.pnlSpace = new System.Windows.Forms.Panel();
             this.pnlTitleMusic.SuspendLayout();
-            this.pnlListMusic.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlTitleMusic
@@ -143,20 +141,11 @@
             // 
             // pnlListMusic
             // 
-            this.pnlListMusic.Controls.Add(this.pnlSpace);
             this.pnlListMusic.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlListMusic.Location = new System.Drawing.Point(0, 150);
             this.pnlListMusic.Name = "pnlListMusic";
             this.pnlListMusic.Size = new System.Drawing.Size(1108, 358);
             this.pnlListMusic.TabIndex = 5;
-            // 
-            // pnlSpace
-            // 
-            this.pnlSpace.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlSpace.Location = new System.Drawing.Point(0, 208);
-            this.pnlSpace.Name = "pnlSpace";
-            this.pnlSpace.Size = new System.Drawing.Size(1108, 150);
-            this.pnlSpace.TabIndex = 0;
             // 
             // MusicForm
             // 
@@ -172,7 +161,6 @@
             this.Load += new System.EventHandler(this.MusicForm_Load);
             this.pnlTitleMusic.ResumeLayout(false);
             this.pnlTitleMusic.PerformLayout();
-            this.pnlListMusic.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -184,6 +172,5 @@
         private LW_PhanMemBaoGia.MyControls.ComboBoxT cmbGenre;
         private FontAwesome.Sharp.IconButton btnAddFolder;
         private LW_PhanMemBaoGia.MyControls.TextBoxT txtSearch;
-        private System.Windows.Forms.Panel pnlSpace;
     }
 }

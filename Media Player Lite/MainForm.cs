@@ -22,16 +22,25 @@ namespace Media_Player_Lite
 {
     public partial class MainForm : Form
     {
-        //Fields 
-        private Panel leftBorderBtn;
+        //Field
+        private Form activeForm = null;
         private MusicForm musicForm;
         private VideoForm videoForm;
+        private IconButton currentBtn;
+        private Panel leftBorderBtn;
+        private int boderSize = 2;
+        private enum RepeatMusic { Repeat_Off, Repeat_One, Repeat_All }
+        private RepeatMusic repeatMusic;
 
+        #region System 
         //Config lib [user32.dll]
         [DllImport("user32.dll", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
         [DllImport("user32.dll", EntryPoint = "SendMessage")]
         private extern static void SendMessage(IntPtr hWnd, int wMsg, int wParam, int lParam);
+        #endregion
+
+        #region MainForm   
         public MainForm()
         {
             InitializeComponent();
@@ -62,17 +71,16 @@ namespace Media_Player_Lite
             videoForm = new VideoForm();
             {
                 videoForm.oneVideo += LoadPlayingVideo;
-            }
-            
+            }  
         }
         private void MainForm_Load(object sender, EventArgs e)
         {
             btnHome.PerformClick();
+            btnRepeat.PerformClick();
 
             //Load MediaPlayer-UI
             wMediaPlayer.uiMode = "none";
-            
-
+         
             //LblTiTle Player
             lblTitlePlayer.Left = lblTitlePlayer.Width;
             lblTitlePlayer.AutoSize = true;
@@ -83,10 +91,63 @@ namespace Media_Player_Lite
 
             //
             StatusPlaying();
+        } 
+        private void MainForm_Resize(object sender, EventArgs e)
+        {
+            AdjustForm();
+        }
+        private void AdjustForm()
+        {
+            switch (this.WindowState)
+            {
+                case FormWindowState.Maximized:
+                    this.Padding = new Padding(8, 8, 8, 0);
 
+                    break;
+                case FormWindowState.Normal:
+                    if (this.Padding.Top != boderSize)
+                        this.Padding = new Padding(boderSize);
+
+                    break;
+            }
+        }
+        #endregion    
+
+        #region Window
+        private void pnlTitle_MouseDown(object sender, MouseEventArgs e) => MoveWindow();
+        private void lblTitleChildForm_MouseDown(object sender, MouseEventArgs e) => MoveWindow();
+        private void pnlLogo_MouseDown(object sender, MouseEventArgs e) => MoveWindow();
+        private void picChildForm_MouseDown(object sender, MouseEventArgs e) => MoveWindow();
+        private void picLogo_MouseDown(object sender, MouseEventArgs e)=>MoveWindow();
+        private void MoveWindow()
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
-        #region Custome Menu
+        #region Close-Maximize-Minimize
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btnMaximize_Click(object sender, EventArgs e)
+        {
+            if (WindowState == FormWindowState.Normal)
+                this.WindowState = FormWindowState.Maximized;
+            else
+                this.WindowState = FormWindowState.Normal;
+        }
+
+        private void btnMinimize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+        #endregion
+
+        #endregion
+
+        #region LeftMenu
         private void CollapseMenu()
         {
             if (this.pnlMenu.Width >= 300)
@@ -102,7 +163,7 @@ namespace Media_Player_Lite
                 }
             }
             else
-            { 
+            {
                 //Expand menu
                 pnlMenu.Width = 300;
                 picLogo.Visible = true;
@@ -115,11 +176,52 @@ namespace Media_Player_Lite
                 }
             }
         }
+
+        #region Sub Menu
+        private void btnMenu_Click(object sender, EventArgs e)
+        {
+            CollapseMenu();
+        }
+
+        private void btnHome_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, Color.FromArgb(81, 236, 193));
+            ShowMediaPlayer();
+        }
+
+        private void btnMusic_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, Color.FromArgb(81, 236, 193));
+            openChildForm(musicForm);
+            HidenMediaPlayer();
+        }
+
+        private void btnVideo_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, Color.FromArgb(81, 236, 193));
+            openChildForm(videoForm);
+            HidenMediaPlayer();
+        }
+
+        private void btnTools_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, Color.FromArgb(81, 236, 193));
+            ToolsForm toolsForm = new ToolsForm();
+            openChildForm(toolsForm);
+            toolsForm.btnRefresh.Click += new EventHandler(LoadingForm);
+            HidenMediaPlayer();
+        }
+
+        private void btnAbout_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, Color.FromArgb(81, 236, 193));
+            openChildForm(new AboutForm());
+            HidenMediaPlayer();
+        }
         #endregion
 
         #region Custom Button
-        //Method
-        private IconButton currentBtn;
+       
         //Active Button
         private void ActivateButton(object senderBtn, Color color)
         {
@@ -139,6 +241,7 @@ namespace Media_Player_Lite
                 leftBorderBtn.Location = new Point(0, currentBtn.Location.Y);
                 leftBorderBtn.Visible = true;
                 leftBorderBtn.BringToFront();
+                
 
                 //Current Child Form Icon
                 picChildForm.IconChar = currentBtn.IconChar;
@@ -164,39 +267,6 @@ namespace Media_Player_Lite
 
         #endregion
 
-        #region Close-Maximize-Minimize
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void btnMaximize_Click(object sender, EventArgs e)
-        {
-            if (WindowState == FormWindowState.Normal)
-                this.WindowState = FormWindowState.Maximized;
-            else
-                this.WindowState = FormWindowState.Normal;
-        }
-
-        private void btnMinimize_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
-        #endregion
-
-        #region Move Window
-
-
-        private void pnlTitle_MouseDown(object sender, MouseEventArgs e) => MoveWindow();
-        private void lblTitleChildForm_MouseDown(object sender, MouseEventArgs e) => MoveWindow();
-        private void pnlLogo_MouseDown(object sender, MouseEventArgs e) => MoveWindow();
-        private void picChildForm_MouseDown(object sender, MouseEventArgs e) => MoveWindow();
-        private void picLogo_MouseDown(object sender, MouseEventArgs e)=>MoveWindow();
-        private void MoveWindow()
-        {
-            ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0);
-        }
         #endregion
 
         #region Method  
@@ -261,75 +331,7 @@ namespace Media_Player_Lite
         }
         #endregion
 
-        #region Form Boder
-        private int boderSize = 2;
-        private void MainForm_Resize(object sender, EventArgs e)
-        {
-            AdjustForm();
-        }
-        private void AdjustForm()
-        {
-            switch (this.WindowState)
-            {
-                case FormWindowState.Maximized:
-                    this.Padding = new Padding(8, 8, 8, 0);
-                    
-                    break;
-                case FormWindowState.Normal:
-                    if (this.Padding.Top != boderSize)
-                        this.Padding = new Padding(boderSize);
-                    
-                    break;
-            }
-        }
-
-        #endregion
-
-        #region Sub Menu
-        private void btnMenu_Click(object sender, EventArgs e)
-        {
-            CollapseMenu();
-        }
-
-        private void btnHome_Click(object sender, EventArgs e)
-        {
-            ActivateButton(sender, Color.FromArgb(81, 236, 193));
-            ShowMediaPlayer();  
-        }
-
-        private void btnMusic_Click(object sender, EventArgs e)
-        {
-            ActivateButton(sender, Color.FromArgb(81, 236, 193)); 
-            openChildForm(musicForm);       
-            HidenMediaPlayer();        
-        }
-
-        private void btnVideo_Click(object sender, EventArgs e)
-        {
-            ActivateButton(sender, Color.FromArgb(81, 236, 193));
-            openChildForm(videoForm);    
-            HidenMediaPlayer();
-        }
-
-        private void btnTools_Click(object sender, EventArgs e)
-        {
-            ActivateButton(sender, Color.FromArgb(81, 236, 193));
-            ToolsForm toolsForm=new ToolsForm();
-            openChildForm(toolsForm);
-            toolsForm.btnRefresh.Click += new EventHandler(LoadingForm);
-            HidenMediaPlayer();
-        }
-
-        private void btnAbout_Click(object sender, EventArgs e)
-        {
-            ActivateButton(sender, Color.FromArgb(81, 236, 193));
-            openChildForm(new AboutForm());
-            HidenMediaPlayer();
-        }
-        #endregion
-
-        #region Current ChildForm
-        private Form activeForm = null;
+        #region Current ChildForm   
         private void openChildForm(Form childForm)
         {
             if (activeForm != null)
@@ -345,8 +347,241 @@ namespace Media_Player_Lite
             pnlChidlForm.Text = childForm.Text;
               
         }
+        #endregion  
+
+        #region Playing
+        private void ShowMediaPlayer()
+        {
+            if (pnlPlaying.Visible == false) pnlPlaying.Visible = true;
+            if (activeForm != null) activeForm.Visible = false;
+        }
+        private void HidenMediaPlayer()
+        {
+            if (pnlPlaying.Visible == true) pnlPlaying.Visible = false;
+        }
+        private void LoadPlayingMusic(object sender, MyMusicEventArgs e)
+        {
+            wMediaPlayer.URL= e.Path;// Config URL
+            wMediaPlayer.Ctlcontrols.play();// Start wMeidaPlayer
+            StatusPlaying();
+            btnPause();// Showbutton Play/Pause
+
+            // Label TitlePlayer
+            lblTitlePlayer.Text = e.Title;
+            SettingRunWordTitle();
+
+            //
+            
+        }
+        private void LoadPlayingVideo(object sender, MyVideoEventArgs e)
+        {
+            wMediaPlayer.URL = e.Path;// Config URL
+            wMediaPlayer.Ctlcontrols.play();// Start wMeidaPlayer
+            StatusPlaying();
+            btnPause();// Showbutton Play/Pause
+            // Label TitlePlayer
+            lblTitlePlayer.Text = e.Title;
+            SettingRunWordTitle();
+            btnHome.PerformClick();
+
+        }
         #endregion
-  
+
+        #region MediaPlayer  
+        private void btnPlay()
+        {
+            this.btnPlayPause.IconChar = FontAwesome.Sharp.IconChar.CirclePlay;
+            btnPlayPause.Tag = "Play";
+        }
+        private void btnPause()
+        {
+            this.btnPlayPause.IconChar = FontAwesome.Sharp.IconChar.CirclePause;
+            btnPlayPause.Tag = "Pause";
+        }
+        private void StatusPlaying()
+        {
+            if (!String.IsNullOrEmpty(wMediaPlayer.URL))
+            {
+                Slider.Enabled = true;
+                if (btnPlayPause.Tag.ToString() == "Play")
+                {
+                    wMediaPlayer.Ctlcontrols.play();
+                    btnPause();
+                }
+                else
+                {
+                    wMediaPlayer.Ctlcontrols.pause();
+                    btnPlay();
+
+                }
+            }
+            else
+            {
+                Slider.Enabled = false;
+            }
+        }
+        private void btnPlayPause_Click(object sender, EventArgs e)
+        {
+            StatusPlaying();
+        }
+        private void btnfullScreen_Click(object sender, EventArgs e)
+        {
+            if(!String.IsNullOrEmpty(wMediaPlayer.URL)) 
+                wMediaPlayer.fullScreen = true;
+
+        }
+        private void btnProperty_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void btnRepeat_Click(object sender, EventArgs e)
+        {
+            if (btnRepeat.IconChar == FontAwesome.Sharp.IconChar.Repeat)
+            {
+                this.btnRepeat.IconChar = FontAwesome.Sharp.IconChar.Rendact;
+                repeatMusic = RepeatMusic.Repeat_Off;
+            }
+            else if (btnRepeat.IconChar == FontAwesome.Sharp.IconChar.Rendact)
+            {
+                this.btnRepeat.IconChar = FontAwesome.Sharp.IconChar.Renren;
+                repeatMusic = RepeatMusic.Repeat_One;
+            }
+            else if (btnRepeat.IconChar == FontAwesome.Sharp.IconChar.Renren)
+            {
+                this.btnRepeat.IconChar = FontAwesome.Sharp.IconChar.Repeat;
+                repeatMusic = RepeatMusic.Repeat_All;
+            }
+        }
+        private void wMediaPlayer_DoubleClickEvent(object sender, _WMPOCXEvents_DoubleClickEvent e)
+        {
+            if (wMediaPlayer.fullScreen == false)
+                wMediaPlayer.fullScreen = true;
+            else
+                wMediaPlayer.fullScreen = false;
+        }
+
+        #region Volume
+
+        float Default_valueV = 100, MinV = 0.0f, MaxV = 100;
+        public float BarV(float value)
+        {
+            return (SliderVolume.Width - 24) * (value - MinV) / (float)(MaxV - MinV);
+        }
+        public float SliderVolume_width(int x)
+        {
+            return MinV + (MaxV - MinV) * x / (float)(SliderVolume.Width);
+        }
+        public void thumbV(float value)//thay doi gia tri khi gia tri cua Slider thay doi
+        {
+            if (value < MinV)
+                value = MinV;
+            if (value > MaxV) value = MaxV;
+            Default_valueV = value;
+            SliderVolume.Refresh();
+        }
+
+        bool mouseV = false;
+
+        private void SliderVolume_MouseDown(object sender, MouseEventArgs e)
+        {
+            mouseV = true;
+            thumbV(SliderVolume_width(e.X));
+            int index = Convert.ToInt32(Default_valueV);
+            wMediaPlayer.settings.volume = index;
+            lblIndexVolume.Text = String.Format("{0}%", index.ToString());
+            ChangeIconVolume(index);
+        }
+        private void ChangeIconVolume(int index)
+        {
+            if (index == 0)
+            {
+                this.btnVolume.IconChar = FontAwesome.Sharp.IconChar.VolumeMute;
+                this.btnVolume.IconSize = 36;
+
+            }
+
+            else
+            {
+                this.btnVolume.IconChar = FontAwesome.Sharp.IconChar.VolumeHigh;
+                this.btnVolume.IconSize = 40;
+
+            }
+        }
+        private void SliderVolume_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (!mouseV) return;
+            thumbV(SliderVolume_width(e.X));
+            int index = Convert.ToInt32(Default_valueV);
+            wMediaPlayer.settings.volume = index;
+            lblIndexVolume.Text = String.Format("{0}%", index.ToString());
+            ChangeIconVolume(index);
+        }
+
+        private void SliderVolume_MouseUp(object sender, MouseEventArgs e)
+        {
+            mouseV = false;
+        }
+        private void SliderVolume_Paint(object sender, PaintEventArgs e)
+        {
+            float bar_size = 0.4f;
+            float x = BarV(Default_valueV);
+            int y = (int)(SliderVolume.Height * bar_size);
+            e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
+            e.Graphics.FillRectangle(Brushes.DimGray, 0, y, SliderVolume.Width, y / 2);
+
+            //hanh trinh
+            e.Graphics.FillRectangle(Brushes.Cyan, 0, y, x, SliderVolume.Height - 2 * y);
+            using (Pen pen = new Pen(Brushes.DimGray, 10))//Vong ngoai
+            {
+                e.Graphics.DrawEllipse(pen, x + 4, y - 6, SliderVolume.Height / 2, SliderVolume.Height / 2);
+                e.Graphics.FillEllipse(Brushes.Cyan, x + 4, y - 6, SliderVolume.Height / 2, SliderVolume.Height / 2);//Cham tron trung tam
+            }
+            using (Pen pen = new Pen(Brushes.DimGray, 5))
+            {
+                e.Graphics.DrawEllipse(pen, x + 4, y - 6, SliderVolume.Height / 2, SliderVolume.Height / 2);//Vong giua
+            }
+        }
+        private void HidenPanelVolume()
+        {
+            if (pnlVolume.Visible == true)
+                pnlVolume.Visible = false;
+        }
+        private void ShowPanelVolume()
+        {
+            if (pnlVolume.Visible == false)
+                pnlVolume.Visible = true;
+            else
+                HidenPanelVolume();
+        }
+        private void btnVolume_Click(object sender, EventArgs e)
+        {
+            ShowPanelVolume();
+        }
+        private void panel_MouseDown(object sender, MouseEventArgs e) => HidenPanelVolume();
+        private void button_Click(object sender, EventArgs e) => HidenPanelVolume();
+        List<Panel> panels;
+        List<IconButton> buttons;
+        List<PictureBox> pictureBoxes;
+        List<Label> labels;
+        private void AddEvent()
+        {
+            panels = new List<Panel>() { pnlTopPlayer, pnlBottomPlayer, pnlLefPlayer, pnlPlayer, pnlPlaying, pnlRightPlayer, pnlMenu, pnlTitle, pnlLogo };
+            buttons = new List<IconButton>() {btnMenu,btnHome,btnMusic,btnVideo,btnTools,btnAbout,
+            btnPlayPause,btnBackWard,btnNextWard,btnfullScreen};
+            pictureBoxes = new List<PictureBox>() { picArtPlayer, picLogo, Slider };
+            labels = new List<Label>() { lblTitlePlayer, lblTimeStart, lblTimeEnd, lblIndexVolume, lblTitleChildForm };
+
+
+            panels.ForEach(item => item.MouseDown += new MouseEventHandler(panel_MouseDown));
+            buttons.ForEach(item => item.Click += new EventHandler(button_Click));
+            pictureBoxes.ForEach(item => item.Click += new EventHandler(button_Click));
+            labels.ForEach(item => item.Click += new EventHandler(button_Click));
+
+            Slider.MouseDown += new MouseEventHandler(panel_MouseDown);
+
+        }
+        #endregion
+
         #region SliderBar
         float Default_value = 0.0f, Min = 0.0f, Max = 1.0f;
         public float Bar(float value)
@@ -415,9 +650,8 @@ namespace Media_Player_Lite
         }
         private void timerPlayer_Tick(object sender, EventArgs e)
         {
-            if(wMediaPlayer.playState==WMPLib.WMPPlayState.wmppsPlaying)
+            if (wMediaPlayer.playState == WMPLib.WMPPlayState.wmppsPlaying)
             {
-                
                 Max = (int)wMediaPlayer.Ctlcontrols.currentItem.duration;
                 Default_value = (int)wMediaPlayer.Ctlcontrols.currentPosition;
                 Slider.Invalidate();
@@ -427,11 +661,28 @@ namespace Media_Player_Lite
                 //Lable Title
                 RunWordTiTle();
             }
+            else if (wMediaPlayer.playState == WMPLib.WMPPlayState.wmppsStopped)
+            {
+
+                switch (repeatMusic)
+                {
+                    case RepeatMusic.Repeat_All:
+                        btnNextWard.PerformClick();
+                        break;
+                    case RepeatMusic.Repeat_One:
+                        btnPlayPause.PerformClick();
+                        break;
+                    case RepeatMusic.Repeat_Off:
+                        btnPlay();
+                        break;
+                }
+
+            }
         }
         private void RunWordTiTle()
         {
-              
-            if (lblTitlePlayer.Text.Length>=40)
+
+            if (lblTitlePlayer.Text.Length >= 40)
             {
                 lblTitlePlayer.Left -= 3;
                 if (lblTitlePlayer.Left + lblTitlePlayer.Width < 0)
@@ -439,12 +690,12 @@ namespace Media_Player_Lite
                     lblTitlePlayer.Left = pnlTitlePlayer.Width;
                 }
             }
-            
+
         }
         private void SettingRunWordTitle()
         {
             lblTitlePlayer.AutoSize = true;
-            lblTitlePlayer.Dock = DockStyle.None;   
+            lblTitlePlayer.Dock = DockStyle.None;
             if (lblTitlePlayer.Text.Length < 40)
             {
                 lblTitlePlayer.AutoSize = false;
@@ -452,239 +703,11 @@ namespace Media_Player_Lite
                 lblTitlePlayer.Dock = DockStyle.Fill;
             }
 
-            
-        }
-        #endregion
-
-        #region Volume
-
-        float Default_valueV = 100, MinV = 0.0f, MaxV = 100;
-        public float BarV(float value)
-        {
-            return (SliderVolume.Width - 24) * (value - MinV) / (float)(MaxV - MinV);
-        }
-        public float SliderVolume_width(int x)
-        {
-            return MinV + (MaxV - MinV) * x / (float)(SliderVolume.Width);
-        }
-        public void thumbV(float value)//thay doi gia tri khi gia tri cua Slider thay doi
-        {
-            if (value < MinV)
-                value = MinV;
-            if (value > MaxV) value = MaxV;
-            Default_valueV = value;
-            SliderVolume.Refresh();
-        }
-
-        bool mouseV = false;
-       
-        private void SliderVolume_MouseDown(object sender, MouseEventArgs e)
-        {
-            mouseV = true;
-            thumbV(SliderVolume_width(e.X));
-            int index = Convert.ToInt32(Default_valueV);
-            wMediaPlayer.settings.volume =index;
-            lblIndexVolume.Text = String.Format("{0}%", index.ToString());
-            ChangeIconVolume(index);
-        }
-        private void ChangeIconVolume(int index)
-        {
-            if (index == 0)
-            {
-                this.btnVolume.IconChar = FontAwesome.Sharp.IconChar.VolumeMute;
-                this.btnVolume.IconSize = 36;
-
-            }
-
-            else
-            {
-                this.btnVolume.IconChar = FontAwesome.Sharp.IconChar.VolumeHigh;
-                this.btnVolume.IconSize = 40;
-
-            }
-        }
-        private void SliderVolume_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (!mouseV) return;
-            thumbV(SliderVolume_width(e.X));
-            int index = Convert.ToInt32(Default_valueV);
-            wMediaPlayer.settings.volume = index;
-            lblIndexVolume.Text = String.Format("{0}%",index.ToString());
-            ChangeIconVolume(index);
-        }
-
-        private void SliderVolume_MouseUp(object sender, MouseEventArgs e)
-        {
-            mouseV=false;  
-        } 
-        private void SliderVolume_Paint(object sender, PaintEventArgs e)
-        {
-            float bar_size = 0.4f;
-            float x = BarV(Default_valueV);
-            int y = (int)(SliderVolume.Height * bar_size);
-            e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
-            e.Graphics.FillRectangle(Brushes.DimGray, 0, y, SliderVolume.Width, y / 2);
-
-            //hanh trinh
-            e.Graphics.FillRectangle(Brushes.Cyan, 0, y, x, SliderVolume.Height - 2 * y);
-            using (Pen pen = new Pen(Brushes.DimGray, 10))//Vong ngoai
-            {
-                e.Graphics.DrawEllipse(pen, x +4, y - 6, SliderVolume.Height / 2, SliderVolume.Height / 2);
-                e.Graphics.FillEllipse(Brushes.Cyan, x + 4, y - 6, SliderVolume.Height / 2, SliderVolume.Height / 2);//Cham tron trung tam
-            }
-            using (Pen pen = new Pen(Brushes.DimGray, 5))
-            {
-                e.Graphics.DrawEllipse(pen, x + 4, y - 6, SliderVolume.Height / 2, SliderVolume.Height / 2);//Vong giua
-            }
-        }
-        #region Support->Volume
-        #region Show/Hiden PanelVolume
-        private void HidenPanelVolume()
-        {
-            if (pnlVolume.Visible == true)
-                pnlVolume.Visible = false;
-        }
-        private void ShowPanelVolume()
-        {
-            if (pnlVolume.Visible == false)
-                pnlVolume.Visible = true;
-            else
-                HidenPanelVolume();
-        }
-        private void btnVolume_Click(object sender, EventArgs e)
-        {
-            ShowPanelVolume();
-        }
-        private void panel_MouseDown(object sender, MouseEventArgs e) => HidenPanelVolume();
-        private void button_Click(object sender, EventArgs e) => HidenPanelVolume();
-        List<Panel> panels;
-        List<IconButton> buttons;
-        List<PictureBox> pictureBoxes;
-        List<Label> labels;
-        private void AddEvent()
-        {
-            panels = new List<Panel>() { pnlTopPlayer,pnlBottomPlayer,pnlLefPlayer,pnlPlayer,pnlPlaying,pnlRightPlayer,pnlMenu,pnlTitle,pnlLogo};
-            buttons = new List<IconButton>() {btnMenu,btnHome,btnMusic,btnVideo,btnTools,btnAbout,
-            btnPlayPause,btnBackWard,btnNextWard,btnfullScreen};
-            pictureBoxes=new List<PictureBox>() {picArtPlayer,picLogo,Slider};
-            labels = new List<Label>() { lblTitlePlayer,lblTimeStart,lblTimeEnd,lblIndexVolume,lblTitleChildForm};
-            
-
-            panels.ForEach(item => item.MouseDown += new MouseEventHandler(panel_MouseDown));
-            buttons.ForEach(item => item.Click += new EventHandler(button_Click));
-            pictureBoxes.ForEach(item => item.Click += new EventHandler(button_Click));
-            labels.ForEach(item => item.Click += new EventHandler(button_Click));
-            
-            Slider.MouseDown += new MouseEventHandler(panel_MouseDown);
-            
-        }
-        #endregion
-        #endregion
-        #endregion
-
-        #region Player
-        private void btnPlay()
-        {
-            this.btnPlayPause.IconChar = FontAwesome.Sharp.IconChar.CirclePlay;
-            btnPlayPause.Tag = "Play";
-        }
-        private void btnPause()
-        {
-            this.btnPlayPause.IconChar = FontAwesome.Sharp.IconChar.CirclePause;
-            btnPlayPause.Tag = "Pause";
-        }
-        private void StatusPlaying()
-        {
-            if (!String.IsNullOrEmpty(wMediaPlayer.URL))
-            {
-                Slider.Enabled = true;
-                if (btnPlayPause.Tag.ToString() == "Play")
-                {
-                    wMediaPlayer.Ctlcontrols.play();
-                    btnPause();
-                }
-                else
-                {
-                    wMediaPlayer.Ctlcontrols.pause();
-                    btnPlay();
-
-                }
-            }
-            else
-            {
-                Slider.Enabled=false;
-            }
-        }
-        private void btnPlayPause_Click(object sender, EventArgs e)
-        {
-            StatusPlaying();      
-        }
-          
-        private void LoadPlayingMusic(object sender, MyMusicEventArgs e)
-        {
-            wMediaPlayer.URL= e.Path;// Config URL
-            wMediaPlayer.Ctlcontrols.play();// Start wMeidaPlayer
-            StatusPlaying();
-            btnPause();// Showbutton Play/Pause
-
-            // Label TitlePlayer
-            lblTitlePlayer.Text = e.Title;
-            SettingRunWordTitle();
-
-            //
-            btnBackWard.Enabled = true;
-            btnNextWard.Enabled = true;
-
-        }
-        private void LoadPlayingVideo(object sender, MyVideoEventArgs e)
-        {
-            wMediaPlayer.URL = e.Path;// Config URL
-            wMediaPlayer.Ctlcontrols.play();// Start wMeidaPlayer
-            StatusPlaying();
-            btnPause();// Showbutton Play/Pause
-            // Label TitlePlayer
-            lblTitlePlayer.Text = e.Title;
-            SettingRunWordTitle();
-            btnHome.PerformClick();
-
-            //
-            btnBackWard.Enabled=false;
-            btnNextWard.Enabled=false;
 
         }
         #endregion
 
-        #region MediaPlayer
-        private void ShowMediaPlayer()
-        {
-            if (pnlPlaying.Visible == false) pnlPlaying.Visible = true;
-            if (activeForm != null) activeForm.Visible = false;
-
-
-        }
-        private void HidenMediaPlayer()
-        {
-            if (pnlPlaying.Visible == true) pnlPlaying.Visible = false;
-        }
-        private void btnfullScreen_Click(object sender, EventArgs e)
-        {
-            if(!String.IsNullOrEmpty(wMediaPlayer.URL)) 
-                wMediaPlayer.fullScreen = true;
-
-        }
-        private void btnProperty_Click(object sender, EventArgs e)
-        {
-
-        }
-        private void wMediaPlayer_DoubleClickEvent(object sender, _WMPOCXEvents_DoubleClickEvent e)
-        {
-            if (wMediaPlayer.fullScreen == false)
-                wMediaPlayer.fullScreen = true;
-            else
-                wMediaPlayer.fullScreen = false;
-        }
         #endregion
-
 
     }
 }

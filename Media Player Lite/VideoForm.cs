@@ -18,11 +18,18 @@ namespace Media_Player_Lite
     {
         public event EventHandler<MyVideoEventArgs> oneVideo;
         private readonly string fullFilePath = DirectoryPath.GetFullPath(@"DataMPLite\dataVideo.dat");
-        
+        private int idVideo = 0;
+        private ControlItemVideo currentControlVideo = null;
         private List<Video> listVideo;
+        private List<ControlItemVideo> listControl;
         public VideoForm()
         {
-            InitializeComponent();
+            InitializeComponent();    
+            fpnlListItemVideo.FlowDirection = FlowDirection.LeftToRight;
+            fpnlListItemVideo.AutoScroll = true;
+        }
+        private void VideoForm_Load(object sender, EventArgs e)
+        {
             string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), @"DataMPLite\dataVideo.dat");
             string directoryPath = Path.GetDirectoryName(path);
             if (!Directory.Exists(directoryPath))
@@ -33,13 +40,9 @@ namespace Media_Player_Lite
             {
                 File.Create(path).Close();
             }
-            fpnlListItemVideo.FlowDirection = FlowDirection.LeftToRight;
-            fpnlListItemVideo.AutoScroll = true;
-        }
-        private void VideoForm_Load(object sender, EventArgs e)
-        {
             listVideo =GetListVideo();
-            LoadListVideo(listVideo);
+            listControl = GetListControl(listVideo);
+            LoadListControlVideo(listControl);
         }
         private List<Video> GetListVideo()
         {
@@ -57,7 +60,7 @@ namespace Media_Player_Lite
                         if (extension == ".mp4" || extension == ".wmv" || extension == ".mov" || extension == ".flv" || extension == ".avi")
                         {
                             var videoInfo = new VideoInfomation(file);
-                            var video = new Video(videoInfo.Title(), videoInfo.Duration(),videoInfo.GetPath());
+                            var video = new Video(videoInfo.Title(), videoInfo.Duration(),videoInfo.GetPath(),ImageVideo.DataImage(file));
                             lst.Add(video);
                         }
                     }
@@ -72,26 +75,58 @@ namespace Media_Player_Lite
             File.WriteAllLines(fullFilePath, contents);
             return lst;
         }
-        private void LoadListVideo(List<Video> lstV)
+        private List<ControlItemVideo> GetListControl(List<Video> lstVideo)
         {
-            lstV.ForEach(v =>
+            var lstControl = new List<ControlItemVideo>();
+            foreach(var video in lstVideo)
             {
-                
-                AddItemVideo(v.Path,v.Title, v.Duration,ImageVideo.DataImage(v.Path));
-                           
-            });
+                var info = new
+                {
+                    Title=video.Title,
+                    Duration=video.Duration,
+                    Path=video.Path,
+                    PicArt=video.PicArt
+                };
+                var ct = CreateControl(info);
+                lstControl.Add(ct);
+            }
+            return lstControl;
         }
-        private void AddItemVideo(string path,string title,string duration, byte[] data_image)
+        private void LoadListControlVideo(List<ControlItemVideo> lstControl)
         {
-            ControlItemVideo ct_IV = new ControlItemVideo(path,title,duration, data_image);
-            fpnlListItemVideo.Controls.Add(ct_IV);
-            ct_IV.SendMessage = SendDataVideoEvent;
+            idVideo = 0;
+            foreach (Control control in pnlTitleVideo.Controls)
+            {
+                control.Dispose();
+            }
+            pnlTitleVideo.Controls.Clear();
+            foreach (var item in lstControl)
+            {
+                fpnlListItemVideo.Controls.Add(item);
+            }
+            fpnlListItemVideo.Controls.Add(new Panel() { Width = fpnlListItemVideo.Width, Height = 150 });
         }
-        private void SendDataVideoEvent(string path,string title)
+        private ControlItemVideo CreateControl(dynamic data)
         {
-            oneVideo?.Invoke(this, new MyVideoEventArgs(path,title));
+            ControlItemVideo ctIM = new ControlItemVideo(data);
+            ctIM.Tag = idVideo++;
+            ctIM.SendMessage = SendDataVideoEvent;
+            return ctIM;
         }
-
+        private void SendDataVideoEvent(ControlItemVideo controlItemVideo)
+        {
+            ActiveControlVideo(controlItemVideo);
+            string path = controlItemVideo.Path;
+            string title = controlItemVideo.Title;
+            oneVideo?.Invoke(this, new MyVideoEventArgs(path, title));
+        }
+        private void ActiveControlVideo(ControlItemVideo control)
+        {
+            if (currentControlVideo != null) currentControlVideo.ExchangePicVideo(false);
+            control.ExchangePicVideo(true);
+            currentControlVideo= control;
+        }
+    
         private void btnAddFolder_Click(object sender, EventArgs e)
         {
             FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
@@ -99,7 +134,7 @@ namespace Media_Player_Lite
             {
                 WriteLineFileDistic.WriteLine(fullFilePath, folderBrowserDialog.SelectedPath);
                 listVideo = GetListVideo();
-                LoadListVideo(listVideo);
+                LoadListControlVideo(listControl);
 
             }
         }

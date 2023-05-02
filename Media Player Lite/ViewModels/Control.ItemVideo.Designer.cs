@@ -32,8 +32,10 @@
             this.lblDuration = new System.Windows.Forms.Label();
             this.pnlTitleVideo = new System.Windows.Forms.Panel();
             this.lblTitleVideo = new System.Windows.Forms.Label();
+            this.picIcon = new FontAwesome.Sharp.IconPictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.picVideo)).BeginInit();
             this.pnlTitleVideo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picIcon)).BeginInit();
             this.SuspendLayout();
             // 
             // picVideo
@@ -51,10 +53,10 @@
             this.lblDuration.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.lblDuration.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDuration.ForeColor = System.Drawing.Color.LightGray;
-            this.lblDuration.Location = new System.Drawing.Point(0, 271);
+            this.lblDuration.Location = new System.Drawing.Point(0, 270);
             this.lblDuration.Name = "lblDuration";
             this.lblDuration.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.lblDuration.Size = new System.Drawing.Size(392, 29);
+            this.lblDuration.Size = new System.Drawing.Size(392, 30);
             this.lblDuration.TabIndex = 2;
             this.lblDuration.Text = "Text";
             this.lblDuration.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -80,12 +82,26 @@
             this.lblTitleVideo.Text = "Text";
             this.lblTitleVideo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // picIcon
+            // 
+            this.picIcon.ForeColor = System.Drawing.Color.LightGray;
+            this.picIcon.IconChar = FontAwesome.Sharp.IconChar.CirclePlay;
+            this.picIcon.IconColor = System.Drawing.Color.LightGray;
+            this.picIcon.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.picIcon.IconSize = 30;
+            this.picIcon.Location = new System.Drawing.Point(362, 270);
+            this.picIcon.Name = "picIcon";
+            this.picIcon.Size = new System.Drawing.Size(30, 30);
+            this.picIcon.TabIndex = 4;
+            this.picIcon.TabStop = false;
+            // 
             // ControlItemVideo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Controls.Add(this.picIcon);
             this.Controls.Add(this.pnlTitleVideo);
             this.Controls.Add(this.lblDuration);
             this.Controls.Add(this.picVideo);
@@ -94,6 +110,7 @@
             this.Load += new System.EventHandler(this.ControlItemVideo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picVideo)).EndInit();
             this.pnlTitleVideo.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picIcon)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -103,5 +120,6 @@
         private System.Windows.Forms.Label lblDuration;
         private System.Windows.Forms.Panel pnlTitleVideo;
         private System.Windows.Forms.Label lblTitleVideo;
+        private FontAwesome.Sharp.IconPictureBox picIcon;
     }
 }

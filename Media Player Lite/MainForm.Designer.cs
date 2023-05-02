@@ -249,7 +249,7 @@
             this.btnMenu.IconColor = System.Drawing.Color.White;
             this.btnMenu.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnMenu.IconSize = 60;
-            this.btnMenu.Location = new System.Drawing.Point(211, 0);
+            this.btnMenu.Location = new System.Drawing.Point(240, 0);
             this.btnMenu.Name = "btnMenu";
             this.btnMenu.Size = new System.Drawing.Size(60, 80);
             this.btnMenu.TabIndex = 1;
@@ -284,7 +284,7 @@
             // 
             // picChildForm
             // 
-            this.picChildForm.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.picChildForm.IconChar = FontAwesome.Sharp.IconChar.House;
             this.picChildForm.IconColor = System.Drawing.Color.White;
             this.picChildForm.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.picChildForm.IconSize = 73;
@@ -307,6 +307,7 @@
             this.lblTitleChildForm.Name = "lblTitleChildForm";
             this.lblTitleChildForm.Size = new System.Drawing.Size(190, 75);
             this.lblTitleChildForm.TabIndex = 6;
+            this.lblTitleChildForm.Text = "Home";
             this.lblTitleChildForm.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lblTitleChildForm.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lblTitleChildForm_MouseDown);
             // 
@@ -444,13 +445,14 @@
             this.btnRepeat.Size = new System.Drawing.Size(30, 30);
             this.btnRepeat.TabIndex = 3;
             this.btnRepeat.UseVisualStyleBackColor = false;
+            this.btnRepeat.Click += new System.EventHandler(this.btnRepeat_Click);
             // 
             // pnlVolume
             // 
             this.pnlVolume.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.pnlVolume.Controls.Add(this.lblIndexVolume);
             this.pnlVolume.Controls.Add(this.SliderVolume);
-            this.pnlVolume.Location = new System.Drawing.Point(431, 25);
+            this.pnlVolume.Location = new System.Drawing.Point(421, 24);
             this.pnlVolume.Name = "pnlVolume";
             this.pnlVolume.Size = new System.Drawing.Size(147, 30);
             this.pnlVolume.TabIndex = 2;
@@ -462,7 +464,8 @@
             this.lblIndexVolume.ForeColor = System.Drawing.Color.White;
             this.lblIndexVolume.Location = new System.Drawing.Point(88, 0);
             this.lblIndexVolume.Name = "lblIndexVolume";
-            this.lblIndexVolume.Size = new System.Drawing.Size(56, 30);
+            this.lblIndexVolume.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.lblIndexVolume.Size = new System.Drawing.Size(59, 30);
             this.lblIndexVolume.TabIndex = 0;
             this.lblIndexVolume.Text = "100%";
             this.lblIndexVolume.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -492,7 +495,7 @@
             this.btnProperty.IconColor = System.Drawing.Color.White;
             this.btnProperty.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnProperty.IconSize = 30;
-            this.btnProperty.Location = new System.Drawing.Point(488, 25);
+            this.btnProperty.Location = new System.Drawing.Point(480, 25);
             this.btnProperty.Name = "btnProperty";
             this.btnProperty.Size = new System.Drawing.Size(30, 30);
             this.btnProperty.TabIndex = 2;
@@ -510,7 +513,7 @@
             this.btnfullScreen.IconColor = System.Drawing.Color.White;
             this.btnfullScreen.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnfullScreen.IconSize = 30;
-            this.btnfullScreen.Location = new System.Drawing.Point(443, 25);
+            this.btnfullScreen.Location = new System.Drawing.Point(435, 25);
             this.btnfullScreen.Name = "btnfullScreen";
             this.btnfullScreen.Size = new System.Drawing.Size(30, 30);
             this.btnfullScreen.TabIndex = 2;
@@ -561,7 +564,7 @@
             this.btnVolume.IconColor = System.Drawing.Color.White;
             this.btnVolume.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnVolume.IconSize = 40;
-            this.btnVolume.Location = new System.Drawing.Point(395, 25);
+            this.btnVolume.Location = new System.Drawing.Point(386, 24);
             this.btnVolume.Name = "btnVolume";
             this.btnVolume.Size = new System.Drawing.Size(30, 30);
             this.btnVolume.TabIndex = 1;
@@ -725,6 +728,7 @@
             this.Controls.Add(this.pnlTitle);
             this.Controls.Add(this.pnlMenu);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Media Player Lite";

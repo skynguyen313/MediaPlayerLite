@@ -148,23 +148,23 @@
     <Compile Include="VideoForm.Designer.cs">
       <DependentUpon>VideoForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ViewModels\ControlDirectotyPath.cs">
+    <Compile Include="ViewModels\Control.DirectotyPath.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ViewModels\ControlDirectotyPath.Designer.cs">
-      <DependentUpon>ControlDirectotyPath.cs</DependentUpon>
+    <Compile Include="ViewModels\Control.DirectotyPath.Designer.cs">
+      <DependentUpon>Control.DirectotyPath.cs</DependentUpon>
     </Compile>
-    <Compile Include="ViewModels\ControlItemMusic.cs">
+    <Compile Include="ViewModels\Control.ItemMusic.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ViewModels\ControlItemMusic.Designer.cs">
-      <DependentUpon>ControlItemMusic.cs</DependentUpon>
+    <Compile Include="ViewModels\Control.ItemMusic.Designer.cs">
+      <DependentUpon>Control.ItemMusic.cs</DependentUpon>
     </Compile>
-    <Compile Include="ViewModels\ControlItemVideo.cs">
+    <Compile Include="ViewModels\Control.ItemVideo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ViewModels\ControlItemVideo.Designer.cs">
-      <DependentUpon>ControlItemVideo.cs</DependentUpon>
+    <Compile Include="ViewModels\Control.ItemVideo.Designer.cs">
+      <DependentUpon>Control.ItemVideo.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="AboutForm.resx">
       <DependentUpon>AboutForm.cs</DependentUpon>
@@ -191,14 +191,14 @@
     <EmbeddedResource Include="VideoForm.resx">
       <DependentUpon>VideoForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ViewModels\ControlDirectotyPath.resx">
-      <DependentUpon>ControlDirectotyPath.cs</DependentUpon>
+    <EmbeddedResource Include="ViewModels\Control.DirectotyPath.resx">
+      <DependentUpon>Control.DirectotyPath.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ViewModels\ControlItemMusic.resx">
-      <DependentUpon>ControlItemMusic.cs</DependentUpon>
+    <EmbeddedResource Include="ViewModels\Control.ItemMusic.resx">
+      <DependentUpon>Control.ItemMusic.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ViewModels\ControlItemVideo.resx">
-      <DependentUpon>ControlItemVideo.cs</DependentUpon>
+    <EmbeddedResource Include="ViewModels\Control.ItemVideo.resx">
+      <DependentUpon>Control.ItemVideo.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Media Player Lite_TemporaryKey.pfx" />
     <None Include="packages.config" />

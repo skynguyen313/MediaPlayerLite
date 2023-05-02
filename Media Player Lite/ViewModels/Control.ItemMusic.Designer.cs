@@ -121,12 +121,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
+            this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.lblDuration);
             this.Controls.Add(this.lblGenre);
             this.Controls.Add(this.picArt);
             this.Controls.Add(this.picMusic);
             this.Controls.Add(this.lblArtist);
-            this.Controls.Add(this.lblTitle);
             this.ForeColor = System.Drawing.Color.White;
             this.Name = "ControlItemMusic";
             this.Size = new System.Drawing.Size(1185, 150);

@@ -11,12 +11,13 @@ namespace Media_Player_Lite.Models
         public string Title { set; get; }
         public string Duration { set; get; }
         public string Path { set;get; }
-        public Video(string title,string duration,string path) 
+        public byte[] PicArt { set; get; }
+        public Video(string title,string duration,string path, byte[] picArt) 
         {
             Title=title;
             Duration=duration;
             Path = path;
-            
+            PicArt=picArt;
         }
     }
 }
