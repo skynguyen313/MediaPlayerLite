@@ -27,10 +27,14 @@ namespace Media_Player_Lite
         private MusicForm musicForm;
         private VideoForm videoForm;
         private IconButton currentBtn;
+        private Button btnTmp = null;
         private Panel leftBorderBtn;
         private int boderSize = 2;
+        private float speed=1;
         private enum RepeatMusic { Repeat_Off, Repeat_One, Repeat_All }
         private RepeatMusic repeatMusic;
+
+        
 
         #region System 
         //Config lib [user32.dll]
@@ -88,9 +92,12 @@ namespace Media_Player_Lite
 
             //Panel Volume
             HidenPanelVolume();
-
+            HiddenPanelSpeed();
+            btnTmp = btnSpeed3;
             //
             StatusPlaying();
+
+            
         } 
         private void MainForm_Resize(object sender, EventArgs e)
         {
@@ -364,26 +371,24 @@ namespace Media_Player_Lite
             wMediaPlayer.URL= e.Path;// Config URL
             wMediaPlayer.Ctlcontrols.play();// Start wMeidaPlayer
             StatusPlaying();
+            wMediaPlayer.settings.rate = speed;
             btnPause();// Showbutton Play/Pause
 
             // Label TitlePlayer
             lblTitlePlayer.Text = e.Title;
-            SettingRunWordTitle();
-
-            //
-            
+            SettingRunWordTitle();       
         }
         private void LoadPlayingVideo(object sender, MyVideoEventArgs e)
         {
             wMediaPlayer.URL = e.Path;// Config URL
             wMediaPlayer.Ctlcontrols.play();// Start wMeidaPlayer
             StatusPlaying();
+            wMediaPlayer.settings.rate = speed;
             btnPause();// Showbutton Play/Pause
             // Label TitlePlayer
             lblTitlePlayer.Text = e.Title;
             SettingRunWordTitle();
             btnHome.PerformClick();
-
         }
         #endregion
 
@@ -430,25 +435,21 @@ namespace Media_Player_Lite
                 wMediaPlayer.fullScreen = true;
 
         }
-        private void btnProperty_Click(object sender, EventArgs e)
-        {
-
-        }
         private void btnRepeat_Click(object sender, EventArgs e)
         {
-            if (btnRepeat.IconChar == FontAwesome.Sharp.IconChar.Repeat)
+            if (btnRepeat.IconChar == FontAwesome.Sharp.IconChar.DiagramNext)
             {
-                this.btnRepeat.IconChar = FontAwesome.Sharp.IconChar.Rendact;
+                this.btnRepeat.IconChar = FontAwesome.Sharp.IconChar.DotCircle;
                 repeatMusic = RepeatMusic.Repeat_Off;
             }
-            else if (btnRepeat.IconChar == FontAwesome.Sharp.IconChar.Rendact)
+            else if (btnRepeat.IconChar == FontAwesome.Sharp.IconChar.DotCircle)
             {
-                this.btnRepeat.IconChar = FontAwesome.Sharp.IconChar.Renren;
+                this.btnRepeat.IconChar = FontAwesome.Sharp.IconChar.RotateForward;
                 repeatMusic = RepeatMusic.Repeat_One;
             }
-            else if (btnRepeat.IconChar == FontAwesome.Sharp.IconChar.Renren)
+            else if (btnRepeat.IconChar == FontAwesome.Sharp.IconChar.RotateForward)
             {
-                this.btnRepeat.IconChar = FontAwesome.Sharp.IconChar.Repeat;
+                this.btnRepeat.IconChar = FontAwesome.Sharp.IconChar.DiagramNext;
                 repeatMusic = RepeatMusic.Repeat_All;
             }
         }
@@ -459,6 +460,7 @@ namespace Media_Player_Lite
             else
                 wMediaPlayer.fullScreen = false;
         }
+        #endregion
 
         #region Volume
 
@@ -541,45 +543,6 @@ namespace Media_Player_Lite
                 e.Graphics.DrawEllipse(pen, x + 4, y - 6, SliderVolume.Height / 2, SliderVolume.Height / 2);//Vong giua
             }
         }
-        private void HidenPanelVolume()
-        {
-            if (pnlVolume.Visible == true)
-                pnlVolume.Visible = false;
-        }
-        private void ShowPanelVolume()
-        {
-            if (pnlVolume.Visible == false)
-                pnlVolume.Visible = true;
-            else
-                HidenPanelVolume();
-        }
-        private void btnVolume_Click(object sender, EventArgs e)
-        {
-            ShowPanelVolume();
-        }
-        private void panel_MouseDown(object sender, MouseEventArgs e) => HidenPanelVolume();
-        private void button_Click(object sender, EventArgs e) => HidenPanelVolume();
-        List<Panel> panels;
-        List<IconButton> buttons;
-        List<PictureBox> pictureBoxes;
-        List<Label> labels;
-        private void AddEvent()
-        {
-            panels = new List<Panel>() { pnlTopPlayer, pnlBottomPlayer, pnlLefPlayer, pnlPlayer, pnlPlaying, pnlRightPlayer, pnlMenu, pnlTitle, pnlLogo };
-            buttons = new List<IconButton>() {btnMenu,btnHome,btnMusic,btnVideo,btnTools,btnAbout,
-            btnPlayPause,btnBackWard,btnNextWard,btnfullScreen};
-            pictureBoxes = new List<PictureBox>() { picArtPlayer, picLogo, Slider };
-            labels = new List<Label>() { lblTitlePlayer, lblTimeStart, lblTimeEnd, lblIndexVolume, lblTitleChildForm };
-
-
-            panels.ForEach(item => item.MouseDown += new MouseEventHandler(panel_MouseDown));
-            buttons.ForEach(item => item.Click += new EventHandler(button_Click));
-            pictureBoxes.ForEach(item => item.Click += new EventHandler(button_Click));
-            labels.ForEach(item => item.Click += new EventHandler(button_Click));
-
-            Slider.MouseDown += new MouseEventHandler(panel_MouseDown);
-
-        }
         #endregion
 
         #region SliderBar
@@ -627,7 +590,7 @@ namespace Media_Player_Lite
         private void Slider_MouseUp(object sender, MouseEventArgs e)
         {
             mouse = false;
-        }
+        } 
         private void Slider_Paint(object sender, PaintEventArgs e)
         {
             float bar_size = 0.4f;
@@ -692,6 +655,7 @@ namespace Media_Player_Lite
             }
 
         }
+        
         private void SettingRunWordTitle()
         {
             lblTitlePlayer.AutoSize = true;
@@ -702,11 +666,100 @@ namespace Media_Player_Lite
                 lblTitlePlayer.TextAlign = ContentAlignment.MiddleCenter;
                 lblTitlePlayer.Dock = DockStyle.Fill;
             }
-
-
         }
         #endregion
 
+        #region Volume-Speed
+        private void SettingSpeed_Click(object sender, EventArgs e)
+        {
+            Button btn=sender as Button;
+            speed = Convert.ToSingle(btn.Text);
+            wMediaPlayer.settings.rate = speed;
+            btn.BackColor = Color.FromArgb(76, 76, 76);
+            btnTmp.BackColor = Color.FromArgb(10, 3, 31);
+            btnTmp = btn;
+        }
+        private void HiddenPanelSpeed_Click(object sender, EventArgs e)
+        {
+            HiddenPanelSpeed();
+        }
+        
+        private void HiddenPanelSpeed()
+        {
+            if (pnlSpeed.Visible==true)
+                pnlSpeed.Visible = false;
+        }
+        private void btnSetting_Click(object sender, EventArgs e)
+        {
+            if (pnlSpeed.Visible==false)
+                pnlSpeed.Visible = true;
+            else
+                HiddenPanelSpeed();
+                
+        }
+        private void HidenPanelVolume()
+        {
+            if (pnlVolume.Visible == true)
+                pnlVolume.Visible = false;
+        }
+        private void ShowPanelVolume()
+        {
+            if (pnlVolume.Visible == false)
+                pnlVolume.Visible = true;
+            else
+                HidenPanelVolume();
+        }
+        private void btnVolume_Click(object sender, EventArgs e)
+        {
+            ShowPanelVolume();
+            HiddenPanelSpeed();
+        }
+        private void panel_MouseDown(object sender, MouseEventArgs e) { HidenPanelVolume(); HiddenPanelSpeed(); }
+        private void HiddenPanelVolume_Click(object sender, EventArgs e) => HidenPanelVolume();
+        List<Panel> panels;
+        List<IconButton> buttons;
+        List<Button> buttons1;
+        List<PictureBox> pictureBoxes;
+        List<Label> labels;
+        private void AddEvent()
+        {
+            panels = new List<Panel>() { pnlTopPlayer, pnlBottomPlayer, pnlLefPlayer, pnlPlayer, pnlPlaying, pnlRightPlayer, pnlMenu, pnlTitle, pnlLogo };
+            buttons = new List<IconButton>() {btnMenu,btnHome,btnMusic,btnVideo,btnTools,btnAbout,
+            btnPlayPause,btnBackWard,btnNextWard,btnfullScreen};
+            buttons1 = new List<Button>() { btnSpeed1, btnSpeed2, btnSpeed3, btnSpeed4, btnSpeed5 };
+            pictureBoxes = new List<PictureBox>() { picArtPlayer, picLogo, Slider };
+            labels = new List<Label>() { lblTitlePlayer, lblTimeStart, lblTimeEnd, lblIndexVolume, lblTitleChildForm };
+
+
+            panels.ForEach(item =>
+            {
+                item.MouseDown += new MouseEventHandler(panel_MouseDown);
+
+            });
+            buttons.ForEach(item =>
+            {
+                item.Click += new EventHandler(HiddenPanelVolume_Click);
+                item.Click += new EventHandler(HiddenPanelSpeed_Click);
+            }
+            );
+            buttons1.ForEach(item =>
+            {
+                item.Click += new EventHandler(HiddenPanelVolume_Click);
+                item.Click += new EventHandler(HiddenPanelSpeed_Click);
+                item.Click += new EventHandler(SettingSpeed_Click);
+            });
+            pictureBoxes.ForEach(item =>
+            {
+                item.Click += new EventHandler(HiddenPanelVolume_Click);
+                item.Click += new EventHandler(HiddenPanelSpeed_Click);
+            });
+            labels.ForEach(item => {
+                item.Click += new EventHandler(HiddenPanelVolume_Click);
+                item.Click += new EventHandler(HiddenPanelSpeed_Click);
+            });
+
+            Slider.MouseDown += new MouseEventHandler(panel_MouseDown);
+        }
         #endregion
 
     }

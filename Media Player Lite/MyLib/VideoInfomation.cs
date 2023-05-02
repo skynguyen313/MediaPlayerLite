@@ -18,8 +18,7 @@ namespace Media_Player_Lite.MyLib
         {
             this.path = fullPath;
 
-        }
-        
+        }      
         public string Title()
         {
             return Path.GetFileNameWithoutExtension(path);
@@ -34,6 +33,10 @@ namespace Media_Player_Lite.MyLib
             TimeSpan.TryParse(duration, out timeSpan);
             return string.Format("{0} mins {1} secs", (int)timeSpan.TotalMinutes, timeSpan.Seconds);    
             
+        }
+        public DateTime LastModified()
+        {
+            return File.GetLastWriteTime(path);
         }
         public string GetPath() => path;
 

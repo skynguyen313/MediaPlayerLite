@@ -30,7 +30,7 @@
         {
             this.pnlTitleMusic = new System.Windows.Forms.Panel();
             this.txtSearch = new LW_PhanMemBaoGia.MyControls.TextBoxT();
-            this.btnAddFolder = new FontAwesome.Sharp.IconButton();
+            this.btnAddFolderMusic = new FontAwesome.Sharp.IconButton();
             this.cmbGenre = new LW_PhanMemBaoGia.MyControls.ComboBoxT();
             this.cmbArtist = new LW_PhanMemBaoGia.MyControls.ComboBoxT();
             this.pnlListMusic = new System.Windows.Forms.Panel();
@@ -40,7 +40,7 @@
             // pnlTitleMusic
             // 
             this.pnlTitleMusic.Controls.Add(this.txtSearch);
-            this.pnlTitleMusic.Controls.Add(this.btnAddFolder);
+            this.pnlTitleMusic.Controls.Add(this.btnAddFolderMusic);
             this.pnlTitleMusic.Controls.Add(this.cmbGenre);
             this.pnlTitleMusic.Controls.Add(this.cmbArtist);
             this.pnlTitleMusic.Dock = System.Windows.Forms.DockStyle.Top;
@@ -72,28 +72,29 @@
             this.txtSearch._TextChanged += new System.EventHandler(this.txtSearch__TextChanged);
             this.txtSearch.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtSearch_MouseClick);
             // 
-            // btnAddFolder
+            // btnAddFolderMusic
             // 
-            this.btnAddFolder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAddFolder.AutoSize = true;
-            this.btnAddFolder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.btnAddFolder.FlatAppearance.BorderSize = 0;
-            this.btnAddFolder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddFolder.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddFolder.ForeColor = System.Drawing.Color.White;
-            this.btnAddFolder.IconChar = FontAwesome.Sharp.IconChar.FolderPlus;
-            this.btnAddFolder.IconColor = System.Drawing.Color.White;
-            this.btnAddFolder.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnAddFolder.IconSize = 40;
-            this.btnAddFolder.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddFolder.Location = new System.Drawing.Point(900, 10);
-            this.btnAddFolder.Name = "btnAddFolder";
-            this.btnAddFolder.Size = new System.Drawing.Size(176, 46);
-            this.btnAddFolder.TabIndex = 7;
-            this.btnAddFolder.Text = "Add folder";
-            this.btnAddFolder.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAddFolder.UseVisualStyleBackColor = false;
-            this.btnAddFolder.Click += new System.EventHandler(this.btnAddFolder_Click);
+            this.btnAddFolderMusic.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAddFolderMusic.AutoSize = true;
+            this.btnAddFolderMusic.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.btnAddFolderMusic.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnAddFolderMusic.FlatAppearance.BorderSize = 0;
+            this.btnAddFolderMusic.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddFolderMusic.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddFolderMusic.ForeColor = System.Drawing.Color.White;
+            this.btnAddFolderMusic.IconChar = FontAwesome.Sharp.IconChar.FolderPlus;
+            this.btnAddFolderMusic.IconColor = System.Drawing.Color.White;
+            this.btnAddFolderMusic.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnAddFolderMusic.IconSize = 40;
+            this.btnAddFolderMusic.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAddFolderMusic.Location = new System.Drawing.Point(900, 10);
+            this.btnAddFolderMusic.Name = "btnAddFolderMusic";
+            this.btnAddFolderMusic.Size = new System.Drawing.Size(176, 46);
+            this.btnAddFolderMusic.TabIndex = 7;
+            this.btnAddFolderMusic.Text = "Add folder";
+            this.btnAddFolderMusic.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAddFolderMusic.UseVisualStyleBackColor = false;
+            this.btnAddFolderMusic.Click += new System.EventHandler(this.btnAddFolder_Click);
             // 
             // cmbGenre
             // 
@@ -170,7 +171,7 @@
         private System.Windows.Forms.Panel pnlListMusic;
         private LW_PhanMemBaoGia.MyControls.ComboBoxT cmbArtist;
         private LW_PhanMemBaoGia.MyControls.ComboBoxT cmbGenre;
-        private FontAwesome.Sharp.IconButton btnAddFolder;
+        private FontAwesome.Sharp.IconButton btnAddFolderMusic;
         private LW_PhanMemBaoGia.MyControls.TextBoxT txtSearch;
     }
 }

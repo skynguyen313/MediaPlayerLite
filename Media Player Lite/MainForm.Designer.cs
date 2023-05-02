@@ -39,6 +39,9 @@
             this.pnlLogo = new System.Windows.Forms.Panel();
             this.btnMenu = new FontAwesome.Sharp.IconButton();
             this.picLogo = new System.Windows.Forms.PictureBox();
+            this.pnlVolume = new System.Windows.Forms.Panel();
+            this.lblIndexVolume = new System.Windows.Forms.Label();
+            this.SliderVolume = new System.Windows.Forms.PictureBox();
             this.pnlTitle = new System.Windows.Forms.Panel();
             this.picChildForm = new FontAwesome.Sharp.IconPictureBox();
             this.lblTitleChildForm = new System.Windows.Forms.Label();
@@ -50,11 +53,15 @@
             this.wMediaPlayer = new AxWMPLib.AxWindowsMediaPlayer();
             this.pnlPlayer = new System.Windows.Forms.Panel();
             this.pnlBottomPlayer = new System.Windows.Forms.Panel();
+            this.pnlSpeed = new System.Windows.Forms.Panel();
+            this.btnSpeed1 = new System.Windows.Forms.Button();
+            this.lblSpeed = new System.Windows.Forms.Label();
+            this.btnSpeed2 = new System.Windows.Forms.Button();
+            this.btnSpeed3 = new System.Windows.Forms.Button();
+            this.btnSpeed4 = new System.Windows.Forms.Button();
+            this.btnSpeed5 = new System.Windows.Forms.Button();
             this.btnRepeat = new FontAwesome.Sharp.IconButton();
-            this.pnlVolume = new System.Windows.Forms.Panel();
-            this.lblIndexVolume = new System.Windows.Forms.Label();
-            this.SliderVolume = new System.Windows.Forms.PictureBox();
-            this.btnProperty = new FontAwesome.Sharp.IconButton();
+            this.btnSetting = new FontAwesome.Sharp.IconButton();
             this.btnfullScreen = new FontAwesome.Sharp.IconButton();
             this.btnNextWard = new FontAwesome.Sharp.IconButton();
             this.btnBackWard = new FontAwesome.Sharp.IconButton();
@@ -74,6 +81,8 @@
             this.pnlMenu.SuspendLayout();
             this.pnlLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
+            this.pnlVolume.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SliderVolume)).BeginInit();
             this.pnlTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picChildForm)).BeginInit();
             this.pnlChidlForm.SuspendLayout();
@@ -81,8 +90,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.wMediaPlayer)).BeginInit();
             this.pnlPlayer.SuspendLayout();
             this.pnlBottomPlayer.SuspendLayout();
-            this.pnlVolume.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.SliderVolume)).BeginInit();
+            this.pnlSpeed.SuspendLayout();
             this.pnlTopPlayer.SuspendLayout();
             this.pnlTitlePlayer.SuspendLayout();
             this.pnlSlider.SuspendLayout();
@@ -111,6 +119,7 @@
             // 
             this.btnAbout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(5)))), ((int)(((byte)(47)))));
             this.btnAbout.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnAbout.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(5)))), ((int)(((byte)(47)))));
             this.btnAbout.FlatAppearance.BorderSize = 0;
             this.btnAbout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAbout.Font = new System.Drawing.Font("Verdana", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -135,6 +144,7 @@
             // 
             this.btnTools.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(5)))), ((int)(((byte)(47)))));
             this.btnTools.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnTools.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(5)))), ((int)(((byte)(47)))));
             this.btnTools.FlatAppearance.BorderSize = 0;
             this.btnTools.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTools.Font = new System.Drawing.Font("Verdana", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -159,6 +169,7 @@
             // 
             this.btnVideo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(5)))), ((int)(((byte)(47)))));
             this.btnVideo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnVideo.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(5)))), ((int)(((byte)(47)))));
             this.btnVideo.FlatAppearance.BorderSize = 0;
             this.btnVideo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVideo.Font = new System.Drawing.Font("Verdana", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -183,6 +194,7 @@
             // 
             this.btnMusic.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(5)))), ((int)(((byte)(47)))));
             this.btnMusic.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnMusic.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(5)))), ((int)(((byte)(47)))));
             this.btnMusic.FlatAppearance.BorderSize = 0;
             this.btnMusic.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMusic.Font = new System.Drawing.Font("Verdana", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -207,6 +219,7 @@
             // 
             this.btnHome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(5)))), ((int)(((byte)(47)))));
             this.btnHome.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnHome.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(5)))), ((int)(((byte)(47)))));
             this.btnHome.FlatAppearance.BorderSize = 0;
             this.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHome.Font = new System.Drawing.Font("Verdana", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -243,6 +256,7 @@
             // 
             this.btnMenu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(5)))), ((int)(((byte)(47)))));
+            this.btnMenu.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(5)))), ((int)(((byte)(47)))));
             this.btnMenu.FlatAppearance.BorderSize = 0;
             this.btnMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMenu.IconChar = FontAwesome.Sharp.IconChar.Navicon;
@@ -266,6 +280,44 @@
             this.picLogo.TabIndex = 0;
             this.picLogo.TabStop = false;
             this.picLogo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.picLogo_MouseDown);
+            // 
+            // pnlVolume
+            // 
+            this.pnlVolume.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.pnlVolume.Controls.Add(this.lblIndexVolume);
+            this.pnlVolume.Controls.Add(this.SliderVolume);
+            this.pnlVolume.Location = new System.Drawing.Point(422, 24);
+            this.pnlVolume.Name = "pnlVolume";
+            this.pnlVolume.Size = new System.Drawing.Size(147, 30);
+            this.pnlVolume.TabIndex = 2;
+            // 
+            // lblIndexVolume
+            // 
+            this.lblIndexVolume.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(3)))), ((int)(((byte)(31)))));
+            this.lblIndexVolume.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIndexVolume.ForeColor = System.Drawing.Color.White;
+            this.lblIndexVolume.Location = new System.Drawing.Point(88, 0);
+            this.lblIndexVolume.Name = "lblIndexVolume";
+            this.lblIndexVolume.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.lblIndexVolume.Size = new System.Drawing.Size(59, 30);
+            this.lblIndexVolume.TabIndex = 0;
+            this.lblIndexVolume.Text = "100%";
+            this.lblIndexVolume.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // SliderVolume
+            // 
+            this.SliderVolume.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(3)))), ((int)(((byte)(31)))));
+            this.SliderVolume.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.SliderVolume.Location = new System.Drawing.Point(0, 0);
+            this.SliderVolume.Name = "SliderVolume";
+            this.SliderVolume.Size = new System.Drawing.Size(87, 30);
+            this.SliderVolume.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.SliderVolume.TabIndex = 0;
+            this.SliderVolume.TabStop = false;
+            this.SliderVolume.Paint += new System.Windows.Forms.PaintEventHandler(this.SliderVolume_Paint);
+            this.SliderVolume.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SliderVolume_MouseDown);
+            this.SliderVolume.MouseMove += new System.Windows.Forms.MouseEventHandler(this.SliderVolume_MouseMove);
+            this.SliderVolume.MouseUp += new System.Windows.Forms.MouseEventHandler(this.SliderVolume_MouseUp);
             // 
             // pnlTitle
             // 
@@ -416,9 +468,10 @@
             // pnlBottomPlayer
             // 
             this.pnlBottomPlayer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(3)))), ((int)(((byte)(31)))));
-            this.pnlBottomPlayer.Controls.Add(this.btnRepeat);
+            this.pnlBottomPlayer.Controls.Add(this.pnlSpeed);
             this.pnlBottomPlayer.Controls.Add(this.pnlVolume);
-            this.pnlBottomPlayer.Controls.Add(this.btnProperty);
+            this.pnlBottomPlayer.Controls.Add(this.btnRepeat);
+            this.pnlBottomPlayer.Controls.Add(this.btnSetting);
             this.pnlBottomPlayer.Controls.Add(this.btnfullScreen);
             this.pnlBottomPlayer.Controls.Add(this.btnNextWard);
             this.pnlBottomPlayer.Controls.Add(this.btnBackWard);
@@ -430,13 +483,121 @@
             this.pnlBottomPlayer.Size = new System.Drawing.Size(578, 80);
             this.pnlBottomPlayer.TabIndex = 3;
             // 
+            // pnlSpeed
+            // 
+            this.pnlSpeed.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.pnlSpeed.Controls.Add(this.btnSpeed1);
+            this.pnlSpeed.Controls.Add(this.lblSpeed);
+            this.pnlSpeed.Controls.Add(this.btnSpeed2);
+            this.pnlSpeed.Controls.Add(this.btnSpeed3);
+            this.pnlSpeed.Controls.Add(this.btnSpeed4);
+            this.pnlSpeed.Controls.Add(this.btnSpeed5);
+            this.pnlSpeed.Location = new System.Drawing.Point(313, 0);
+            this.pnlSpeed.Name = "pnlSpeed";
+            this.pnlSpeed.Size = new System.Drawing.Size(252, 23);
+            this.pnlSpeed.TabIndex = 4;
+            // 
+            // btnSpeed1
+            // 
+            this.btnSpeed1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnSpeed1.FlatAppearance.BorderSize = 0;
+            this.btnSpeed1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(34)))), ((int)(((byte)(210)))));
+            this.btnSpeed1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSpeed1.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSpeed1.ForeColor = System.Drawing.Color.White;
+            this.btnSpeed1.Location = new System.Drawing.Point(42, 0);
+            this.btnSpeed1.Name = "btnSpeed1";
+            this.btnSpeed1.Size = new System.Drawing.Size(42, 23);
+            this.btnSpeed1.TabIndex = 5;
+            this.btnSpeed1.Tag = "";
+            this.btnSpeed1.Text = "0,25";
+            this.btnSpeed1.UseVisualStyleBackColor = true;
+            // 
+            // lblSpeed
+            // 
+            this.lblSpeed.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblSpeed.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSpeed.ForeColor = System.Drawing.Color.White;
+            this.lblSpeed.Location = new System.Drawing.Point(0, 0);
+            this.lblSpeed.Name = "lblSpeed";
+            this.lblSpeed.Size = new System.Drawing.Size(49, 23);
+            this.lblSpeed.TabIndex = 4;
+            this.lblSpeed.Text = "Speed:";
+            this.lblSpeed.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // btnSpeed2
+            // 
+            this.btnSpeed2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnSpeed2.FlatAppearance.BorderSize = 0;
+            this.btnSpeed2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(34)))), ((int)(((byte)(210)))));
+            this.btnSpeed2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSpeed2.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSpeed2.ForeColor = System.Drawing.Color.White;
+            this.btnSpeed2.Location = new System.Drawing.Point(84, 0);
+            this.btnSpeed2.Name = "btnSpeed2";
+            this.btnSpeed2.Size = new System.Drawing.Size(42, 23);
+            this.btnSpeed2.TabIndex = 3;
+            this.btnSpeed2.Tag = "";
+            this.btnSpeed2.Text = "0,5";
+            this.btnSpeed2.UseVisualStyleBackColor = true;
+            // 
+            // btnSpeed3
+            // 
+            this.btnSpeed3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
+            this.btnSpeed3.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnSpeed3.FlatAppearance.BorderSize = 0;
+            this.btnSpeed3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(34)))), ((int)(((byte)(210)))));
+            this.btnSpeed3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSpeed3.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSpeed3.ForeColor = System.Drawing.Color.White;
+            this.btnSpeed3.Location = new System.Drawing.Point(126, 0);
+            this.btnSpeed3.Name = "btnSpeed3";
+            this.btnSpeed3.Size = new System.Drawing.Size(42, 23);
+            this.btnSpeed3.TabIndex = 2;
+            this.btnSpeed3.Tag = "";
+            this.btnSpeed3.Text = "1,0";
+            this.btnSpeed3.UseVisualStyleBackColor = false;
+            // 
+            // btnSpeed4
+            // 
+            this.btnSpeed4.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnSpeed4.FlatAppearance.BorderSize = 0;
+            this.btnSpeed4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(34)))), ((int)(((byte)(210)))));
+            this.btnSpeed4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSpeed4.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSpeed4.ForeColor = System.Drawing.Color.White;
+            this.btnSpeed4.Location = new System.Drawing.Point(168, 0);
+            this.btnSpeed4.Name = "btnSpeed4";
+            this.btnSpeed4.Size = new System.Drawing.Size(42, 23);
+            this.btnSpeed4.TabIndex = 1;
+            this.btnSpeed4.Tag = "1.5";
+            this.btnSpeed4.Text = "1,5";
+            this.btnSpeed4.UseVisualStyleBackColor = true;
+            // 
+            // btnSpeed5
+            // 
+            this.btnSpeed5.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnSpeed5.FlatAppearance.BorderSize = 0;
+            this.btnSpeed5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(34)))), ((int)(((byte)(210)))));
+            this.btnSpeed5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSpeed5.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSpeed5.ForeColor = System.Drawing.Color.White;
+            this.btnSpeed5.Location = new System.Drawing.Point(210, 0);
+            this.btnSpeed5.Name = "btnSpeed5";
+            this.btnSpeed5.Size = new System.Drawing.Size(42, 23);
+            this.btnSpeed5.TabIndex = 0;
+            this.btnSpeed5.Tag = "";
+            this.btnSpeed5.Text = "2,0";
+            this.btnSpeed5.UseVisualStyleBackColor = true;
+            // 
             // btnRepeat
             // 
             this.btnRepeat.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnRepeat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(3)))), ((int)(((byte)(31)))));
+            this.btnRepeat.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(3)))), ((int)(((byte)(31)))));
             this.btnRepeat.FlatAppearance.BorderSize = 0;
             this.btnRepeat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRepeat.IconChar = FontAwesome.Sharp.IconChar.Repeat;
+            this.btnRepeat.IconChar = FontAwesome.Sharp.IconChar.DiagramNext;
             this.btnRepeat.IconColor = System.Drawing.Color.White;
             this.btnRepeat.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnRepeat.IconSize = 30;
@@ -447,66 +608,30 @@
             this.btnRepeat.UseVisualStyleBackColor = false;
             this.btnRepeat.Click += new System.EventHandler(this.btnRepeat_Click);
             // 
-            // pnlVolume
+            // btnSetting
             // 
-            this.pnlVolume.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.pnlVolume.Controls.Add(this.lblIndexVolume);
-            this.pnlVolume.Controls.Add(this.SliderVolume);
-            this.pnlVolume.Location = new System.Drawing.Point(421, 24);
-            this.pnlVolume.Name = "pnlVolume";
-            this.pnlVolume.Size = new System.Drawing.Size(147, 30);
-            this.pnlVolume.TabIndex = 2;
-            // 
-            // lblIndexVolume
-            // 
-            this.lblIndexVolume.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(3)))), ((int)(((byte)(31)))));
-            this.lblIndexVolume.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIndexVolume.ForeColor = System.Drawing.Color.White;
-            this.lblIndexVolume.Location = new System.Drawing.Point(88, 0);
-            this.lblIndexVolume.Name = "lblIndexVolume";
-            this.lblIndexVolume.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.lblIndexVolume.Size = new System.Drawing.Size(59, 30);
-            this.lblIndexVolume.TabIndex = 0;
-            this.lblIndexVolume.Text = "100%";
-            this.lblIndexVolume.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // SliderVolume
-            // 
-            this.SliderVolume.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(3)))), ((int)(((byte)(31)))));
-            this.SliderVolume.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.SliderVolume.Location = new System.Drawing.Point(0, 0);
-            this.SliderVolume.Name = "SliderVolume";
-            this.SliderVolume.Size = new System.Drawing.Size(87, 30);
-            this.SliderVolume.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.SliderVolume.TabIndex = 0;
-            this.SliderVolume.TabStop = false;
-            this.SliderVolume.Paint += new System.Windows.Forms.PaintEventHandler(this.SliderVolume_Paint);
-            this.SliderVolume.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SliderVolume_MouseDown);
-            this.SliderVolume.MouseMove += new System.Windows.Forms.MouseEventHandler(this.SliderVolume_MouseMove);
-            this.SliderVolume.MouseUp += new System.Windows.Forms.MouseEventHandler(this.SliderVolume_MouseUp);
-            // 
-            // btnProperty
-            // 
-            this.btnProperty.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnProperty.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(3)))), ((int)(((byte)(31)))));
-            this.btnProperty.FlatAppearance.BorderSize = 0;
-            this.btnProperty.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProperty.IconChar = FontAwesome.Sharp.IconChar.Exchange;
-            this.btnProperty.IconColor = System.Drawing.Color.White;
-            this.btnProperty.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnProperty.IconSize = 30;
-            this.btnProperty.Location = new System.Drawing.Point(480, 25);
-            this.btnProperty.Name = "btnProperty";
-            this.btnProperty.Size = new System.Drawing.Size(30, 30);
-            this.btnProperty.TabIndex = 2;
-            this.btnProperty.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnProperty.UseVisualStyleBackColor = false;
-            this.btnProperty.Click += new System.EventHandler(this.btnProperty_Click);
+            this.btnSetting.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnSetting.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(3)))), ((int)(((byte)(31)))));
+            this.btnSetting.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(3)))), ((int)(((byte)(31)))));
+            this.btnSetting.FlatAppearance.BorderSize = 0;
+            this.btnSetting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSetting.IconChar = FontAwesome.Sharp.IconChar.Gear;
+            this.btnSetting.IconColor = System.Drawing.Color.White;
+            this.btnSetting.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnSetting.IconSize = 30;
+            this.btnSetting.Location = new System.Drawing.Point(480, 25);
+            this.btnSetting.Name = "btnSetting";
+            this.btnSetting.Size = new System.Drawing.Size(30, 30);
+            this.btnSetting.TabIndex = 2;
+            this.btnSetting.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnSetting.UseVisualStyleBackColor = false;
+            this.btnSetting.Click += new System.EventHandler(this.btnSetting_Click);
             // 
             // btnfullScreen
             // 
             this.btnfullScreen.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btnfullScreen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(3)))), ((int)(((byte)(31)))));
+            this.btnfullScreen.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(3)))), ((int)(((byte)(31)))));
             this.btnfullScreen.FlatAppearance.BorderSize = 0;
             this.btnfullScreen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnfullScreen.IconChar = FontAwesome.Sharp.IconChar.Expand;
@@ -524,6 +649,7 @@
             // 
             this.btnNextWard.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnNextWard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(3)))), ((int)(((byte)(31)))));
+            this.btnNextWard.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(3)))), ((int)(((byte)(31)))));
             this.btnNextWard.FlatAppearance.BorderSize = 0;
             this.btnNextWard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNextWard.IconChar = FontAwesome.Sharp.IconChar.ForwardStep;
@@ -540,6 +666,7 @@
             // 
             this.btnBackWard.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnBackWard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(3)))), ((int)(((byte)(31)))));
+            this.btnBackWard.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(3)))), ((int)(((byte)(31)))));
             this.btnBackWard.FlatAppearance.BorderSize = 0;
             this.btnBackWard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBackWard.IconChar = FontAwesome.Sharp.IconChar.BackwardStep;
@@ -575,6 +702,7 @@
             // 
             this.btnPlayPause.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnPlayPause.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(3)))), ((int)(((byte)(31)))));
+            this.btnPlayPause.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(3)))), ((int)(((byte)(31)))));
             this.btnPlayPause.FlatAppearance.BorderSize = 0;
             this.btnPlayPause.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(3)))), ((int)(((byte)(31)))));
             this.btnPlayPause.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(3)))), ((int)(((byte)(31)))));
@@ -737,6 +865,8 @@
             this.pnlMenu.ResumeLayout(false);
             this.pnlLogo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).EndInit();
+            this.pnlVolume.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.SliderVolume)).EndInit();
             this.pnlTitle.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picChildForm)).EndInit();
             this.pnlChidlForm.ResumeLayout(false);
@@ -744,8 +874,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.wMediaPlayer)).EndInit();
             this.pnlPlayer.ResumeLayout(false);
             this.pnlBottomPlayer.ResumeLayout(false);
-            this.pnlVolume.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.SliderVolume)).EndInit();
+            this.pnlSpeed.ResumeLayout(false);
             this.pnlTopPlayer.ResumeLayout(false);
             this.pnlTitlePlayer.ResumeLayout(false);
             this.pnlSlider.ResumeLayout(false);
@@ -797,8 +926,15 @@
         private FontAwesome.Sharp.IconButton btnfullScreen;
         private System.Windows.Forms.Panel pnlSlider;
         private System.Windows.Forms.Panel pnlTitlePlayer;
-        private FontAwesome.Sharp.IconButton btnProperty;
+        private FontAwesome.Sharp.IconButton btnSetting;
         private FontAwesome.Sharp.IconButton btnRepeat;
+        private System.Windows.Forms.Panel pnlSpeed;
+        private System.Windows.Forms.Button btnSpeed2;
+        private System.Windows.Forms.Button btnSpeed3;
+        private System.Windows.Forms.Button btnSpeed4;
+        private System.Windows.Forms.Button btnSpeed5;
+        private System.Windows.Forms.Label lblSpeed;
+        private System.Windows.Forms.Button btnSpeed1;
     }
 }
 

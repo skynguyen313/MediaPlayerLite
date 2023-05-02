@@ -22,6 +22,7 @@ namespace Media_Player_Lite
         private ControlItemVideo currentControlVideo = null;
         private List<Video> listVideo;
         private List<ControlItemVideo> listControl;
+        private bool sortSelect_AZ;
         public VideoForm()
         {
             InitializeComponent();    
@@ -41,8 +42,10 @@ namespace Media_Player_Lite
                 File.Create(path).Close();
             }
             listVideo =GetListVideo();
+            btnSortAZ.PerformClick();
             listControl = GetListControl(listVideo);
             LoadListControlVideo(listControl);
+           
         }
         private List<Video> GetListVideo()
         {
@@ -60,7 +63,7 @@ namespace Media_Player_Lite
                         if (extension == ".mp4" || extension == ".wmv" || extension == ".mov" || extension == ".flv" || extension == ".avi")
                         {
                             var videoInfo = new VideoInfomation(file);
-                            var video = new Video(videoInfo.Title(), videoInfo.Duration(),videoInfo.GetPath(),ImageVideo.DataImage(file));
+                            var video = new Video(videoInfo.Title(), videoInfo.Duration(),videoInfo.GetPath(),ImageVideo.DataImage(file),videoInfo.LastModified());
                             lst.Add(video);
                         }
                     }
@@ -79,7 +82,7 @@ namespace Media_Player_Lite
         {
             var lstControl = new List<ControlItemVideo>();
             foreach(var video in lstVideo)
-            {
+            {            
                 var info = new
                 {
                     Title=video.Title,
@@ -95,11 +98,11 @@ namespace Media_Player_Lite
         private void LoadListControlVideo(List<ControlItemVideo> lstControl)
         {
             idVideo = 0;
-            foreach (Control control in pnlTitleVideo.Controls)
+            foreach (Control control in fpnlListItemVideo.Controls)
             {
                 control.Dispose();
             }
-            pnlTitleVideo.Controls.Clear();
+            fpnlListItemVideo.Controls.Clear();
             foreach (var item in lstControl)
             {
                 fpnlListItemVideo.Controls.Add(item);
@@ -126,17 +129,44 @@ namespace Media_Player_Lite
             control.ExchangePicVideo(true);
             currentControlVideo= control;
         }
-    
-        private void btnAddFolder_Click(object sender, EventArgs e)
+
+        private void btnAddFolderVideo_Click(object sender, EventArgs e)
         {
             FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
             if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
             {
                 WriteLineFileDistic.WriteLine(fullFilePath, folderBrowserDialog.SelectedPath);
                 listVideo = GetListVideo();
+                if (sortSelect_AZ) btnSortAZ.PerformClick();
+                else btnSortDate.PerformClick();
+                listControl = GetListControl(listVideo);
                 LoadListControlVideo(listControl);
-
             }
+        }
+
+        private void btnSortAZ_Click(object sender, EventArgs e)
+        {
+            var result=from video in listVideo 
+                       orderby video.Title ascending
+                       select video;
+            listVideo=result.ToList();
+            listControl = GetListControl(listVideo);
+            LoadListControlVideo(listControl);
+            pnlSign1.BackColor = Color.Cyan;
+            pnlSign2.BackColor = Color.Black;
+            sortSelect_AZ = true;
+        }
+        private void btnSortDate_Click(object sender, EventArgs e)
+        {
+            var result = from video in listVideo
+                         orderby video.DateModified descending
+                         select video;
+            listVideo = result.ToList();
+            listControl = GetListControl(listVideo);
+            LoadListControlVideo(listControl);
+            pnlSign2.BackColor = Color.Cyan;
+            pnlSign1.BackColor = Color.Black;
+            sortSelect_AZ=false;
         }
     }
 }
