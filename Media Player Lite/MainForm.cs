@@ -388,7 +388,8 @@ namespace Media_Player_Lite
             lblTitlePlayer.Text = e.Title;
             SettingRunWordTitle();
             //
-            pnlRightPlayer.Visible = true;
+            picArtPlayer.Visible = true;
+            pnlInfomation.Visible = true;
             if (e.Image != null) picArtPlayer.Image = Image.FromStream(new MemoryStream(e.Image));
             else picArtPlayer.Image = Image.FromFile(Application.StartupPath + @"\Images\defaultImage.jpg");
             lblArtistInfo.Text= e.Artist;
@@ -411,7 +412,8 @@ namespace Media_Player_Lite
             btnHome.PerformClick();
 
             //
-            pnlRightPlayer.Visible = true;
+            picArtPlayer.Visible = false;
+            pnlInfomation.Visible = false;
             //
             btnNextWard.Enabled = false;
             btnBackWard.Enabled = false;
