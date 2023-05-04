@@ -25,7 +25,7 @@ namespace Media_Player_Lite.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Coppyright @skynguyen")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Coppyright @skynguyen313")]
         public string coppyright {
             get {
                 return ((string)(this["coppyright"]));

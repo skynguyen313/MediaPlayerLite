@@ -24,6 +24,9 @@ namespace Media_Player_Lite.ViewModels
         private readonly byte[] _picData;
         public string Path { get { return _path; } }
         public string Title { get { return _title; } }
+        public string Artist { get { return _artist; } }
+        public string Genre { get { return _genre; } }
+        public byte[] PicData { get { return _picData; } }
         public ControlItemMusic(dynamic info)
         {
             InitializeComponent();

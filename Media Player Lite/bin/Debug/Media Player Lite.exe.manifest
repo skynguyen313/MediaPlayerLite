@@ -90,14 +90,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Media Player Lite.exe" size="164800">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Media Player Lite.exe" size="166336">
       <assemblyIdentity name="Media Player Lite" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>Ye2axG/rQtV+dJVUOWgcrLu3Q461NZPiB0ILFf9dQZw=</dsig:DigestValue>
+        <dsig:DigestValue>HA7xZYe0pE4VTRVPYRluMDSrK8ntjVUykudly/bttbQ=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -182,13 +182,13 @@
       <dsig:DigestValue>80NooJ2/ZhEytGnc+7n+1UXfRwpr7a+tseJpxvj1ytA=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Media Player Lite.exe.config" size="964">
+  <file name="Media Player Lite.exe.config" size="967">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>BmDU4qBy1p/Dpp+CRiZQq43kHClqZRcvzGgC6HqktlM=</dsig:DigestValue>
+      <dsig:DigestValue>GXOiW3G32bljmOD8A+8/h0ktin6He3d7FFlTRUy8dv8=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>

@@ -8,14 +8,18 @@ namespace Media_Player_Lite.Models
 {
     public class MyMusicEventArgs:EventArgs
     {
-        private string _path;
-        private string _title;
-        public string Path { get { return _path; } }
-        public string Title { get { return _title; } }
-        public MyMusicEventArgs(string path, string title)
+        public string Path { get; }
+        public string Title { get; }
+        public string Artist { get; }
+        public string Genre { get; }
+        public byte[] Image { get; }
+        public MyMusicEventArgs(string path, string title,string artist,string genre, byte[] picData)
         {
-            _path = path;
-            _title = title;
+            Path = path;
+            Title = title;
+            Artist = artist;
+            Genre = genre;
+            Image=picData;
         }
     }
 }

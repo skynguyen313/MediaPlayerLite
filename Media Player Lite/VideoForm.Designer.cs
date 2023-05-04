@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.pnlTitleVideo = new System.Windows.Forms.Panel();
+            this.pnlSign2 = new System.Windows.Forms.Panel();
+            this.pnlSign1 = new System.Windows.Forms.Panel();
+            this.btnSortDate = new System.Windows.Forms.Button();
+            this.btnSortAZ = new System.Windows.Forms.Button();
             this.btnAddFolderVideo = new FontAwesome.Sharp.IconButton();
             this.fpnlListItemVideo = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnSortAZ = new System.Windows.Forms.Button();
-            this.btnSortDate = new System.Windows.Forms.Button();
-            this.pnlSign1 = new System.Windows.Forms.Panel();
-            this.pnlSign2 = new System.Windows.Forms.Panel();
             this.pnlTitleVideo.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -51,6 +51,60 @@
             this.pnlTitleVideo.Name = "pnlTitleVideo";
             this.pnlTitleVideo.Size = new System.Drawing.Size(1108, 120);
             this.pnlTitleVideo.TabIndex = 0;
+            // 
+            // pnlSign2
+            // 
+            this.pnlSign2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlSign2.BackColor = System.Drawing.Color.Black;
+            this.pnlSign2.Location = new System.Drawing.Point(720, 51);
+            this.pnlSign2.Name = "pnlSign2";
+            this.pnlSign2.Size = new System.Drawing.Size(90, 5);
+            this.pnlSign2.TabIndex = 11;
+            // 
+            // pnlSign1
+            // 
+            this.pnlSign1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlSign1.BackColor = System.Drawing.Color.Black;
+            this.pnlSign1.Location = new System.Drawing.Point(599, 51);
+            this.pnlSign1.Name = "pnlSign1";
+            this.pnlSign1.Size = new System.Drawing.Size(30, 5);
+            this.pnlSign1.TabIndex = 10;
+            // 
+            // btnSortDate
+            // 
+            this.btnSortDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSortDate.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnSortDate.FlatAppearance.BorderSize = 0;
+            this.btnSortDate.FlatAppearance.CheckedBackColor = System.Drawing.Color.Black;
+            this.btnSortDate.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
+            this.btnSortDate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
+            this.btnSortDate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSortDate.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSortDate.Location = new System.Drawing.Point(667, 21);
+            this.btnSortDate.Name = "btnSortDate";
+            this.btnSortDate.Size = new System.Drawing.Size(196, 35);
+            this.btnSortDate.TabIndex = 9;
+            this.btnSortDate.Text = "Date modified";
+            this.btnSortDate.UseVisualStyleBackColor = true;
+            this.btnSortDate.Click += new System.EventHandler(this.btnSortDate_Click);
+            // 
+            // btnSortAZ
+            // 
+            this.btnSortAZ.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSortAZ.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnSortAZ.FlatAppearance.BorderSize = 0;
+            this.btnSortAZ.FlatAppearance.CheckedBackColor = System.Drawing.Color.Black;
+            this.btnSortAZ.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
+            this.btnSortAZ.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
+            this.btnSortAZ.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSortAZ.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSortAZ.Location = new System.Drawing.Point(570, 21);
+            this.btnSortAZ.Name = "btnSortAZ";
+            this.btnSortAZ.Size = new System.Drawing.Size(91, 35);
+            this.btnSortAZ.TabIndex = 9;
+            this.btnSortAZ.Text = "A - Z";
+            this.btnSortAZ.UseVisualStyleBackColor = true;
+            this.btnSortAZ.Click += new System.EventHandler(this.btnSortAZ_Click);
             // 
             // btnAddFolderVideo
             // 
@@ -84,60 +138,6 @@
             this.fpnlListItemVideo.Name = "fpnlListItemVideo";
             this.fpnlListItemVideo.Size = new System.Drawing.Size(1108, 388);
             this.fpnlListItemVideo.TabIndex = 1;
-            // 
-            // btnSortAZ
-            // 
-            this.btnSortAZ.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSortAZ.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnSortAZ.FlatAppearance.BorderSize = 0;
-            this.btnSortAZ.FlatAppearance.CheckedBackColor = System.Drawing.Color.Black;
-            this.btnSortAZ.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
-            this.btnSortAZ.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
-            this.btnSortAZ.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSortAZ.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSortAZ.Location = new System.Drawing.Point(570, 21);
-            this.btnSortAZ.Name = "btnSortAZ";
-            this.btnSortAZ.Size = new System.Drawing.Size(91, 35);
-            this.btnSortAZ.TabIndex = 9;
-            this.btnSortAZ.Text = "A - Z";
-            this.btnSortAZ.UseVisualStyleBackColor = true;
-            this.btnSortAZ.Click += new System.EventHandler(this.btnSortAZ_Click);
-            // 
-            // btnSortDate
-            // 
-            this.btnSortDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSortDate.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnSortDate.FlatAppearance.BorderSize = 0;
-            this.btnSortDate.FlatAppearance.CheckedBackColor = System.Drawing.Color.Black;
-            this.btnSortDate.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
-            this.btnSortDate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
-            this.btnSortDate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSortDate.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSortDate.Location = new System.Drawing.Point(667, 21);
-            this.btnSortDate.Name = "btnSortDate";
-            this.btnSortDate.Size = new System.Drawing.Size(196, 35);
-            this.btnSortDate.TabIndex = 9;
-            this.btnSortDate.Text = "Date modified";
-            this.btnSortDate.UseVisualStyleBackColor = true;
-            this.btnSortDate.Click += new System.EventHandler(this.btnSortDate_Click);
-            // 
-            // pnlSign1
-            // 
-            this.pnlSign1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlSign1.BackColor = System.Drawing.Color.Black;
-            this.pnlSign1.Location = new System.Drawing.Point(599, 51);
-            this.pnlSign1.Name = "pnlSign1";
-            this.pnlSign1.Size = new System.Drawing.Size(30, 5);
-            this.pnlSign1.TabIndex = 10;
-            // 
-            // pnlSign2
-            // 
-            this.pnlSign2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlSign2.BackColor = System.Drawing.Color.Black;
-            this.pnlSign2.Location = new System.Drawing.Point(719, 51);
-            this.pnlSign2.Name = "pnlSign2";
-            this.pnlSign2.Size = new System.Drawing.Size(90, 5);
-            this.pnlSign2.TabIndex = 11;
             // 
             // VideoForm
             // 

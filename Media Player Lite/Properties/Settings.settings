@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="coppyright" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Coppyright @skynguyen</Value>
+      <Value Profile="(Default)">Coppyright @skynguyen313</Value>
     </Setting>
   </Settings>
 </SettingsFile>

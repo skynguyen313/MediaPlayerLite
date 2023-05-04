@@ -104,8 +104,11 @@ namespace Media_Player_Lite
             ActiveControlMusic(controlItemMusic);
             string path = controlItemMusic.Path;
             string title=controlItemMusic.Title;
+            string artist=controlItemMusic.Artist;
+            string genre=controlItemMusic.Genre;
+            byte[] picData = controlItemMusic.PicData;
             current_IndexMusic = Convert.ToInt32(controlItemMusic.Tag);
-            oneMusic?.Invoke(this, new MyMusicEventArgs(path, title));        
+            oneMusic?.Invoke(this, new MyMusicEventArgs(path, title,artist,genre,picData));        
         }
         private void ActiveControlMusic(ControlItemMusic control)
         {

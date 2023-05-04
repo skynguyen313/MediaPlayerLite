@@ -16,6 +16,7 @@ using System.Runtime.InteropServices;
 using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.UI.WebControls.WebParts;
 using System.Windows.Forms;
 using System.Xaml;
 
@@ -33,9 +34,7 @@ namespace Media_Player_Lite
         private int boderSize = 2;
         private float speed=1;
         private enum RepeatMusic { Repeat_Off, Repeat_One, Repeat_All }
-        private RepeatMusic repeatMusic;
-
-        
+        private RepeatMusic repeatMusic; 
 
         #region System 
         //Config lib [user32.dll]
@@ -74,7 +73,7 @@ namespace Media_Player_Lite
                 btnBackWard.Click += new EventHandler(musicForm.PrevItem);
             }
             videoForm = new VideoForm();
-            {
+            {         
                 videoForm.oneVideo += LoadPlayingVideo;
             }  
         }
@@ -103,6 +102,7 @@ namespace Media_Player_Lite
         {
             lblCoppyrightBy.Text= Properties.Settings.Default.coppyright;
             lblCoppyrightBy.Font = new Font(lblCoppyrightBy.Font.FontFamily, lblCoppyrightBy.Font.Size, FontStyle.Italic);
+            lblCoppyrightBy.TextAlign = ContentAlignment.MiddleCenter;
             pnlLine.BackColor= Color.White;
         }
         private void MainForm_Resize(object sender, EventArgs e)
@@ -209,6 +209,7 @@ namespace Media_Player_Lite
             ActivateButton(sender, Color.FromArgb(81, 236, 193));
             openChildForm(musicForm);
             HidenMediaPlayer();
+            
         }
 
         private void btnVideo_Click(object sender, EventArgs e)
@@ -216,6 +217,7 @@ namespace Media_Player_Lite
             ActivateButton(sender, Color.FromArgb(81, 236, 193));
             openChildForm(videoForm);
             HidenMediaPlayer();
+            
         }
 
         private void btnTools_Click(object sender, EventArgs e)
@@ -384,7 +386,17 @@ namespace Media_Player_Lite
 
             // Label TitlePlayer
             lblTitlePlayer.Text = e.Title;
-            SettingRunWordTitle();       
+            SettingRunWordTitle();
+            //
+            pnlRightPlayer.Visible = true;
+            if (e.Image != null) picArtPlayer.Image = Image.FromStream(new MemoryStream(e.Image));
+            else picArtPlayer.Image = Image.FromFile(Application.StartupPath + @"\Images\defaultImage.jpg");
+            lblArtistInfo.Text= e.Artist;
+            lblGenreInfo.Text= e.Genre;
+
+            //
+            btnNextWard.Enabled = true;
+            btnBackWard.Enabled = true;
         }
         private void LoadPlayingVideo(object sender, MyVideoEventArgs e)
         {
@@ -397,7 +409,17 @@ namespace Media_Player_Lite
             lblTitlePlayer.Text = e.Title;
             SettingRunWordTitle();
             btnHome.PerformClick();
+
+            //
+            pnlRightPlayer.Visible = true;
+            //
+            btnNextWard.Enabled = false;
+            btnBackWard.Enabled = false;
+
         }
+
+ 
+
         #endregion
 
         #region MediaPlayer  
@@ -445,7 +467,7 @@ namespace Media_Player_Lite
         }
         private void btnRepeat_Click(object sender, EventArgs e)
         {
-            if (btnRepeat.IconChar == FontAwesome.Sharp.IconChar.DiagramNext)
+            if (btnRepeat.IconChar == FontAwesome.Sharp.IconChar.CircleArrowRight)
             {
                 this.btnRepeat.IconChar = FontAwesome.Sharp.IconChar.DotCircle;
                 repeatMusic = RepeatMusic.Repeat_Off;
@@ -457,7 +479,7 @@ namespace Media_Player_Lite
             }
             else if (btnRepeat.IconChar == FontAwesome.Sharp.IconChar.RotateForward)
             {
-                this.btnRepeat.IconChar = FontAwesome.Sharp.IconChar.DiagramNext;
+                this.btnRepeat.IconChar = FontAwesome.Sharp.IconChar.CircleArrowRight;
                 repeatMusic = RepeatMusic.Repeat_All;
             }
         }
@@ -684,7 +706,7 @@ namespace Media_Player_Lite
             speed = Convert.ToSingle(btn.Text);
             wMediaPlayer.settings.rate = speed;
             btn.BackColor = Color.FromArgb(76, 76, 76);
-            btnTmp.BackColor = Color.FromArgb(10, 3, 31);
+            if(btn!=btnTmp) btnTmp.BackColor = Color.FromArgb(10, 3, 31);
             btnTmp = btn;
         }
         private void HiddenPanelSpeed_Click(object sender, EventArgs e)
@@ -726,6 +748,7 @@ namespace Media_Player_Lite
         private void HiddenPanelVolume_Click(object sender, EventArgs e) => HidenPanelVolume();
         List<Panel> panels;
         List<IconButton> buttons;
+
         List<Button> buttons1;
         List<PictureBox> pictureBoxes;
         List<Label> labels;

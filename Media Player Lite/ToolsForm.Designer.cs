@@ -118,6 +118,7 @@
             // 
             this.btnAddFolderMusic.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btnAddFolderMusic.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(66)))), ((int)(((byte)(66)))));
+            this.btnAddFolderMusic.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(66)))), ((int)(((byte)(66)))));
             this.btnAddFolderMusic.FlatAppearance.BorderSize = 0;
             this.btnAddFolderMusic.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddFolderMusic.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -225,6 +226,7 @@
             // 
             this.btnAddFolderVideo.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btnAddFolderVideo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(66)))), ((int)(((byte)(66)))));
+            this.btnAddFolderVideo.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(66)))), ((int)(((byte)(66)))));
             this.btnAddFolderVideo.FlatAppearance.BorderSize = 0;
             this.btnAddFolderVideo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddFolderVideo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -331,6 +333,7 @@
             // 
             this.btnRefresh.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btnRefresh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(66)))), ((int)(((byte)(66)))));
+            this.btnRefresh.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(66)))), ((int)(((byte)(66)))));
             this.btnRefresh.FlatAppearance.BorderSize = 0;
             this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
