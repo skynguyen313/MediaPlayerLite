@@ -51,14 +51,14 @@
             // 
             // txtSearch
             // 
-            this.txtSearch.BackColor = System.Drawing.Color.Black;
-            this.txtSearch.BorderColor = System.Drawing.Color.White;
-            this.txtSearch.BorderFocusColor = System.Drawing.Color.Fuchsia;
+            this.txtSearch.BackColor = System.Drawing.Color.DimGray;
+            this.txtSearch.BorderColor = System.Drawing.Color.DimGray;
+            this.txtSearch.BorderFocusColor = System.Drawing.Color.DimGray;
             this.txtSearch.BorderRadius = 15;
             this.txtSearch.BorderSize = 2;
             this.txtSearch.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearch.ForeColor = System.Drawing.Color.Cyan;
-            this.txtSearch.Location = new System.Drawing.Point(15, 55);
+            this.txtSearch.ForeColor = System.Drawing.Color.White;
+            this.txtSearch.Location = new System.Drawing.Point(30, 70);
             this.txtSearch.Multiline = false;
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Padding = new System.Windows.Forms.Padding(7);

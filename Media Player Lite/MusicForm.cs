@@ -22,7 +22,7 @@ namespace Media_Player_Lite
         public MusicForm()
         {
             InitializeComponent();
-            txtSearch.Font = new Font("Arial", 15);
+            txtSearch.Font = new Font("Arial", 14);
             pnlListMusic.AutoScroll = true;
         }
         #region Field

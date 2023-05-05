@@ -101,7 +101,7 @@ namespace Media_Player_Lite
         private void SignAuthor()
         {
             lblCoppyrightBy.Text= Properties.Settings.Default.coppyright;
-            lblCoppyrightBy.Font = new Font(lblCoppyrightBy.Font.FontFamily, lblCoppyrightBy.Font.Size, FontStyle.Italic);
+            lblCoppyrightBy.Font = new Font(lblCoppyrightBy.Font.FontFamily, lblCoppyrightBy.Font.Size, FontStyle.Regular);
             lblCoppyrightBy.TextAlign = ContentAlignment.MiddleCenter;
             pnlLine.BackColor= Color.White;
         }
@@ -392,8 +392,10 @@ namespace Media_Player_Lite
             pnlInfomation.Visible = true;
             if (e.Image != null) picArtPlayer.Image = Image.FromStream(new MemoryStream(e.Image));
             else picArtPlayer.Image = Image.FromFile(Application.StartupPath + @"\Images\defaultImage.jpg");
-            lblArtistInfo.Text= e.Artist;
-            lblGenreInfo.Text= e.Genre;
+            if (e.Artist.Length>35) lblArtistInfo.Text = e.Artist.Substring(0, 35);
+            else lblArtistInfo.Text = e.Artist;
+            if (e.Genre.Length > 35) lblGenreInfo.Text = e.Genre.Substring(0, 35);
+            else lblGenreInfo.Text = e.Genre;
 
             //
             btnNextWard.Enabled = true;

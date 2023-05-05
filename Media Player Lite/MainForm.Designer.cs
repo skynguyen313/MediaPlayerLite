@@ -56,6 +56,10 @@
             this.wMediaPlayer = new AxWMPLib.AxWindowsMediaPlayer();
             this.pnlPlayer = new System.Windows.Forms.Panel();
             this.pnlBottomPlayer = new System.Windows.Forms.Panel();
+            this.btnRandom = new FontAwesome.Sharp.IconButton();
+            this.pnlInfomation = new System.Windows.Forms.Panel();
+            this.lblGenreInfo = new System.Windows.Forms.Label();
+            this.lblArtistInfo = new System.Windows.Forms.Label();
             this.pnlSpeed = new System.Windows.Forms.Panel();
             this.btnSpeed1 = new System.Windows.Forms.Button();
             this.lblSpeed = new System.Windows.Forms.Label();
@@ -81,10 +85,6 @@
             this.pnlLefPlayer = new System.Windows.Forms.Panel();
             this.picArtPlayer = new System.Windows.Forms.PictureBox();
             this.timerPlayer = new System.Windows.Forms.Timer(this.components);
-            this.pnlInfomation = new System.Windows.Forms.Panel();
-            this.lblArtistInfo = new System.Windows.Forms.Label();
-            this.lblGenreInfo = new System.Windows.Forms.Label();
-            this.btnRandom = new FontAwesome.Sharp.IconButton();
             this.pnlMenu.SuspendLayout();
             this.pnlCoppyright.SuspendLayout();
             this.pnlLogo.SuspendLayout();
@@ -98,6 +98,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.wMediaPlayer)).BeginInit();
             this.pnlPlayer.SuspendLayout();
             this.pnlBottomPlayer.SuspendLayout();
+            this.pnlInfomation.SuspendLayout();
             this.pnlSpeed.SuspendLayout();
             this.pnlTopPlayer.SuspendLayout();
             this.pnlTitlePlayer.SuspendLayout();
@@ -105,7 +106,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.Slider)).BeginInit();
             this.pnlLefPlayer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picArtPlayer)).BeginInit();
-            this.pnlInfomation.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlMenu
@@ -326,7 +326,7 @@
             this.pnlVolume.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.pnlVolume.Controls.Add(this.lblIndexVolume);
             this.pnlVolume.Controls.Add(this.SliderVolume);
-            this.pnlVolume.Location = new System.Drawing.Point(552, 24);
+            this.pnlVolume.Location = new System.Drawing.Point(622, 24);
             this.pnlVolume.Name = "pnlVolume";
             this.pnlVolume.Size = new System.Drawing.Size(147, 30);
             this.pnlVolume.TabIndex = 2;
@@ -370,7 +370,7 @@
             this.pnlTitle.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlTitle.Location = new System.Drawing.Point(300, 0);
             this.pnlTitle.Name = "pnlTitle";
-            this.pnlTitle.Size = new System.Drawing.Size(1008, 80);
+            this.pnlTitle.Size = new System.Drawing.Size(1078, 80);
             this.pnlTitle.TabIndex = 1;
             this.pnlTitle.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlTitle_MouseDown);
             // 
@@ -415,7 +415,7 @@
             this.btnMinimize.IconColor = System.Drawing.Color.White;
             this.btnMinimize.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.btnMinimize.IconSize = 20;
-            this.btnMinimize.Location = new System.Drawing.Point(854, 7);
+            this.btnMinimize.Location = new System.Drawing.Point(924, 7);
             this.btnMinimize.Name = "btnMinimize";
             this.btnMinimize.Size = new System.Drawing.Size(50, 30);
             this.btnMinimize.TabIndex = 4;
@@ -435,7 +435,7 @@
             this.btnMaximize.IconColor = System.Drawing.Color.White;
             this.btnMaximize.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.btnMaximize.IconSize = 20;
-            this.btnMaximize.Location = new System.Drawing.Point(904, 7);
+            this.btnMaximize.Location = new System.Drawing.Point(974, 7);
             this.btnMaximize.Name = "btnMaximize";
             this.btnMaximize.Size = new System.Drawing.Size(50, 30);
             this.btnMaximize.TabIndex = 3;
@@ -455,7 +455,7 @@
             this.btnClose.IconColor = System.Drawing.Color.White;
             this.btnClose.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.btnClose.IconSize = 20;
-            this.btnClose.Location = new System.Drawing.Point(953, 7);
+            this.btnClose.Location = new System.Drawing.Point(1023, 7);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(50, 30);
             this.btnClose.TabIndex = 2;
@@ -470,7 +470,7 @@
             this.pnlChidlForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlChidlForm.Location = new System.Drawing.Point(300, 80);
             this.pnlChidlForm.Name = "pnlChidlForm";
-            this.pnlChidlForm.Size = new System.Drawing.Size(1008, 664);
+            this.pnlChidlForm.Size = new System.Drawing.Size(1078, 664);
             this.pnlChidlForm.TabIndex = 2;
             // 
             // pnlPlaying
@@ -479,7 +479,7 @@
             this.pnlPlaying.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlPlaying.Location = new System.Drawing.Point(0, 0);
             this.pnlPlaying.Name = "pnlPlaying";
-            this.pnlPlaying.Size = new System.Drawing.Size(1008, 664);
+            this.pnlPlaying.Size = new System.Drawing.Size(1078, 664);
             this.pnlPlaying.TabIndex = 0;
             // 
             // wMediaPlayer
@@ -491,7 +491,7 @@
             this.wMediaPlayer.Location = new System.Drawing.Point(-5, 1);
             this.wMediaPlayer.Name = "wMediaPlayer";
             this.wMediaPlayer.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("wMediaPlayer.OcxState")));
-            this.wMediaPlayer.Size = new System.Drawing.Size(1008, 522);
+            this.wMediaPlayer.Size = new System.Drawing.Size(1078, 522);
             this.wMediaPlayer.TabIndex = 0;
             this.wMediaPlayer.DoubleClickEvent += new AxWMPLib._WMPOCXEvents_DoubleClickEventHandler(this.wMediaPlayer_DoubleClickEvent);
             // 
@@ -505,7 +505,7 @@
             this.pnlPlayer.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnlPlayer.Location = new System.Drawing.Point(300, 594);
             this.pnlPlayer.Name = "pnlPlayer";
-            this.pnlPlayer.Size = new System.Drawing.Size(1008, 150);
+            this.pnlPlayer.Size = new System.Drawing.Size(1078, 150);
             this.pnlPlayer.TabIndex = 3;
             // 
             // pnlBottomPlayer
@@ -525,8 +525,61 @@
             this.pnlBottomPlayer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlBottomPlayer.Location = new System.Drawing.Point(150, 70);
             this.pnlBottomPlayer.Name = "pnlBottomPlayer";
-            this.pnlBottomPlayer.Size = new System.Drawing.Size(708, 80);
+            this.pnlBottomPlayer.Size = new System.Drawing.Size(778, 80);
             this.pnlBottomPlayer.TabIndex = 3;
+            // 
+            // btnRandom
+            // 
+            this.btnRandom.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnRandom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(3)))), ((int)(((byte)(31)))));
+            this.btnRandom.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(3)))), ((int)(((byte)(31)))));
+            this.btnRandom.FlatAppearance.BorderSize = 0;
+            this.btnRandom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRandom.IconChar = FontAwesome.Sharp.IconChar.Random;
+            this.btnRandom.IconColor = System.Drawing.Color.White;
+            this.btnRandom.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnRandom.IconSize = 30;
+            this.btnRandom.Location = new System.Drawing.Point(245, 24);
+            this.btnRandom.Name = "btnRandom";
+            this.btnRandom.Size = new System.Drawing.Size(30, 30);
+            this.btnRandom.TabIndex = 6;
+            this.btnRandom.UseVisualStyleBackColor = false;
+            // 
+            // pnlInfomation
+            // 
+            this.pnlInfomation.Controls.Add(this.lblGenreInfo);
+            this.pnlInfomation.Controls.Add(this.lblArtistInfo);
+            this.pnlInfomation.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnlInfomation.Location = new System.Drawing.Point(0, 0);
+            this.pnlInfomation.Name = "pnlInfomation";
+            this.pnlInfomation.Size = new System.Drawing.Size(300, 80);
+            this.pnlInfomation.TabIndex = 5;
+            // 
+            // lblGenreInfo
+            // 
+            this.lblGenreInfo.AutoEllipsis = true;
+            this.lblGenreInfo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblGenreInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGenreInfo.ForeColor = System.Drawing.Color.LightGray;
+            this.lblGenreInfo.Location = new System.Drawing.Point(0, 38);
+            this.lblGenreInfo.Name = "lblGenreInfo";
+            this.lblGenreInfo.Padding = new System.Windows.Forms.Padding(16, 3, 0, 0);
+            this.lblGenreInfo.Size = new System.Drawing.Size(300, 33);
+            this.lblGenreInfo.TabIndex = 4;
+            this.lblGenreInfo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblArtistInfo
+            // 
+            this.lblArtistInfo.AutoEllipsis = true;
+            this.lblArtistInfo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblArtistInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblArtistInfo.ForeColor = System.Drawing.Color.LightGray;
+            this.lblArtistInfo.Location = new System.Drawing.Point(0, 0);
+            this.lblArtistInfo.Name = "lblArtistInfo";
+            this.lblArtistInfo.Padding = new System.Windows.Forms.Padding(16, 0, 0, 0);
+            this.lblArtistInfo.Size = new System.Drawing.Size(300, 38);
+            this.lblArtistInfo.TabIndex = 3;
+            this.lblArtistInfo.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // pnlSpeed
             // 
@@ -537,7 +590,7 @@
             this.pnlSpeed.Controls.Add(this.btnSpeed3);
             this.pnlSpeed.Controls.Add(this.btnSpeed4);
             this.pnlSpeed.Controls.Add(this.btnSpeed5);
-            this.pnlSpeed.Location = new System.Drawing.Point(443, 0);
+            this.pnlSpeed.Location = new System.Drawing.Point(513, 0);
             this.pnlSpeed.Name = "pnlSpeed";
             this.pnlSpeed.Size = new System.Drawing.Size(252, 23);
             this.pnlSpeed.TabIndex = 4;
@@ -646,7 +699,7 @@
             this.btnRepeat.IconColor = System.Drawing.Color.White;
             this.btnRepeat.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnRepeat.IconSize = 30;
-            this.btnRepeat.Location = new System.Drawing.Point(466, 24);
+            this.btnRepeat.Location = new System.Drawing.Point(501, 24);
             this.btnRepeat.Name = "btnRepeat";
             this.btnRepeat.Size = new System.Drawing.Size(30, 30);
             this.btnRepeat.TabIndex = 3;
@@ -664,7 +717,7 @@
             this.btnSetting.IconColor = System.Drawing.Color.White;
             this.btnSetting.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnSetting.IconSize = 30;
-            this.btnSetting.Location = new System.Drawing.Point(610, 25);
+            this.btnSetting.Location = new System.Drawing.Point(680, 25);
             this.btnSetting.Name = "btnSetting";
             this.btnSetting.Size = new System.Drawing.Size(30, 30);
             this.btnSetting.TabIndex = 2;
@@ -683,7 +736,7 @@
             this.btnfullScreen.IconColor = System.Drawing.Color.White;
             this.btnfullScreen.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnfullScreen.IconSize = 30;
-            this.btnfullScreen.Location = new System.Drawing.Point(565, 25);
+            this.btnfullScreen.Location = new System.Drawing.Point(635, 25);
             this.btnfullScreen.Name = "btnfullScreen";
             this.btnfullScreen.Size = new System.Drawing.Size(30, 30);
             this.btnfullScreen.TabIndex = 2;
@@ -701,7 +754,7 @@
             this.btnNextWard.IconColor = System.Drawing.Color.White;
             this.btnNextWard.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnNextWard.IconSize = 40;
-            this.btnNextWard.Location = new System.Drawing.Point(397, 19);
+            this.btnNextWard.Location = new System.Drawing.Point(432, 19);
             this.btnNextWard.Name = "btnNextWard";
             this.btnNextWard.Size = new System.Drawing.Size(40, 40);
             this.btnNextWard.TabIndex = 0;
@@ -718,7 +771,7 @@
             this.btnBackWard.IconColor = System.Drawing.Color.White;
             this.btnBackWard.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnBackWard.IconSize = 40;
-            this.btnBackWard.Location = new System.Drawing.Point(271, 19);
+            this.btnBackWard.Location = new System.Drawing.Point(306, 19);
             this.btnBackWard.Name = "btnBackWard";
             this.btnBackWard.Size = new System.Drawing.Size(40, 40);
             this.btnBackWard.TabIndex = 0;
@@ -736,7 +789,7 @@
             this.btnVolume.IconColor = System.Drawing.Color.White;
             this.btnVolume.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnVolume.IconSize = 40;
-            this.btnVolume.Location = new System.Drawing.Point(516, 24);
+            this.btnVolume.Location = new System.Drawing.Point(586, 24);
             this.btnVolume.Name = "btnVolume";
             this.btnVolume.Size = new System.Drawing.Size(30, 30);
             this.btnVolume.TabIndex = 1;
@@ -757,7 +810,7 @@
             this.btnPlayPause.IconColor = System.Drawing.Color.White;
             this.btnPlayPause.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnPlayPause.IconSize = 70;
-            this.btnPlayPause.Location = new System.Drawing.Point(319, 4);
+            this.btnPlayPause.Location = new System.Drawing.Point(354, 4);
             this.btnPlayPause.Name = "btnPlayPause";
             this.btnPlayPause.Size = new System.Drawing.Size(70, 70);
             this.btnPlayPause.TabIndex = 0;
@@ -775,7 +828,7 @@
             this.pnlTopPlayer.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlTopPlayer.Location = new System.Drawing.Point(150, 0);
             this.pnlTopPlayer.Name = "pnlTopPlayer";
-            this.pnlTopPlayer.Size = new System.Drawing.Size(708, 70);
+            this.pnlTopPlayer.Size = new System.Drawing.Size(778, 70);
             this.pnlTopPlayer.TabIndex = 2;
             // 
             // pnlTitlePlayer
@@ -784,7 +837,7 @@
             this.pnlTitlePlayer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlTitlePlayer.Location = new System.Drawing.Point(81, 0);
             this.pnlTitlePlayer.Name = "pnlTitlePlayer";
-            this.pnlTitlePlayer.Size = new System.Drawing.Size(546, 40);
+            this.pnlTitlePlayer.Size = new System.Drawing.Size(616, 40);
             this.pnlTitlePlayer.TabIndex = 3;
             // 
             // lblTitlePlayer
@@ -805,7 +858,7 @@
             this.pnlSlider.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnlSlider.Location = new System.Drawing.Point(81, 40);
             this.pnlSlider.Name = "pnlSlider";
-            this.pnlSlider.Size = new System.Drawing.Size(546, 30);
+            this.pnlSlider.Size = new System.Drawing.Size(616, 30);
             this.pnlSlider.TabIndex = 2;
             // 
             // Slider
@@ -815,7 +868,7 @@
             this.Slider.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Slider.Location = new System.Drawing.Point(0, 0);
             this.Slider.Name = "Slider";
-            this.Slider.Size = new System.Drawing.Size(546, 30);
+            this.Slider.Size = new System.Drawing.Size(616, 30);
             this.Slider.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Slider.TabIndex = 0;
             this.Slider.TabStop = false;
@@ -831,7 +884,7 @@
             this.lblTimeEnd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lblTimeEnd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTimeEnd.ForeColor = System.Drawing.Color.White;
-            this.lblTimeEnd.Location = new System.Drawing.Point(627, 0);
+            this.lblTimeEnd.Location = new System.Drawing.Point(697, 0);
             this.lblTimeEnd.Name = "lblTimeEnd";
             this.lblTimeEnd.Padding = new System.Windows.Forms.Padding(0, 0, 5, 5);
             this.lblTimeEnd.Size = new System.Drawing.Size(81, 70);
@@ -860,7 +913,7 @@
             this.pnlRightPlayer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(3)))), ((int)(((byte)(31)))));
             this.pnlRightPlayer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pnlRightPlayer.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnlRightPlayer.Location = new System.Drawing.Point(858, 0);
+            this.pnlRightPlayer.Location = new System.Drawing.Point(928, 0);
             this.pnlRightPlayer.Name = "pnlRightPlayer";
             this.pnlRightPlayer.Size = new System.Drawing.Size(150, 150);
             this.pnlRightPlayer.TabIndex = 1;
@@ -891,62 +944,11 @@
             this.timerPlayer.Enabled = true;
             this.timerPlayer.Tick += new System.EventHandler(this.timerPlayer_Tick);
             // 
-            // pnlInfomation
-            // 
-            this.pnlInfomation.Controls.Add(this.lblGenreInfo);
-            this.pnlInfomation.Controls.Add(this.lblArtistInfo);
-            this.pnlInfomation.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pnlInfomation.Location = new System.Drawing.Point(0, 0);
-            this.pnlInfomation.Name = "pnlInfomation";
-            this.pnlInfomation.Size = new System.Drawing.Size(250, 80);
-            this.pnlInfomation.TabIndex = 5;
-            // 
-            // lblArtistInfo
-            // 
-            this.lblArtistInfo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblArtistInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblArtistInfo.ForeColor = System.Drawing.Color.LightGray;
-            this.lblArtistInfo.Location = new System.Drawing.Point(0, 0);
-            this.lblArtistInfo.Name = "lblArtistInfo";
-            this.lblArtistInfo.Padding = new System.Windows.Forms.Padding(16, 0, 0, 0);
-            this.lblArtistInfo.Size = new System.Drawing.Size(250, 38);
-            this.lblArtistInfo.TabIndex = 3;
-            this.lblArtistInfo.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
-            // 
-            // lblGenreInfo
-            // 
-            this.lblGenreInfo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblGenreInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGenreInfo.ForeColor = System.Drawing.Color.LightGray;
-            this.lblGenreInfo.Location = new System.Drawing.Point(0, 38);
-            this.lblGenreInfo.Name = "lblGenreInfo";
-            this.lblGenreInfo.Padding = new System.Windows.Forms.Padding(16, 0, 0, 0);
-            this.lblGenreInfo.Size = new System.Drawing.Size(250, 33);
-            this.lblGenreInfo.TabIndex = 4;
-            this.lblGenreInfo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // btnRandom
-            // 
-            this.btnRandom.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnRandom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(3)))), ((int)(((byte)(31)))));
-            this.btnRandom.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(3)))), ((int)(((byte)(31)))));
-            this.btnRandom.FlatAppearance.BorderSize = 0;
-            this.btnRandom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRandom.IconChar = FontAwesome.Sharp.IconChar.Random;
-            this.btnRandom.IconColor = System.Drawing.Color.White;
-            this.btnRandom.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnRandom.IconSize = 30;
-            this.btnRandom.Location = new System.Drawing.Point(210, 24);
-            this.btnRandom.Name = "btnRandom";
-            this.btnRandom.Size = new System.Drawing.Size(30, 30);
-            this.btnRandom.TabIndex = 6;
-            this.btnRandom.UseVisualStyleBackColor = false;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1308, 744);
+            this.ClientSize = new System.Drawing.Size(1378, 744);
             this.Controls.Add(this.pnlPlayer);
             this.Controls.Add(this.pnlChidlForm);
             this.Controls.Add(this.pnlTitle);
@@ -971,6 +973,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.wMediaPlayer)).EndInit();
             this.pnlPlayer.ResumeLayout(false);
             this.pnlBottomPlayer.ResumeLayout(false);
+            this.pnlInfomation.ResumeLayout(false);
             this.pnlSpeed.ResumeLayout(false);
             this.pnlTopPlayer.ResumeLayout(false);
             this.pnlTitlePlayer.ResumeLayout(false);
@@ -978,7 +981,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.Slider)).EndInit();
             this.pnlLefPlayer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picArtPlayer)).EndInit();
-            this.pnlInfomation.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
