@@ -46,7 +46,7 @@
             this.pnlTitleMusic.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlTitleMusic.Location = new System.Drawing.Point(0, 0);
             this.pnlTitleMusic.Name = "pnlTitleMusic";
-            this.pnlTitleMusic.Size = new System.Drawing.Size(1108, 150);
+            this.pnlTitleMusic.Size = new System.Drawing.Size(1056, 150);
             this.pnlTitleMusic.TabIndex = 4;
             // 
             // txtSearch
@@ -87,7 +87,7 @@
             this.btnAddFolderMusic.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnAddFolderMusic.IconSize = 40;
             this.btnAddFolderMusic.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddFolderMusic.Location = new System.Drawing.Point(900, 10);
+            this.btnAddFolderMusic.Location = new System.Drawing.Point(848, 10);
             this.btnAddFolderMusic.Name = "btnAddFolderMusic";
             this.btnAddFolderMusic.Size = new System.Drawing.Size(176, 46);
             this.btnAddFolderMusic.TabIndex = 7;
@@ -110,7 +110,7 @@
             "All artist"});
             this.cmbGenre.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.cmbGenre.ListTextColor = System.Drawing.Color.White;
-            this.cmbGenre.Location = new System.Drawing.Point(573, 18);
+            this.cmbGenre.Location = new System.Drawing.Point(521, 18);
             this.cmbGenre.MinimumSize = new System.Drawing.Size(200, 30);
             this.cmbGenre.Name = "cmbGenre";
             this.cmbGenre.Size = new System.Drawing.Size(286, 30);
@@ -132,7 +132,7 @@
             "All artist"});
             this.cmbArtist.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.cmbArtist.ListTextColor = System.Drawing.Color.White;
-            this.cmbArtist.Location = new System.Drawing.Point(272, 18);
+            this.cmbArtist.Location = new System.Drawing.Point(220, 18);
             this.cmbArtist.MinimumSize = new System.Drawing.Size(200, 30);
             this.cmbArtist.Name = "cmbArtist";
             this.cmbArtist.Size = new System.Drawing.Size(286, 30);
@@ -145,7 +145,7 @@
             this.pnlListMusic.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlListMusic.Location = new System.Drawing.Point(0, 150);
             this.pnlListMusic.Name = "pnlListMusic";
-            this.pnlListMusic.Size = new System.Drawing.Size(1108, 358);
+            this.pnlListMusic.Size = new System.Drawing.Size(1056, 458);
             this.pnlListMusic.TabIndex = 5;
             // 
             // MusicForm
@@ -153,12 +153,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(1108, 508);
+            this.ClientSize = new System.Drawing.Size(1056, 608);
             this.Controls.Add(this.pnlListMusic);
             this.Controls.Add(this.pnlTitleMusic);
             this.ForeColor = System.Drawing.Color.White;
             this.Name = "MusicForm";
-            this.Text = "MusicForm";
+            this.Text = " ";
             this.Load += new System.EventHandler(this.MusicForm_Load);
             this.pnlTitleMusic.ResumeLayout(false);
             this.pnlTitleMusic.PerformLayout();

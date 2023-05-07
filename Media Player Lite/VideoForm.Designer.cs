@@ -49,14 +49,14 @@
             this.pnlTitleVideo.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlTitleVideo.Location = new System.Drawing.Point(0, 0);
             this.pnlTitleVideo.Name = "pnlTitleVideo";
-            this.pnlTitleVideo.Size = new System.Drawing.Size(1108, 120);
+            this.pnlTitleVideo.Size = new System.Drawing.Size(1154, 120);
             this.pnlTitleVideo.TabIndex = 0;
             // 
             // pnlSign2
             // 
             this.pnlSign2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlSign2.BackColor = System.Drawing.Color.Black;
-            this.pnlSign2.Location = new System.Drawing.Point(720, 51);
+            this.pnlSign2.Location = new System.Drawing.Point(766, 51);
             this.pnlSign2.Name = "pnlSign2";
             this.pnlSign2.Size = new System.Drawing.Size(90, 5);
             this.pnlSign2.TabIndex = 11;
@@ -65,7 +65,7 @@
             // 
             this.pnlSign1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlSign1.BackColor = System.Drawing.Color.Black;
-            this.pnlSign1.Location = new System.Drawing.Point(599, 51);
+            this.pnlSign1.Location = new System.Drawing.Point(645, 51);
             this.pnlSign1.Name = "pnlSign1";
             this.pnlSign1.Size = new System.Drawing.Size(30, 5);
             this.pnlSign1.TabIndex = 10;
@@ -80,7 +80,7 @@
             this.btnSortDate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
             this.btnSortDate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSortDate.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSortDate.Location = new System.Drawing.Point(667, 21);
+            this.btnSortDate.Location = new System.Drawing.Point(713, 21);
             this.btnSortDate.Name = "btnSortDate";
             this.btnSortDate.Size = new System.Drawing.Size(196, 35);
             this.btnSortDate.TabIndex = 9;
@@ -98,7 +98,7 @@
             this.btnSortAZ.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
             this.btnSortAZ.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSortAZ.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSortAZ.Location = new System.Drawing.Point(570, 21);
+            this.btnSortAZ.Location = new System.Drawing.Point(616, 21);
             this.btnSortAZ.Name = "btnSortAZ";
             this.btnSortAZ.Size = new System.Drawing.Size(91, 35);
             this.btnSortAZ.TabIndex = 9;
@@ -121,7 +121,7 @@
             this.btnAddFolderVideo.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnAddFolderVideo.IconSize = 40;
             this.btnAddFolderVideo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddFolderVideo.Location = new System.Drawing.Point(900, 10);
+            this.btnAddFolderVideo.Location = new System.Drawing.Point(946, 10);
             this.btnAddFolderVideo.Name = "btnAddFolderVideo";
             this.btnAddFolderVideo.Size = new System.Drawing.Size(176, 46);
             this.btnAddFolderVideo.TabIndex = 8;
@@ -136,7 +136,7 @@
             this.fpnlListItemVideo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.fpnlListItemVideo.Location = new System.Drawing.Point(0, 120);
             this.fpnlListItemVideo.Name = "fpnlListItemVideo";
-            this.fpnlListItemVideo.Size = new System.Drawing.Size(1108, 388);
+            this.fpnlListItemVideo.Size = new System.Drawing.Size(1154, 388);
             this.fpnlListItemVideo.TabIndex = 1;
             // 
             // VideoForm
@@ -144,7 +144,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(1108, 508);
+            this.ClientSize = new System.Drawing.Size(1154, 508);
             this.Controls.Add(this.fpnlListItemVideo);
             this.Controls.Add(this.pnlTitleVideo);
             this.ForeColor = System.Drawing.Color.White;

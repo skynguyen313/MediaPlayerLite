@@ -46,7 +46,7 @@
             this.lblTitle.Location = new System.Drawing.Point(218, 21);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.lblTitle.Size = new System.Drawing.Size(547, 40);
+            this.lblTitle.Size = new System.Drawing.Size(778, 40);
             this.lblTitle.TabIndex = 1;
             this.lblTitle.Text = "Title";
             // 

@@ -544,6 +544,7 @@
             this.btnRandom.Size = new System.Drawing.Size(30, 30);
             this.btnRandom.TabIndex = 6;
             this.btnRandom.UseVisualStyleBackColor = false;
+            this.btnRandom.Click += new System.EventHandler(this.btnRandom_Click);
             // 
             // pnlInfomation
             // 
@@ -759,6 +760,7 @@
             this.btnNextWard.Size = new System.Drawing.Size(40, 40);
             this.btnNextWard.TabIndex = 0;
             this.btnNextWard.UseVisualStyleBackColor = false;
+            this.btnNextWard.Click += new System.EventHandler(this.btnNextWard_Click);
             // 
             // btnBackWard
             // 
@@ -776,6 +778,7 @@
             this.btnBackWard.Size = new System.Drawing.Size(40, 40);
             this.btnBackWard.TabIndex = 0;
             this.btnBackWard.UseVisualStyleBackColor = false;
+            this.btnBackWard.Click += new System.EventHandler(this.btnBackWard_Click);
             // 
             // btnVolume
             // 

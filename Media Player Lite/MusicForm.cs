@@ -34,6 +34,7 @@ namespace Media_Player_Lite
         private int current_IndexMusic=0;
         private int idMuic = 0;
         private readonly string fullFilePath = DirectoryPath.GetFullPath(@"DataMPLite\dataMusic.dat");
+        private Random random = new Random();
         #endregion
         
         #region Data
@@ -117,12 +118,18 @@ namespace Media_Player_Lite
             currentControlMusic = control;
             
         }
+        public void RandomItem(object sender,EventArgs e)
+        {         
+            current_IndexMusic = random.Next(0, listSong.Count());
+            ControlItemMusic randomItem = listControl[current_IndexMusic];
+            SendDataMusicEvent(randomItem);
+        }
         public void NextItem(object sender, EventArgs e)
         {
             if (current_IndexMusic >0)
             {
                 current_IndexMusic -= 1;
-                var nextItem = listControl[current_IndexMusic];
+                ControlItemMusic nextItem = listControl[current_IndexMusic];
                 SendDataMusicEvent(nextItem);
                 pnlListMusic.VerticalScroll.Value +=350;//Auto Scroll 
             }
@@ -132,7 +139,7 @@ namespace Media_Player_Lite
             if (current_IndexMusic <listControl.Count-1)
             {
                 current_IndexMusic += 1;
-                var prevItem = listControl[current_IndexMusic];
+                ControlItemMusic prevItem = listControl[current_IndexMusic];
                 SendDataMusicEvent(prevItem);
                 if(pnlListMusic.VerticalScroll.Value>350) pnlListMusic.VerticalScroll.Value -= 350;//Auto Scroll
             }

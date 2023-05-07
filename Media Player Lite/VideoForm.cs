@@ -27,7 +27,7 @@ namespace Media_Player_Lite
         {
             InitializeComponent();    
             fpnlListItemVideo.FlowDirection = FlowDirection.LeftToRight;
-            fpnlListItemVideo.AutoScroll = true;
+            fpnlListItemVideo.AutoScroll = true;         
         }
         private void VideoForm_Load(object sender, EventArgs e)
         {
@@ -43,9 +43,6 @@ namespace Media_Player_Lite
             }
             listVideo =GetListVideo();
             btnSortAZ.PerformClick();
-            listControl = GetListControl(listVideo);
-            LoadListControlVideo(listControl);
-           
         }
         private List<Video> GetListVideo()
         {

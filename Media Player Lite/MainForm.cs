@@ -33,6 +33,7 @@ namespace Media_Player_Lite
         private Panel leftBorderBtn;
         private int boderSize = 2;
         private float speed=1;
+        private bool random=false;
         private enum RepeatMusic { Repeat_Off, Repeat_One, Repeat_All }
         private RepeatMusic repeatMusic; 
 
@@ -69,8 +70,6 @@ namespace Media_Player_Lite
             musicForm = new MusicForm();
             {
                 musicForm.oneMusic += LoadPlayingMusic;
-                btnNextWard.Click += new EventHandler(musicForm.NextItem);
-                btnBackWard.Click += new EventHandler(musicForm.PrevItem);
             }
             videoForm = new VideoForm();
             {         
@@ -421,12 +420,39 @@ namespace Media_Player_Lite
             btnBackWard.Enabled = false;
 
         }
-
- 
-
         #endregion
 
         #region MediaPlayer  
+
+        private void btnNextWard_Click(object sender, EventArgs e)
+        {
+            if (random == false)
+                musicForm.NextItem(null,null);
+            else
+                musicForm.RandomItem(null,null);
+        }
+
+        private void btnBackWard_Click(object sender, EventArgs e)
+        {
+            if (random == false)
+                musicForm.PrevItem(null, null);
+            else
+                musicForm.RandomItem(null, null);
+        }
+
+        private void btnRandom_Click(object sender, EventArgs e)
+        {
+            if (random == false)
+            {
+                random = true;
+                this.btnRandom.IconColor = Color.FromArgb(81, 236, 193);
+            }
+            else
+            {
+                this.btnRandom.IconColor = Color.White;
+                random =false;
+            }
+        }
         private void btnPlay()
         {
             this.btnPlayPause.IconChar = FontAwesome.Sharp.IconChar.CirclePlay;
@@ -660,20 +686,20 @@ namespace Media_Player_Lite
             }
             else if (wMediaPlayer.playState == WMPLib.WMPPlayState.wmppsStopped)
             {
-
-                switch (repeatMusic)
-                {
-                    case RepeatMusic.Repeat_All:
-                        btnNextWard.PerformClick();
-                        break;
-                    case RepeatMusic.Repeat_One:
-                        btnPlayPause.PerformClick();
-                        break;
-                    case RepeatMusic.Repeat_Off:
-                        btnPlay();
-                        break;
-                }
-
+                
+                    switch (repeatMusic)
+                    {
+                        case RepeatMusic.Repeat_All:             
+                            btnNextWard.PerformClick();
+                            
+                            break;
+                        case RepeatMusic.Repeat_One:
+                            btnPlayPause.PerformClick();
+                            break;
+                        case RepeatMusic.Repeat_Off:
+                            btnPlay();
+                            break;
+                    }
             }
         }
         private void RunWordTiTle()
@@ -752,7 +778,6 @@ namespace Media_Player_Lite
         private void HiddenPanelVolume_Click(object sender, EventArgs e) => HidenPanelVolume();
         List<Panel> panels;
         List<IconButton> buttons;
-
         List<Button> buttons1;
         List<PictureBox> pictureBoxes;
         List<Label> labels;

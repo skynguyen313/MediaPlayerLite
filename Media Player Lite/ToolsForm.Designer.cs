@@ -70,7 +70,7 @@
             this.pnlTiTeLib.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlTiTeLib.Location = new System.Drawing.Point(0, 0);
             this.pnlTiTeLib.Name = "pnlTiTeLib";
-            this.pnlTiTeLib.Size = new System.Drawing.Size(856, 85);
+            this.pnlTiTeLib.Size = new System.Drawing.Size(1096, 85);
             this.pnlTiTeLib.TabIndex = 0;
             // 
             // lblTiTleLib
@@ -94,12 +94,13 @@
             this.pnlMusicLibraryLocations.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlMusicLibraryLocations.Location = new System.Drawing.Point(0, 85);
             this.pnlMusicLibraryLocations.Name = "pnlMusicLibraryLocations";
-            this.pnlMusicLibraryLocations.Size = new System.Drawing.Size(856, 60);
+            this.pnlMusicLibraryLocations.Size = new System.Drawing.Size(1096, 80);
             this.pnlMusicLibraryLocations.TabIndex = 1;
             // 
             // btnListMusic
             // 
             this.btnListMusic.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnListMusic.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnListMusic.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
             this.btnListMusic.FlatAppearance.BorderSize = 0;
             this.btnListMusic.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -107,7 +108,7 @@
             this.btnListMusic.IconColor = System.Drawing.Color.White;
             this.btnListMusic.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnListMusic.IconSize = 20;
-            this.btnListMusic.Location = new System.Drawing.Point(781, 11);
+            this.btnListMusic.Location = new System.Drawing.Point(1021, 21);
             this.btnListMusic.Name = "btnListMusic";
             this.btnListMusic.Size = new System.Drawing.Size(30, 35);
             this.btnListMusic.TabIndex = 3;
@@ -127,9 +128,9 @@
             this.btnAddFolderMusic.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnAddFolderMusic.IconSize = 40;
             this.btnAddFolderMusic.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddFolderMusic.Location = new System.Drawing.Point(569, 11);
+            this.btnAddFolderMusic.Location = new System.Drawing.Point(825, 21);
             this.btnAddFolderMusic.Name = "btnAddFolderMusic";
-            this.btnAddFolderMusic.Size = new System.Drawing.Size(197, 40);
+            this.btnAddFolderMusic.Size = new System.Drawing.Size(180, 40);
             this.btnAddFolderMusic.TabIndex = 2;
             this.btnAddFolderMusic.Text = "Add folder";
             this.btnAddFolderMusic.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -140,7 +141,7 @@
             // 
             this.lblMusicLib.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblMusicLib.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMusicLib.Location = new System.Drawing.Point(92, 6);
+            this.lblMusicLib.Location = new System.Drawing.Point(92, 16);
             this.lblMusicLib.Name = "lblMusicLib";
             this.lblMusicLib.Size = new System.Drawing.Size(260, 50);
             this.lblMusicLib.TabIndex = 1;
@@ -155,7 +156,7 @@
             this.picFolderMuisc.IconColor = System.Drawing.Color.White;
             this.picFolderMuisc.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.picFolderMuisc.IconSize = 50;
-            this.picFolderMuisc.Location = new System.Drawing.Point(36, 5);
+            this.picFolderMuisc.Location = new System.Drawing.Point(36, 15);
             this.picFolderMuisc.Name = "picFolderMuisc";
             this.picFolderMuisc.Size = new System.Drawing.Size(50, 50);
             this.picFolderMuisc.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -168,18 +169,18 @@
             this.pnlSpace.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlSpace.Enabled = false;
             this.pnlSpace.ForeColor = System.Drawing.Color.Black;
-            this.pnlSpace.Location = new System.Drawing.Point(0, 145);
+            this.pnlSpace.Location = new System.Drawing.Point(0, 165);
             this.pnlSpace.Name = "pnlSpace";
-            this.pnlSpace.Size = new System.Drawing.Size(856, 5);
+            this.pnlSpace.Size = new System.Drawing.Size(1096, 5);
             this.pnlSpace.TabIndex = 2;
             // 
             // pnlListPathMusic
             // 
             this.pnlListPathMusic.BackColor = System.Drawing.Color.Black;
             this.pnlListPathMusic.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlListPathMusic.Location = new System.Drawing.Point(0, 150);
+            this.pnlListPathMusic.Location = new System.Drawing.Point(0, 170);
             this.pnlListPathMusic.Name = "pnlListPathMusic";
-            this.pnlListPathMusic.Size = new System.Drawing.Size(856, 65);
+            this.pnlListPathMusic.Size = new System.Drawing.Size(1096, 65);
             this.pnlListPathMusic.TabIndex = 3;
             // 
             // pnlSpace3
@@ -187,9 +188,9 @@
             this.pnlSpace3.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlSpace3.Enabled = false;
             this.pnlSpace3.ForeColor = System.Drawing.Color.Black;
-            this.pnlSpace3.Location = new System.Drawing.Point(0, 215);
+            this.pnlSpace3.Location = new System.Drawing.Point(0, 235);
             this.pnlSpace3.Name = "pnlSpace3";
-            this.pnlSpace3.Size = new System.Drawing.Size(856, 5);
+            this.pnlSpace3.Size = new System.Drawing.Size(1096, 5);
             this.pnlSpace3.TabIndex = 4;
             // 
             // pnlVideoLibraryLocations
@@ -200,14 +201,15 @@
             this.pnlVideoLibraryLocations.Controls.Add(this.lblVideoLib);
             this.pnlVideoLibraryLocations.Controls.Add(this.picFolderVideo);
             this.pnlVideoLibraryLocations.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlVideoLibraryLocations.Location = new System.Drawing.Point(0, 220);
+            this.pnlVideoLibraryLocations.Location = new System.Drawing.Point(0, 240);
             this.pnlVideoLibraryLocations.Name = "pnlVideoLibraryLocations";
-            this.pnlVideoLibraryLocations.Size = new System.Drawing.Size(856, 60);
+            this.pnlVideoLibraryLocations.Size = new System.Drawing.Size(1096, 80);
             this.pnlVideoLibraryLocations.TabIndex = 5;
             // 
             // btnListVideo
             // 
             this.btnListVideo.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnListVideo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnListVideo.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
             this.btnListVideo.FlatAppearance.BorderSize = 0;
             this.btnListVideo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -215,7 +217,7 @@
             this.btnListVideo.IconColor = System.Drawing.Color.White;
             this.btnListVideo.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnListVideo.IconSize = 20;
-            this.btnListVideo.Location = new System.Drawing.Point(781, 11);
+            this.btnListVideo.Location = new System.Drawing.Point(1021, 21);
             this.btnListVideo.Name = "btnListVideo";
             this.btnListVideo.Size = new System.Drawing.Size(30, 35);
             this.btnListVideo.TabIndex = 3;
@@ -235,9 +237,9 @@
             this.btnAddFolderVideo.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnAddFolderVideo.IconSize = 40;
             this.btnAddFolderVideo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddFolderVideo.Location = new System.Drawing.Point(569, 11);
+            this.btnAddFolderVideo.Location = new System.Drawing.Point(825, 21);
             this.btnAddFolderVideo.Name = "btnAddFolderVideo";
-            this.btnAddFolderVideo.Size = new System.Drawing.Size(197, 40);
+            this.btnAddFolderVideo.Size = new System.Drawing.Size(180, 40);
             this.btnAddFolderVideo.TabIndex = 2;
             this.btnAddFolderVideo.Text = "Add folder";
             this.btnAddFolderVideo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -248,7 +250,7 @@
             // 
             this.lblVideoLib.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblVideoLib.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVideoLib.Location = new System.Drawing.Point(92, 6);
+            this.lblVideoLib.Location = new System.Drawing.Point(92, 16);
             this.lblVideoLib.Name = "lblVideoLib";
             this.lblVideoLib.Size = new System.Drawing.Size(260, 50);
             this.lblVideoLib.TabIndex = 1;
@@ -263,7 +265,7 @@
             this.picFolderVideo.IconColor = System.Drawing.Color.White;
             this.picFolderVideo.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.picFolderVideo.IconSize = 50;
-            this.picFolderVideo.Location = new System.Drawing.Point(36, 5);
+            this.picFolderVideo.Location = new System.Drawing.Point(36, 15);
             this.picFolderVideo.Name = "picFolderVideo";
             this.picFolderVideo.Size = new System.Drawing.Size(50, 50);
             this.picFolderVideo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -275,18 +277,18 @@
             this.pnlSpace4.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlSpace4.Enabled = false;
             this.pnlSpace4.ForeColor = System.Drawing.Color.Black;
-            this.pnlSpace4.Location = new System.Drawing.Point(0, 280);
+            this.pnlSpace4.Location = new System.Drawing.Point(0, 320);
             this.pnlSpace4.Name = "pnlSpace4";
-            this.pnlSpace4.Size = new System.Drawing.Size(856, 5);
+            this.pnlSpace4.Size = new System.Drawing.Size(1096, 5);
             this.pnlSpace4.TabIndex = 6;
             // 
             // pnlListPathVideo
             // 
             this.pnlListPathVideo.BackColor = System.Drawing.Color.Black;
             this.pnlListPathVideo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlListPathVideo.Location = new System.Drawing.Point(0, 285);
+            this.pnlListPathVideo.Location = new System.Drawing.Point(0, 325);
             this.pnlListPathVideo.Name = "pnlListPathVideo";
-            this.pnlListPathVideo.Size = new System.Drawing.Size(856, 65);
+            this.pnlListPathVideo.Size = new System.Drawing.Size(1096, 65);
             this.pnlListPathVideo.TabIndex = 7;
             // 
             // pnlSpace5
@@ -294,9 +296,9 @@
             this.pnlSpace5.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlSpace5.Enabled = false;
             this.pnlSpace5.ForeColor = System.Drawing.Color.Black;
-            this.pnlSpace5.Location = new System.Drawing.Point(0, 350);
+            this.pnlSpace5.Location = new System.Drawing.Point(0, 390);
             this.pnlSpace5.Name = "pnlSpace5";
-            this.pnlSpace5.Size = new System.Drawing.Size(856, 5);
+            this.pnlSpace5.Size = new System.Drawing.Size(1096, 5);
             this.pnlSpace5.TabIndex = 8;
             // 
             // pnlRefreshLib
@@ -307,14 +309,15 @@
             this.pnlRefreshLib.Controls.Add(this.lblRefreshLib);
             this.pnlRefreshLib.Controls.Add(this.picRefresh);
             this.pnlRefreshLib.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlRefreshLib.Location = new System.Drawing.Point(0, 355);
+            this.pnlRefreshLib.Location = new System.Drawing.Point(0, 395);
             this.pnlRefreshLib.Name = "pnlRefreshLib";
-            this.pnlRefreshLib.Size = new System.Drawing.Size(856, 60);
+            this.pnlRefreshLib.Size = new System.Drawing.Size(1096, 80);
             this.pnlRefreshLib.TabIndex = 9;
             // 
             // btnMessage
             // 
             this.btnMessage.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnMessage.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMessage.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
             this.btnMessage.FlatAppearance.BorderSize = 0;
             this.btnMessage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -322,7 +325,7 @@
             this.btnMessage.IconColor = System.Drawing.Color.White;
             this.btnMessage.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnMessage.IconSize = 20;
-            this.btnMessage.Location = new System.Drawing.Point(781, 11);
+            this.btnMessage.Location = new System.Drawing.Point(1021, 21);
             this.btnMessage.Name = "btnMessage";
             this.btnMessage.Size = new System.Drawing.Size(30, 35);
             this.btnMessage.TabIndex = 3;
@@ -342,7 +345,7 @@
             this.btnRefresh.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnRefresh.IconSize = 40;
             this.btnRefresh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRefresh.Location = new System.Drawing.Point(655, 11);
+            this.btnRefresh.Location = new System.Drawing.Point(894, 21);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(111, 40);
             this.btnRefresh.TabIndex = 2;
@@ -354,7 +357,7 @@
             // 
             this.lblRefreshLib.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblRefreshLib.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRefreshLib.Location = new System.Drawing.Point(92, 6);
+            this.lblRefreshLib.Location = new System.Drawing.Point(92, 16);
             this.lblRefreshLib.Name = "lblRefreshLib";
             this.lblRefreshLib.Size = new System.Drawing.Size(260, 50);
             this.lblRefreshLib.TabIndex = 1;
@@ -369,7 +372,7 @@
             this.picRefresh.IconColor = System.Drawing.Color.White;
             this.picRefresh.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.picRefresh.IconSize = 50;
-            this.picRefresh.Location = new System.Drawing.Point(36, 5);
+            this.picRefresh.Location = new System.Drawing.Point(36, 15);
             this.picRefresh.Name = "picRefresh";
             this.picRefresh.Size = new System.Drawing.Size(50, 50);
             this.picRefresh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -381,9 +384,9 @@
             this.pnlSpace6.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlSpace6.Enabled = false;
             this.pnlSpace6.ForeColor = System.Drawing.Color.Black;
-            this.pnlSpace6.Location = new System.Drawing.Point(0, 415);
+            this.pnlSpace6.Location = new System.Drawing.Point(0, 475);
             this.pnlSpace6.Name = "pnlSpace6";
-            this.pnlSpace6.Size = new System.Drawing.Size(856, 5);
+            this.pnlSpace6.Size = new System.Drawing.Size(1096, 5);
             this.pnlSpace6.TabIndex = 10;
             // 
             // pnlMessage
@@ -391,9 +394,9 @@
             this.pnlMessage.BackColor = System.Drawing.Color.Black;
             this.pnlMessage.Controls.Add(this.lblMessage);
             this.pnlMessage.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlMessage.Location = new System.Drawing.Point(0, 420);
+            this.pnlMessage.Location = new System.Drawing.Point(0, 480);
             this.pnlMessage.Name = "pnlMessage";
-            this.pnlMessage.Size = new System.Drawing.Size(856, 65);
+            this.pnlMessage.Size = new System.Drawing.Size(1096, 65);
             this.pnlMessage.TabIndex = 11;
             // 
             // lblMessage
@@ -404,7 +407,7 @@
             this.lblMessage.Location = new System.Drawing.Point(0, 0);
             this.lblMessage.Name = "lblMessage";
             this.lblMessage.Padding = new System.Windows.Forms.Padding(95, 0, 0, 0);
-            this.lblMessage.Size = new System.Drawing.Size(856, 65);
+            this.lblMessage.Size = new System.Drawing.Size(1096, 65);
             this.lblMessage.TabIndex = 0;
             this.lblMessage.Text = "Refreshing the library will update the list again.";
             this.lblMessage.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -414,7 +417,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(856, 508);
+            this.ClientSize = new System.Drawing.Size(1096, 648);
             this.Controls.Add(this.pnlMessage);
             this.Controls.Add(this.pnlSpace6);
             this.Controls.Add(this.pnlRefreshLib);
