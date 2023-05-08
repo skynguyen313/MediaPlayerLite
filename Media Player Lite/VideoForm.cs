@@ -16,6 +16,7 @@ namespace Media_Player_Lite
 {
     public partial class VideoForm : Form
     {
+        #region Field
         public event EventHandler<MyVideoEventArgs> oneVideo;
         private readonly string fullFilePath = DirectoryPath.GetFullPath(@"DataMPLite\dataVideo.dat");
         private int idVideo = 0;
@@ -23,6 +24,7 @@ namespace Media_Player_Lite
         private List<Video> listVideo;
         private List<ControlItemVideo> listControl;
         private bool sortSelect_AZ;
+        #endregion
         public VideoForm()
         {
             InitializeComponent();    
@@ -113,6 +115,7 @@ namespace Media_Player_Lite
             ctIM.SendMessage = SendDataVideoEvent;
             return ctIM;
         }
+        #region Method
         private void SendDataVideoEvent(ControlItemVideo controlItemVideo)
         {
             ActiveControlVideo(controlItemVideo);
@@ -126,7 +129,9 @@ namespace Media_Player_Lite
             control.ExchangePicVideo(true);
             currentControlVideo= control;
         }
+        #endregion
 
+        #region Event
         private void btnAddFolderVideo_Click(object sender, EventArgs e)
         {
             FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
@@ -140,7 +145,6 @@ namespace Media_Player_Lite
                 LoadListControlVideo(listControl);
             }
         }
-
         private void btnSortAZ_Click(object sender, EventArgs e)
         {
             var result=from video in listVideo 
@@ -165,5 +169,6 @@ namespace Media_Player_Lite
             pnlSign1.BackColor = Color.Black;
             sortSelect_AZ=false;
         }
+        #endregion
     }
 }

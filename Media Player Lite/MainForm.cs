@@ -399,6 +399,10 @@ namespace Media_Player_Lite
             //
             btnNextWard.Enabled = true;
             btnBackWard.Enabled = true;
+
+            //
+            btnRandom.Visible = true;
+            btnRepeat.Visible = true;
         }
         private void LoadPlayingVideo(object sender, MyVideoEventArgs e)
         {
@@ -415,6 +419,8 @@ namespace Media_Player_Lite
             //
             picArtPlayer.Visible = false;
             pnlInfomation.Visible = false;
+            btnRandom.Visible=false;
+            btnRepeat.Visible = false;
             //
             btnNextWard.Enabled = false;
             btnBackWard.Enabled = false;
